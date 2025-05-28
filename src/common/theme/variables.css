@@ -16,6 +16,7 @@
   --font-size-xl: 2rem; /* = 32px */
 
   --font-weight-regular: 400;
+  --button-font-weight: 500;
   --font-weight-bold: 700;
 
   --line-height-base: 1.6;
@@ -28,8 +29,7 @@
   --space-5: 3rem; /* 48px */
 
   /* 버튼 */
-  --button-height: 3rem; /* 48px */
+  --button-line-height: 3.125rem; /* 50px */
   --button-font-size: var(--font-size-sm);
   --button-padding: 0 var(--space-2);
-  --button-radius: 0.25rem; /* 4px */
 }
