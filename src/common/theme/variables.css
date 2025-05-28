@@ -33,3 +33,8 @@
   --button-font-size: var(--font-size-sm);
   --button-padding: 0 var(--space-2);
 }
+
+html,
+body {
+  user-select: none;
+}
