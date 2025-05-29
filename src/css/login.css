@@ -1,0 +1,131 @@
+:root {
+  --modal-bg: #fdfbf7;
+  --text-color: #333;
+  --input-border: #ddd;
+  --main-font: 'Noto Sans KR', sans-serif;
+  --form-width: 620px;
+  --btn-height: 48px;
+}
+
+body {
+  font-family: var(--main-font);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  display: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.modal-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--form-width);
+  max-width: 100%;
+  height: 100%;
+  background: var(--modal-bg);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+  padding: 3rem 2rem;
+  box-sizing: border-box;
+}
+
+#toggle-login:checked + .modal {
+  display: block;
+}
+#toggle-login:checked + .modal .modal-panel {
+  transform: translateX(0);
+}
+
+.login-btn-icon {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #000;
+  cursor: pointer;
+}
+
+.modal-panel h1 {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.login-desc {
+  font-size: 14px;
+  color: var(--text-color);
+  text-align: center;
+  white-space: nowrap;
+  margin-bottom: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+input {
+  padding: 0.75rem 1rem;
+  font-size: 16px;
+  border: 1px solid var(--input-border);
+  background: #fff;
+}
+
+form a {
+  font-size: 14px;
+  color: #121212d9;
+  text-align: left;
+  margin-top: 0.25rem;
+}
+
+.login-btn {
+  margin-top: 1rem;
+  height: var(--btn-height);
+  background: #555;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.signup-btn {
+  height: var(--btn-height);
+  border: 1px solid #333;
+  background: #fff;
+  font-size: 16px;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.sns-login {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.sns-btn svg {
+  width: 55px;
+  height: 55px;
+}
