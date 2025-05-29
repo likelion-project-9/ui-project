@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>맵슬라이드</title>
+  <link rel="stylesheet" href="/src/css/bluebottle-min.css" />
+</head>
+
+<body>
+  <!-- 카페 지도 슬라이드 시작 -->
+  <div class="bottom-wrapper">
+  <div class="map-wrapper">
+    <input type="radio" name="slide" id="map-slide01" checked>
+    <input type="radio" name="slide" id="map-slide02">
+   
+    <div class="map-container">
+    
+      <ul class="map-slide-list">
+        <!-- 슬라이드 영역 -->
+        <li class="map-slide-item-01">
+          <div class="map-slide-text">
+          <p aria-label="hidden" class="map-slide-title">블루보틀 부산 기장 카페</p>
+          </div>
+        </li>
+        <li class="map-slide-item-02">
+          <div class="map-slide-text">
+          <p aria-label="hidden">블루 보틀 수원 타임빌라스 팝업</p>
+          </div>
+        </li>
+        <!-- 좌,우 슬라이드 버튼 -->
+        <div class="controls">
+          <!-- slide1 -->
+           <label for="map-slide01" class="btn-R-slide-arrow">
+            <svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
+            </svg>
+           </label>
+          <!-- slide2 -->
+          <label for="map-slide02" class="btn-L-slide-arrow">
+            <svg transform="rotate(180)" width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
+            </svg>
+          </label>
+
+        </div>
+          
+      </ul>
+    </div>
+    <!-- 슬라이드 페이지 버튼 -->
+    <div class="map-page-btn">
+          <label for="map-slide01" class="page-btn">01</label>
+          <label for="map-slide02" class="page-btn">02</label>
+    </div>
+  
+  
+  </div>
+  </div>
+</body>
