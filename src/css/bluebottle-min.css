@@ -1,0 +1,278 @@
+@import url('../common/theme/button.css');
+@import url('../common/theme/variables.css');
+
+/* variable.css에 추가할 커스텀 프로퍼티 선언 */
+:root {
+  /*색상 관련*/
+  --color-creamy-white: #f9f6f0;
+  --color-warm-white: #fdfbf7;
+  --color-dark-gray: #545454;
+  --color-charcoal-gray: #333333;
+  --color-light-gray: #edebe9;
+  /*폰트 크기*/
+  --font-size-base-plus: 1.125rem; /* 18px */
+  --font-size-m: 1.25rem; /* = 20px */
+}
+
+/* 이하 브루잉도구 중단점 불문 공통스타일 */
+.brewing-tool {
+  gap: var(--space-3);
+  background-image: url('../assets/min/M5_MO.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 20px;
+  height: 656px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: center;
+}
+
+.brewing-tool h2 {
+  color: var(--color-white);
+  font-size: var(--font-size-lg);
+  text-align: center;
+  width: 501.52px;
+  font-weight: normal;
+}
+
+.promo-content {
+  width: 501.52px;
+  color: var(--color-white);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  line-height: 1.9;
+}
+
+.btn-outline.details-btn-promo {
+  border: none;
+  margin-right: auto;
+  margin-left: 0;
+  width: 501.52px;
+}
+
+.brewing-tool .promo-content .details-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--color-white);
+  background-color: var(--color-warm-white);
+}
+
+/* 베스트셀러 섹션 시작 */
+/* 이하 제품 카드 중단점 불문 공통스타일 */
+
+.section-wrapper {
+  background-color: var(--color-warm-white);
+  width: 100%;
+  margin: auto;
+  padding-top: 80px;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  box-sizing: border-box;
+}
+
+.best-sellers-list {
+  width: 100%;
+  margin: 0 auto;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  margin-top: 30px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.section-title {
+  font-size: var(--font-size-lg);
+  color: var(--color-charcoal-gray);
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+
+.component-product-card {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 48px 0;
+  width: 100%;
+}
+
+.product-card-content {
+  background-color: var(--color-creamy-white);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  height: 561.19px;
+  cursor: pointer;
+}
+
+.product-content-wrapper {
+  box-sizing: border-box;
+  position: relative;
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-top: 36px 0 36px 0;
+}
+
+.product-category {
+  font-size: var(--font-size-xs);
+  background-color: var(--color-light-gray);
+  color: var(--color-dark-Gray);
+  height: 16px;
+  margin-top: 12.12%;
+  margin-bottom: 9.35%;
+}
+
+.product-name {
+  font-size: var(--font-size-m);
+  color: var(--color-dark-gray);
+  margin-bottom: 140%;
+  flex-grow: 1;
+  font-weight: normal;
+}
+
+.product-img-wrapper {
+  position: absolute;
+  left: 0;
+  top: 30.27%;
+  margin-bottom: 32px;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.product-description {
+  font-size: var(--font-size-base);
+  color: var(--color-dark-gray);
+  position: absolute;
+  text-align: center;
+  top: 84%;
+}
+
+.btn.details-btn-product {
+  font-size: var(--font-size-xs);
+  color: var(--color-dark-gray);
+  background-color: var(--color-white);
+  display: block;
+  width: 100%;
+  height: 48.8px;
+  margin-top: auto;
+  text-decoration: none;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 12.5px 0;
+  line-height: 25px;
+}
+
+.btn-outline {
+  display: block;
+  width: 294px;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+/* 이하 미디어 쿼리 부문 */
+
+@media (min-width: 768px) {
+  /* 이하 768px이상 페이지 새로운 브루잉 도구 */
+  .brewing-tool {
+    background-image: url('../assets/min/M5_PC.webp');
+    width: 100%;
+    padding-left: 110px;
+  }
+
+  .brewing-tool h2 {
+    text-align: left;
+    width: 501.52px;
+  }
+
+  .promo-content {
+    max-width: 639.84px;
+    font-size: var(--font-size-sm);
+    text-align: left;
+  }
+
+  .btn-outline.details-btn-promo {
+    margin-right: auto;
+    margin-left: 0;
+    width: 294px;
+  }
+
+  /* 이하 768px이상 페이지 베스트셀러 카드 컴포넌트 스타일링 */
+  .section-wrapper {
+    padding-top: 80px;
+  }
+
+  .best-sellers-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .section-title {
+    font-size: var(--font-size-xl);
+    text-align: left;
+  }
+
+  .product-card-content {
+    min-height: 589.625px;
+  }
+
+  .btn-outline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 이하 768px이상 페이지 이미지 마우스오버 기능 */
+
+  .product-img-wrapper .product-img,
+  .product-img-wrapper .product-hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.4s ease-in-out;
+  }
+
+  .product-img-wrapper .product-hover-img {
+    opacity: 0;
+  }
+
+  .product-img-wrapper:hover .product-hover-img {
+    opacity: 1;
+  }
+  .product-img-wrapper:hover .product-img {
+    opacity: 0;
+  }
+
+  /* 이하 768px이상 페이지 자세히보기 버튼 마우스오버 기능 */
+
+  .btn.details-btn-product {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .component-product-card:hover .btn.details-btn-product,
+  .component-product-card:focus-within .btn.details-btn-product {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .btn.details-btn-product:hover,
+  .btn.details-btn-product:focus {
+    background-color: var(--color-black);
+    color: var(--color-white);
+  }
+
+  .btn-outline:hover {
+    border: 1px solid var(--color-dark-gray);
+    color: var(--color-dark-gray);
+  }
+}
