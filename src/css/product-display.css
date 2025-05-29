@@ -47,11 +47,11 @@
     }
   }
 }
-.product-list-container {
+.product-list-wrapper {
   position: relative;
 }
 
-.product-display {
+.product-container {
   background-color: var(--color-beige);
   position: relative;
   overflow: hidden;
@@ -60,7 +60,7 @@
   scrollbar-width: none;
 }
 
-.product-list {
+.list-product {
   display: grid;
   grid-auto-columns: calc((100% / 3) + var(--space-5));
   grid-auto-flow: column;
@@ -76,7 +76,7 @@
 }
 
 @media (max-width: 768px) {
-  .product-list {
+  .list-product {
     grid-auto-columns: calc(50% + var(--space-1));
     padding-inline: var(--space-2);
   }
