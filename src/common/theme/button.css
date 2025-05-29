@@ -53,3 +53,19 @@
   display: block;
   opacity: 1;
 }
+
+/* 이하 제품 컴포넌트 */
+/* <li class="component-product-card">
+            <div class="product-card-content">
+              <div class="product-content-wrapper">
+                <p class="product-category">제품 범주</p>
+                <h3 class="product-name">제품명</h3>
+                <div class="product-img-wrapper">
+                  <img class="product-img" src="../assets/" />
+                  <img class="product-hover-img" src="../assets/" />
+                </div>
+                <p class="product-description">제품 소개</p>
+              </div>
+              <a href="#" class="btn details-btn-product">자세히 보기</a>
+            </div>
+          </li> */
