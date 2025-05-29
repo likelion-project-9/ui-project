@@ -43,3 +43,8 @@
 body {
   font-family: 'Noto Sans KR', sans-serif;
 }
+
+html,
+body {
+  user-select: none;
+}
