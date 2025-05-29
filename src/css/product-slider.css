@@ -21,7 +21,7 @@
 }
 
 /* 기본 라디오 버튼 가리기 */
-input {
+input[type='radio'] {
   display: none;
 }
 
