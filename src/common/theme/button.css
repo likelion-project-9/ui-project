@@ -23,3 +23,33 @@
   text-align: center;
   cursor: pointer;
 }
+
+/* 슬라이드 화살표 버튼 */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--color-white);
+  border: none;
+  align-content: center;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  padding: 0 var(--space-1) 0.3rem;
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.nav-arrow.left {
+  left: 0;
+}
+
+.nav-arrow.right {
+  right: 0;
+}
+
+/* 호버 시 화살표 보이게 */
+.product-list-container:hover .nav-arrow {
+  display: block;
+  opacity: 1;
+}
