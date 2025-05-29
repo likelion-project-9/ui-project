@@ -1,4 +1,5 @@
-/* import 해주세요! */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
 :root {
   /* 색상 */
   --color-blue: #00aeef; /* 블루보틀 블루 */
@@ -6,12 +7,13 @@
   --color-gray: #cccccc;
   --color-black: #000000;
   --color-white: #ffffff;
+  --color-beige: #fdfbf7;
 
   /* 타이포그래피 */
   --font-family-base: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-size-base: 1rem; /* = 16px */
-  --font-size-sm: 0.875rem; /* = 14px */
   --font-size-xs: 0.75rem; /* = 12px */
+  --font-size-sm: 0.875rem; /* = 14px */
   --font-size-lg: 1.5rem; /* = 24px */
   --font-size-xl: 2rem; /* = 32px */
 
@@ -32,4 +34,11 @@
   --button-line-height: 3.125rem; /* 50px */
   --button-font-size: var(--font-size-sm);
   --button-padding: 0 var(--space-2);
+
+  /* 모바일 중단점 */
+  --break-point: 768px;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
 }
