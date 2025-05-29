@@ -1,0 +1,88 @@
+/* 무료배송 안내 */
+.free-shipping-msg {
+  color: #333;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 350;
+  line-height: 22.8px;
+  letter-spacing: 0.6px;
+  text-align: center;
+  padding: 8px 0;
+}
+
+/* 헤더 전체 */
+header {
+  background: #fdfbf7;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1920px;
+  height: 80px;
+  padding: 0 60px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* 햄버거 버튼 (모바일용) */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* 내비게이션 메뉴 */
+.main-nav {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.main-nav a,
+.main-nav button {
+  all: unset;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  letter-spacing: 0.28px;
+}
+
+/* 로고 중앙 정렬 */
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 유틸리티 메뉴 */
+.utility-menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.utility-menu a,
+.utility-menu button {
+  all: unset;
+  cursor: pointer;
+}
+
+/* 반응형 처리 */
+@media (max-width: 1024px) {
+  .main-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .header-inner {
+    justify-content: space-between;
+  }
+}
