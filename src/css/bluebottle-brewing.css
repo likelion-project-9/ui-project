@@ -17,7 +17,7 @@
 /* 이하 브루잉도구 중단점 불문 공통스타일 */
 .brewing-tool {
   gap: var(--space-3);
-  background-image: url('../assets/min/M5_MO.webp');
+  background-image: url('../assets/brewing/M5_MO.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -184,7 +184,7 @@
 @media (min-width: 768px) {
   /* 이하 768px이상 페이지 새로운 브루잉 도구 */
   .brewing-tool {
-    background-image: url('../assets/min/M5_PC.webp');
+    background-image: url('../assets/brewing/M5_PC.webp');
     width: 100%;
     padding-left: 110px;
   }
