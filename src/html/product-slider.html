@@ -9,28 +9,28 @@
   </head>
   <body>
     <h1 class="sr-only">메인 광고 슬라이드</h1>
-    <div class="slide-container">
-      <input type="radio" name="slider" id="slide1" checked />
-      <input type="radio" name="slider" id="slide2" />
-      <input type="radio" name="slider" id="slide3" />
+    <div class="main-slide-wrapper">
+      <input type="radio" name="main-slider" id="main-slide1" checked />
+      <input type="radio" name="main-slider" id="main-slide2" />
+      <input type="radio" name="main-slider" id="main-slide3" />
 
-      <div class="slides-wrapper">
-        <ul class="slides">
-          <li class="slide s1">
+      <div class="main-slides-container">
+        <ul class="list-slides">
+          <li class="item-slide s1">
             <div class="banner-txt">
               <div class="slide-title">여름을 위한 아이템</div>
               <p class="slide-subtitle">신제품 클리어 콜드 텀블러 20oz 를 만나보세요</p>
               <a href="/" class="btn">자세히 보기</a>
             </div>
           </li>
-          <li class="slide s2">
+          <li class="item-slide s2">
             <div class="banner-txt">
               <div class="slide-title">새로운 시즌 아이템</div>
               <p class="slide-subtitle">선물하기 좋은 블루보틀 베스트셀러</p>
               <a href="/" class="btn">자세히 보기</a>
             </div>
           </li>
-          <li class="slide s3">
+          <li class="item-slide s3">
             <div class="banner-txt">
               <div class="slide-title">선물 제안</div>
               <p class="slide-subtitle">소중한 분을 위한 블로보틀 선물세트</p>
@@ -43,34 +43,34 @@
       <!-- 호버시 화살표 -->
       <div class="controls">
         <!-- slide1 -->
-        <label for="slide3" class="p1">
+        <label for="main-slide3" class="p1">
           <svg transform="rotate(180)" width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
           </svg>
         </label>
-        <label for="slide2" class="n1">
+        <label for="main-slide2" class="n1">
           <svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
           </svg>
         </label>
         <!-- slide2 -->
-        <label for="slide1" class="p2">
+        <label for="main-slide1" class="p2">
           <svg transform="rotate(180)" width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
           </svg>
         </label>
-        <label for="slide3" class="n2">
+        <label for="main-slide3" class="n2">
           <svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
           </svg>
         </label>
         <!-- slide3 -->
-        <label for="slide2" class="p3">
+        <label for="main-slide2" class="p3">
           <svg transform="rotate(180)" width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
           </svg>
         </label>
-        <label for="slide1" class="n3">
+        <label for="main-slide1" class="n3">
           <svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
           </svg>
@@ -78,14 +78,11 @@
       </div>
 
       <!-- 슬라이드 페이지 버튼 -->
-      <div class="page-btn-wrapper">
-        <label for="slide1" class="page-btn">01</label>
-        <label for="slide2" class="page-btn">02</label>
-        <label for="slide3" class="page-btn">03</label>
+      <div class="slide-page-btn-wrapper">
+        <label for="main-slide1" class="page-btn">01</label>
+        <label for="main-slide2" class="page-btn">02</label>
+        <label for="main-slide3" class="page-btn">03</label>
       </div>
     </div>
-    <br />
-    <br />
-    <br />
   </body>
 </html>
