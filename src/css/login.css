@@ -4,7 +4,10 @@
   --input-border: #ddd;
   --main-font: 'Noto Sans KR', sans-serif;
   --form-width: 620px;
-  --btn-height: 48px;
+
+  --btn-bg: #555;
+  --btn-border: #333;
+  --gray-text: #545454;
 }
 
 body {
@@ -32,8 +35,12 @@ body {
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
   overflow-y: auto;
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
   box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #toggle-login:checked + .modal {
@@ -58,38 +65,64 @@ body {
   gap: 0.25rem;
   background: none;
   border: none;
-  font-size: 14px;
+  padding: 1px 6px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
   color: #000;
   cursor: pointer;
 }
 
+.close-btn span {
+  font-size: inherit;
+  color: inherit;
+}
+
+.close-btn svg {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+}
+
 .modal-panel h1 {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 350;
+  line-height: 1.4;
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin: 0 0 24px !important;
   color: var(--text-color);
 }
 
 .login-desc {
   font-size: 14px;
-  color: var(--text-color);
+  font-weight: 400;
+  line-height: 1.9;
+  margin-top: 12px;
+  margin-bottom: 2.5rem;
+  display: block;
   text-align: center;
-  white-space: nowrap;
-  margin-bottom: 2rem;
+  color: var(--text-color);
 }
 
 form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.75rem;
+  margin-top: 2rem;
 }
 
-input {
-  padding: 0.75rem 1rem;
-  font-size: 16px;
+input[type='email'],
+input[type='password'] {
+  width: 317.16px;
+  height: 58px;
+  padding: 26px 15px 8px 20px !important;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.9;
+  color: var(--gray-text);
   border: 1px solid var(--input-border);
   background: #fff;
+  box-sizing: border-box;
 }
 
 form a {
@@ -97,25 +130,28 @@ form a {
   color: #121212d9;
   text-align: left;
   margin-top: 0.25rem;
+  width: 317.16px;
 }
 
 .login-btn {
-  margin-top: 1rem;
-  height: var(--btn-height);
-  background: #555;
+  width: 317.16px;
+  height: 45px;
+  background: var(--btn-bg);
   color: #fff;
   border: none;
   font-size: 16px;
   cursor: pointer;
+  margin-top: 1rem;
 }
 
 .signup-btn {
-  height: var(--btn-height);
-  border: 1px solid #333;
+  width: 317.16px;
+  height: 48px;
+  border: 1px solid var(--btn-border);
   background: #fff;
   font-size: 16px;
-  margin-top: 0.5rem;
   cursor: pointer;
+  margin-top: 0.5rem;
 }
 
 .sns-login {
@@ -128,4 +164,9 @@ form a {
 .sns-btn svg {
   width: 55px;
   height: 55px;
+}
+
+body:has(#toggle-login:checked) {
+  overflow: hidden;
+  touch-action: none;
 }
