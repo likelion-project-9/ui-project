@@ -1,0 +1,24 @@
+@import url(../../common/theme/variables.css);
+
+body {
+  background-color: var(--color-warm-white);
+}
+
+.btn,
+.btn-outline {
+  display: inline-block;
+  background-color: var(--color-white);
+  line-height: var(--button-line-height);
+  color: var(--color-black);
+  font-weight: var(--button-font-weight);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+
+  width: 18.75rem;
+  height: 3.125rem;
+}
+
+.btn-outline {
+  border: 1px solid var(--color-black);
+}
