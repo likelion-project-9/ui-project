@@ -1,16 +1,11 @@
-@import url(../common/modern-reset.css);
-@import url(../common/theme/variables.css);
-@import url(../common/theme/button.css);
-
-.sr-only {
-  position: absolute;
-  visibility: hidden;
-}
+@import url(../../common/theme/variables.css);
+@import url(../../common/theme/button.css);
 
 .product-card {
   position: relative;
   display: flex;
   flex-flow: column wrap;
+  background-color: var(--color-beige);
 
   .full-link {
     position: absolute;
