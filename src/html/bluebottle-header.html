@@ -24,12 +24,43 @@
         </button>
         <nav aria-label="주요 메뉴">
           <ul class="main-nav">
-            <li>
+            <li class="has-submenu">
               <button type="button">쇼핑</button>
-              <ul id="shop-submenu" class="submenu" hidden>
-                <li><a href="#">커피</a></li>
-                <li><a href="#">컵과 텀블러</a></li>
-                <li><a href="#">브루잉 도구</a></li>
+              <ul class="submenu">
+                <!-- 커피 -->
+                <li class="has-submenu2">
+                  <a href="#">커피</a>
+                  <ul class="submenu2">
+                    <li><a href="#">모든 커피</a></li>
+                    <li><a href="#">블렌드</a></li>
+                    <li><a href="#">싱글 오리진</a></li>
+                    <li><a href="#">인스턴트</a></li>
+                    <li><a href="#">콜드브루</a></li>
+                    <li><a href="#">휴먼 메이드</a></li>
+                    <li><a href="#">세트</a></li>
+                  </ul>
+                </li>
+                <!-- 컵과 텀블러 -->
+                <li class="has-submenu2">
+                  <a href="#">컵과 텀블러</a>
+                  <ul class="submenu2">
+                    <li><a href="#">모든 컵과 텀블러</a></li>
+                    <li><a href="#">텀블러</a></li>
+                    <li><a href="#">컵과 머그</a></li>
+                    <li><a href="#">유리잔</a></li>
+                  </ul>
+                </li>
+                <!-- 브루잉 도구 -->
+                <li class="has-submenu2">
+                  <a href="#">브루잉 도구</a>
+                  <ul class="submenu2">
+                    <li><a href="#">모든 브루잉 도구</a></li>
+                    <li><a href="#">액세서리</a></li>
+                    <li><a href="#">필터</a></li>
+                    <li><a href="#">그라인더</a></li>
+                  </ul>
+                </li>
+                <!-- 라이프 스타일 (서브 없음) -->
                 <li><a href="#">라이프 스타일</a></li>
               </ul>
             </li>
@@ -39,6 +70,7 @@
             <li><a href="#">블로그</a></li>
           </ul>
         </nav>
+
         <!-- 로고 -->
         <h1 class="logo">
           <a href="/" aria-label="블루보틀 메인페이지 이동">
@@ -118,7 +150,6 @@
           <button type="submit" class="login-btn">로그인</button>
           <button type="button" class="signup-btn">회원 가입</button>
         </form>
-
         <div class="sns-login">
           <!-- 네이버 로그인 -->
           <a href="https://nid.naver.com/oauth2.0/authorize?client_id=BES9ido8V2708LenebaF&redirect_uri=https%3A%2F%2Fl9j9pa1owh.execute-api.ap-northeast-2.amazonaws.com%2Fproduction%2Fnaver%2Fcallback&response_type=code&state=uuid%253D08ce874a-bbea-4df1-a4b5-80aa302eb76c%2526login_return_to%253D%25252F%2526register_return_to%253D%25252F%2526provider%253Dnaver" class="sns-btn naver" aria-label="네이버 로그인">
@@ -278,5 +309,30 @@
         </div>
       </div>
     </footer>
+    <!-- body의 마지막에 삽입 -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const shoppingBtn = document.querySelector('.has-submenu > button');
+        const submenu = document.querySelector('.has-submenu > .submenu');
+        const firstLevelItems = document.querySelectorAll('.submenu .has-submenu2');
+
+        shoppingBtn.addEventListener('click', () => {
+          submenu.classList.toggle('open');
+
+          // 2차 메뉴들 모두 닫기
+          if (!submenu.classList.contains('open')) {
+            firstLevelItems.forEach((item) => item.classList.remove('active'));
+          }
+        });
+
+        firstLevelItems.forEach((item) => {
+          item.addEventListener('click', (e) => {
+            e.preventDefault();
+            firstLevelItems.forEach((el) => el.classList.remove('active'));
+            item.classList.add('active');
+          });
+        });
+      });
+    </script>
   </body>
 </html>
