@@ -1,4 +1,3 @@
-@import url(../common/modern-reset.css);
 @import url(../common/theme/variables.css);
 @import url(../common/theme/button.css);
 
@@ -22,19 +21,19 @@
 }
 
 /* 기본 라디오 버튼 가리기 */
-input {
+input[type='radio'] {
   display: none;
 }
 
-/* 슬라이드 전체 컨테이너 */
-.slide-container {
+/* 슬라이드 전체 wrapper */
+.main-slide-wrapper {
   position: relative;
   width: 100%;
   height: 90vh;
   overflow: hidden;
 
-  /* 슬라이드를 감싸는 wrapper */
-  .slides-wrapper {
+  /* 슬라이드를 감싸는 container */
+  .main-slides-container {
     max-width: 100%;
     height: 100%;
     margin: 0 auto;
@@ -70,12 +69,12 @@ input {
 }
 
 /* 슬라이드 그룹 */
-.slides {
+.list-slides {
   display: flex;
   height: 100%;
 
   /* 각각의 슬라이드 */
-  .slide {
+  .item-slide {
     display: flex;
     height: 100%;
     flex: 0 0 100%;
@@ -119,18 +118,18 @@ input {
 }
 
 /* 슬라이드 이동 */
-#slide1:checked ~ .slides-wrapper .slides .s1 {
+#main-slide1:checked ~ .main-slides-container .list-slides .s1 {
   transform: translateX(0); /* 1번 슬라이드 */
 }
-#slide2:checked ~ .slides-wrapper .slides {
+#main-slide2:checked ~ .main-slides-container .list-slides {
   transform: translateX(-100%); /* 2번 슬라이드 */
 }
-#slide3:checked ~ .slides-wrapper .slides {
+#main-slide3:checked ~ .main-slides-container .list-slides {
   transform: translateX(-200%); /* 3번 슬라이드 */
 }
 
 /* 슬라이드 페이지 숫자 버튼 */
-.page-btn-wrapper {
+.slide-page-btn-wrapper {
   display: flex;
   position: absolute;
   bottom: var(--space-3);
@@ -177,19 +176,19 @@ input {
 
 /* 화살표 조합 */
 /* slide1  */
-#slide1:checked ~ .controls .p1,
-#slide1:checked ~ .controls .n1 {
+#main-slide1:checked ~ .controls .p1,
+#main-slide1:checked ~ .controls .n1 {
   display: inline-flex;
 }
 
 /* slide2 */
-#slide2:checked ~ .controls .p2,
-#slide2:checked ~ .controls .n2 {
+#main-slide2:checked ~ .controls .p2,
+#main-slide2:checked ~ .controls .n2 {
   display: inline-flex;
 }
 
 /* slide3 */
-#slide3:checked ~ .controls .p3,
-#slide3:checked ~ .controls .n3 {
+#main-slide3:checked ~ .controls .p3,
+#main-slide3:checked ~ .controls .n3 {
   display: inline-flex;
 }

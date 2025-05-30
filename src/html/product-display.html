@@ -4,15 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
-    <link rel="stylesheet" href="../common/theme/variables.css" />
     <link rel="stylesheet" href="../common/modern-reset.css" />
     <link rel="stylesheet" href="../css/product-display.css" />
   </head>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const display = document.querySelector('.product-display');
-      const list = document.querySelector('.product-list');
+      const display = document.querySelector('.product-container');
+      const list = document.querySelector('.list-product');
       const leftBtn = document.querySelector('.nav-arrow.left');
       const rightBtn = document.querySelector('.nav-arrow.right');
 
@@ -36,22 +35,10 @@
 
   <body>
     <h1 class="sr-only">제품광고디스플레이</h1>
-    <!-- 제품 카드-->
-    <!-- <div class="product-card">
-      <figure>
-        <img class="" src="../assets/product-display/prdt-01.webp" alt="product-name" />
-        <figcaption class="describe">
-          <div>name</div>
-          <p>describe</p>
-        </figcaption>
-        <a href="/" class="full-link" aria-label="상세페이지로 이동" title="상세페이지 이동"></a>
-      </figure>
-    </div> -->
-
     <br />
 
     <!-- 제품 row 리스트 그리드 -->
-    <div class="product-list-container">
+    <div class="product-list-wrapper">
       <button class="nav-arrow left" aria-label="이전">
         <svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path transform="rotate(180 18 4.5)" d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
@@ -63,9 +50,9 @@
         </svg>
       </button>
 
-      <section class="product-display">
+      <section class="product-container">
         <h2 class="sr-only">주력 상품</h2>
-        <ul class="product-list">
+        <ul class="list-product">
           <li>
             <div class="product-card">
               <figure>

@@ -136,12 +136,15 @@
   align-items: center;
   padding-top: 24px;
   border-top: 1px solid #fff;
+  flex-wrap: wrap;
 }
 
 .footer-bottom ul {
   display: flex;
   gap: 32px;
   padding: 0;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .footer-bottom ul li {
@@ -158,9 +161,8 @@
   line-height: 15.6px;
   letter-spacing: 1.2px;
   color: #fff;
-  text-align: right;
+  white-space: nowrap;
 }
-
 .footer a,
 .footer a:visited {
   color: #fff;
