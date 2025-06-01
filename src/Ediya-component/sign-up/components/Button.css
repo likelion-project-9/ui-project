@@ -1,0 +1,35 @@
+body {
+  margin: 100px;
+  padding: 0;
+  background-color: #2c2c2c;
+}
+
+.btn {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.875rem;
+  border-radius: 0.5rem;
+  border: 1px solid #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.btn-primary {
+  background-color: #fefefe;
+  color: #24388d;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #f5f5f5;
+  backdrop-filter: blur(2px);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}

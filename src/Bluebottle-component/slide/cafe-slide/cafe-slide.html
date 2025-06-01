@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>슬라이드박스</title>
+    <link rel="stylesheet" href="/src/common/modern-reset.css" />
+    <link rel="stylesheet" href="./cafe-slide.css" />
+  </head>
+  <body>
+    <h1 class="sr-only">카페 소개 슬라이드</h1>
+
+    <div class="cafe-promo-section">
+      <div class="cafe-slide-wrapper">
+        <input type="radio" name="cafe-slider" id="cafe-slide1" checked />
+        <input type="radio" name="cafe-slider" id="cafe-slide2" />
+
+        <div class="cafe-slide-container">
+          <ul class="cafe-slide-list">
+            <li class="item-slide s1"></li>
+            <li class="item-slide s2"></li>
+          </ul>
+        </div>
+
+        <div class="controls">
+          <!-- slide2 -->
+          <label for="cafe-slide1" class="prev">
+            <svg transform="rotate(180)" width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
+            </svg>
+          </label>
+          <!-- slide1 -->
+          <label for="cafe-slide2" class="next">
+            <svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
+            </svg>
+          </label>
+        </div>
+      </div>
+      <!-- 슬라이드 페이지 버튼 -->
+      <div class="slide-page-btn-wrapper">
+        <label for="cafe-slide1" class="page-btn">01</label>
+        <label for="cafe-slide2" class="page-btn">02</label>
+      </div>
+
+      <div class="find-cafe-wrapper">
+        <p class="describe">가까운 블루보틀 카페를 확인해보세요</p>
+        <a href="#" class="btn-outline">카페 찾기</a>
+      </div>
+    </div>
+  </body>
+</html>

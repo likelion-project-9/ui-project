@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./VideoBackground.css" />
+  </head>
+  <body>
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="../../../assets/ediya-coffee-video/coffee.mp4" type="video/mp4" />
+    </video>
+    <button class="video-toggle-btn" aria-label="비디오 재생/일시정지">▶</button>
+
+    <script>
+      const video = document.querySelector('.bg-video');
+      const toggleBtn = document.querySelector('.video-toggle-btn');
+
+      toggleBtn.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+          toggleBtn.textContent = '⏸'; // 일시정지 아이콘
+        } else {
+          video.pause();
+          toggleBtn.textContent = '▶'; // 재생 아이콘
+        }
+      });
+    </script>
+  </body>
+</html>

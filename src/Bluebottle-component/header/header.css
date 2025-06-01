@@ -1,0 +1,156 @@
+:root {
+  --text-color: #333;
+  --font-family-main: 'Noto Sans KR', sans-serif;
+  --bg-light: #fdfbf7;
+  --font-size-sm: 12px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --line-height-sm: 22.8px;
+  --letter-spacing-sm: 0.6px;
+  --header-height: 80px;
+  --submenu-width: 640px;
+  --submenu2-left: 220px;
+  --submenu-padding: 60px;
+  --submenu2-padding-left: 40px;
+  --submenu-border: 1px solid #eee;
+}
+
+/* 무료배송 안내 */
+.free-shipping-msg {
+  color: var(--text-color);
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-sm);
+  font-weight: 350;
+  line-height: var(--line-height-sm);
+  letter-spacing: var(--letter-spacing-sm);
+  text-align: center;
+  padding: 8px 0;
+}
+
+/* 헤더 전체 */
+header {
+  background: var(--bg-light);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1920px;
+  height: var(--header-height);
+  padding: 0 60px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* 햄버거 버튼 (모바일용) */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* 내비게이션 메뉴 */
+.main-nav {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.main-nav a,
+.main-nav button {
+  all: unset;
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  color: var(--text-color);
+  cursor: pointer;
+  letter-spacing: 0.28px;
+}
+
+/* 로고 중앙 정렬 */
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 유틸리티 메뉴 */
+.utility-menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.utility-menu a,
+.utility-menu button {
+  all: unset;
+  cursor: pointer;
+}
+
+/* 반응형 처리 */
+@media (max-width: 1024px) {
+  .main-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .header-inner {
+    justify-content: space-between;
+  }
+}
+
+/* 1차 서브메뉴 */
+.submenu {
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  width: var(--submenu-width);
+  height: calc(100vh - var(--header-height));
+  background-color: var(--bg-light);
+  padding: var(--submenu-padding);
+  box-sizing: border-box;
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: auto;
+  z-index: 500;
+}
+
+.submenu.open {
+  display: flex;
+}
+
+.submenu > li {
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  line-height: 2;
+  cursor: pointer;
+  position: relative;
+}
+
+.has-submenu2 > a:hover {
+  text-decoration: underline;
+}
+
+/* 2차 서브메뉴 */
+.submenu2 {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: var(--submenu2-left);
+  background: var(--bg-light);
+  padding-left: var(--submenu2-padding-left);
+  white-space: nowrap;
+  border-left: var(--submenu-border);
+  line-height: 2;
+  z-index: 600;
+}
+
+.has-submenu2.active > .submenu2 {
+  display: block;
+}

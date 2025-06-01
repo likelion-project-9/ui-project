@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./InputField.css" />
+  </head>
+  <body>
+    <label class="form-group">
+      <span class="form-label">이메일</span>
+      <input type="email" class="form-input" placeholder="이메일 입력" required />
+    </label>
+
+    <label class="form-group password-group">
+      <span class="form-label">패스워드</span>
+      <input type="password" class="form-input password" placeholder="비밀번호 입력" required />
+      <button type="button" class="toggle-password" aria-label="비밀번호 보기">
+        <!-- 보기 아이콘 -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <g clip-path="url(#clip0_3508_3377)">
+            <path
+              d="M7.99996 3C4.66663 3 1.81996 5.07333 0.666626 8C1.81996 10.9267 4.66663 13 7.99996 13C11.3333 13 14.18 10.9267 15.3333 8C14.18 5.07333 11.3333 3 7.99996 3ZM7.99996 11.3333C6.15996 11.3333 4.66663 9.84 4.66663 8C4.66663 6.16 6.15996 4.66667 7.99996 4.66667C9.83996 4.66667 11.3333 6.16 11.3333 8C11.3333 9.84 9.83996 11.3333 7.99996 11.3333ZM7.99996 6C6.89329 6 5.99996 6.89333 5.99996 8C5.99996 9.10667 6.89329 10 7.99996 10C9.10663 10 9.99996 9.10667 9.99996 8C9.99996 6.89333 9.10663 6 7.99996 6Z"
+              fill="#FEFEFE"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_3508_3377">
+              <rect width="16" height="16" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+    </label>
+
+    <label class="form-group password-group">
+      <span class="form-label">패스워드 확인</span>
+      <input type="text" class="form-input password-confirm" placeholder="비밀번호 재입력" required />
+      <button type="button" class="toggle-password" aria-label="비밀번호 가리기">
+        <!-- 가리기 아이콘 -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <g clip-path="url(#clip0_3508_3350)">
+            <path
+              d="M7.99996 4.66667C9.83996 4.66667 11.3333 6.16 11.3333 8C11.3333 8.43 11.2466 8.84 11.0966 9.21667L13.0466 11.1667C14.0533 10.3267 14.8466 9.24 15.3366 8C14.18 5.07333 11.3366 3 7.99996 3C7.06663 3 6.17329 3.16667 5.34329 3.46667L6.78329 4.90333C7.15996 4.75667 7.56996 4.66667 7.99996 4.66667ZM1.33329 2.85L2.85329 4.37L3.15663 4.67333C2.05663 5.53333 1.18663 6.67667 0.666626 8C1.81996 10.9267 4.66663 13 7.99996 13C9.03329 13 10.02 12.8 10.9233 12.4367L11.2066 12.72L13.15 14.6667L14 13.82L2.18329 2L1.33329 2.85ZM5.01996 6.53333L6.04996 7.56333C6.01996 7.70667 5.99996 7.85 5.99996 8C5.99996 9.10333 6.89663 10 7.99996 10C8.14996 10 8.29329 9.98 8.43329 9.95L9.46329 10.98C9.01996 11.2 8.52663 11.3333 7.99996 11.3333C6.15996 11.3333 4.66663 9.84 4.66663 8C4.66663 7.47333 4.79996 6.98 5.01996 6.53333ZM7.88996 6.01L9.98996 8.11L9.99996 8C9.99996 6.89667 9.10329 6 7.99996 6L7.88996 6.01Z"
+              fill="#FEFEFE"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_3508_3350">
+              <rect width="16" height="16" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+    </label>
+  </body>
+</html>

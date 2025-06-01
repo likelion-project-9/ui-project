@@ -2,23 +2,103 @@
 <html lang="ko-KR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>UI 프로젝트 - CSS</title>
-    <link rel="icon" href="/vite.svg" />
-    <link rel="preload" as="font" href="/font/woff2/PretendardVariable.woff2" crossorigin="anonymous" /> 
-    <link rel="stylesheet" as="style" href="/font/pretendardvariable.css" />
-		<script type="module" src="/src/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe UI Project Index</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" />
   </head>
   <body>
-		<h1>Vite + CSS</h1>
-    <ul>
-      <li>컴포넌트를 분리해서 구현해주세요.</li>
-      <li>컴포넌트의 코드 리뷰를 AI를 통해 받은 후 개선해보세요.</li>
-      <li>개선점을 문서화하여 정리해 보세요</li>
-      <li>구현한 컴포넌트를 기반으로 페이지를 만들어주세요.</li>
-      <li>접근성과 성능을 신경써주세요</li>
-      <li>소통하고 화합하며 프로젝트 즐겨주세요.</li>
-      <li>결과보다 과정이 중요합니다.‼️</li>
-    </ul>
+    <div class="modal-overlay" id="modal">
+      <div class="modal-box">
+        <h2>안내</h2>
+        <p>해당 사이트는<br />비상업적 취업 포트폴리오 용도로 제작되었습니다.<br />카페 UI 컴포넌트를 모아둔 프로젝트입니다.</p>
+        <div class="btn-group">
+          <button onclick="hideModalForToday()">오늘 하루 안보기</button>
+          <button onclick="document.getElementById('modal').style.display='none'">닫기</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="member-info">
+      <div class="team-card">
+        <div class="character">
+          <img src="./src/assets/member-proflie/ahn.png" alt="팀원 얼굴" class="face" />
+        </div>
+        <h3 class="name">안동원</h3>
+        <p class="role">팀장 / 스크럼 마스터</p>
+        <p class="desc">ui 프로젝트를 통해 많이 배우고 성장하고 싶습니다</p>
+      </div>
+      <div class="team-card">
+        <div class="character">
+          <img src="./src/assets/member-proflie/woo.jpg" alt="팀원 얼굴" class="face" />
+        </div>
+        <h3 class="name">우혜리</h3>
+        <p class="role">팀원</p>
+        <p class="desc">화이팅~!</p>
+      </div>
+      <div class="team-card">
+        <div class="character">
+          <img src="./src/assets/member-proflie/lee.jpg" alt="팀원 얼굴" class="face" />
+        </div>
+        <h3 class="name">이형민</h3>
+        <p class="role">팀원</p>
+        <p class="desc">마라톤 사랑 평화</p>
+      </div>
+      <div class="team-card">
+        <div class="character">
+          <img src="./src/assets/member-proflie/hong.jpg" alt="팀원 얼굴" class="face" />
+        </div>
+        <h3 class="name">홍민영</h3>
+        <p class="role">팀원</p>
+        <p class="desc">잘 모르겠으나 일단 함</p>
+      </div>
+    </div>
+
+    <header>
+      <h1>☕ Cafe UI Project</h1>
+      <p>Blue Bottle & Ediya 감성 UI 컴포넌트 모음</p>
+    </header>
+
+    <section class="card-list">
+      <div class="card">
+        <h2 class="blue">Blue Bottle</h2>
+        <ul>
+          <li><a href="./src/html/bluebottle.html">메인페이지</a></li>
+        </ul>
+      </div>
+
+      <div class="card blue">
+        <h2>블루보틀 컴포넌트</h2>
+        <ul>
+          <li><a href="./src/Bluebottle-component/button/bluebottle-button.html">블루보틀 버튼 공통스타일</a></li>
+          <li><a href="./src/Bluebottle-component/header/header.html">헤더</a></li>
+          <li><a href="./src/Bluebottle-component/footer/footer.html">푸터</a></li>
+          <li><a href="./src/Bluebottle-component/login/">로그인</a></li>
+          <li><a href="./src/Bluebottle-component/image-text/bluebottle-min.html">이미지+텍스트 카드</a></li>
+          <li><a href="./src/Bluebottle-component/product-card/bluebottle-product-card-alone.html">제품카드</a></li>
+          <li><a href="./src/Bluebottle-component/promotion-banner/bluebottle-promotion-banner.html">광고배너</a></li>
+          <li><a href="./src/Bluebottle-component/slide(js)/">자바스크립트 제품 광고 슬라이드</a></li>
+          <li><a href="./src/Bluebottle-component/slide/product-slider.html">메인 광고 슬라이드</a></li>
+          <li><a href="./src/Bluebottle-component/slide/cafe-slide/cafe-slide.html">카페소개 슬라이드</a></li>
+          <li><a href="./src/Bluebottle-component/modal-popup/modal-popup.html">챗봇위젯</a></li>
+        </ul>
+      </div>
+
+      <div class="card navy">
+        <h2>Ediya</h2>
+        <ul>
+          <li><a href="./src/Ediya-component/sign-up/sign-up.html">이디야 회원가입 페이지</a></li>
+        </ul>
+      </div>
+
+      <div class="card navy">
+        <h2>이디야 컴포넌트</h2>
+        <ul>
+          <li><a href="./src/Ediya-component/sign-up/components/Button.html">이디야 회원가입 버튼</a></li>
+          <li><a href="./src/Ediya-component/sign-up/components/InputField.html">회원가입 인풋 필드</a></li>
+          <li><a href="./src/Ediya-component/sign-up/components/VideoBackground.html">비디오 백그라운드</a></li>
+        </ul>
+      </div>
+    </section>
   </body>
-</html> 
+</html>
