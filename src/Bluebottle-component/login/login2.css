@@ -203,10 +203,10 @@ body:has(#toggle-login:checked) {
 }
 
 /* 개발 중 항상 모달 보이게 - 병합 전 삭제 필요 */
-/* .modal {
+.modal {
   display: block !important;
 }
 
 .modal-panel {
   transform: translateX(0) !important;
-} */
+}
