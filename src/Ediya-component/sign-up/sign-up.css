@@ -125,6 +125,7 @@ video.bg-video {
 }
 
 .password-tip {
+  display: none;
   font-size: 0.75rem;
   color: #fff;
   opacity: 0.8;
@@ -142,23 +143,26 @@ video.bg-video {
   align-items: center;
   justify-content: center;
   gap: 0.25rem;
+  white-space: nowrap;
+}
+
+.btn-icon .arrow-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  color: inherit; /* currentColor과 연결됨 */
 }
 
 .btn-primary {
   background-color: #fefefe;
-  color: #24388d;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.4px;
+  color: #24388d; /* 글자 + 화살표 color */
 }
 
 .btn-secondary {
   background-color: transparent;
   color: #f5f5f5;
   backdrop-filter: blur(2px);
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.4px;
 }
 
 @media (min-width: 768px) {
@@ -171,5 +175,16 @@ video.bg-video {
   .signup-subtitle,
   .signup-description {
     font-size: 1rem;
+  }
+  .password-tip {
+    display: block;
+  }
+  .btn-primary,
+  .btn-secondary {
+    color: #d2c9b6;
+  }
+  .btn {
+    flex-wrap: nowrap; /* ✅ 한 줄로 고정 */
+    white-space: nowrap; /* ✅ 줄바꿈 절대 금지 */
   }
 }
