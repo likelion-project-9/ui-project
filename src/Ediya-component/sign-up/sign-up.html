@@ -67,13 +67,27 @@
 
           <p class="password-tip">패스워드는 숫자, 영어 포함 6자리 이상 입력해야 합니다.</p>
 
-          <button type="submit" class="btn btn-primary">가입하기</button>
-          <button type="button" class="btn btn-secondary">로그인</button>
+          <button type="submit" class="btn btn-primary">
+            <span>가입하기</span
+            ><span class="btn-icon">
+              <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M10 3.333L8.822 4.511 13.478 9.167H3.333v1.666H13.478L8.822 15.489 10 16.667 16.667 10 10 3.333Z" fill="currentColor" />
+              </svg>
+            </span>
+          </button>
+          <button type="button" class="btn btn-secondary">
+            <span>로그인</span
+            ><span class="btn-icon">
+              <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M10 3.333L8.822 4.511 13.478 9.167H3.333v1.666H13.478L8.822 15.489 10 16.667 16.667 10 10 3.333Z" fill="currentColor" />
+              </svg>
+            </span>
+          </button>
         </form>
       </section>
     </main>
 
-    <!-- <script>
+    <script>
       const video = document.querySelector('.bg-video');
       const toggleBtn = document.querySelector('.video-toggle-btn');
 
@@ -86,6 +100,34 @@
           toggleBtn.textContent = '▶'; // 재생 아이콘
         }
       });
-    </script> -->
+    </script>
+
+    <script>
+      const toggleBtns = document.querySelectorAll('.toggle-password');
+
+      toggleBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const input = btn.previousElementSibling;
+          const isHidden = input.type === 'password';
+
+          input.type = isHidden ? 'text' : 'password';
+
+          // 아이콘 변경 (SVG 교체)
+          btn.innerHTML = isHidden
+            ? `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <g clip-path="url(#clip0_eye)">
+              <path d="M8 3C4.667 3 1.82 5.073 0.667 8C1.82 10.927 4.667 13 8 13C11.333 13 14.18 10.927 15.333 8C14.18 5.073 11.333 3 8 3ZM8 11.333C6.16 11.333 4.667 9.84 4.667 8C4.667 6.16 6.16 4.667 8 4.667C9.84 4.667 11.333 6.16 11.333 8C11.333 9.84 9.84 11.333 8 11.333ZM8 6C6.893 6 6 6.893 6 8C6 9.107 6.893 10 8 10C9.107 10 10 9.107 10 8C10 6.893 9.107 6 8 6Z" fill="#FEFEFE"/>
+            </g>
+            <defs><clipPath id="clip0_eye"><rect width="16" height="16" fill="white"/></clipPath></defs>
+          </svg>`
+            : `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <g clip-path="url(#clip0_eye_off)">
+              <path d="M1.333 2.85L2.853 4.37L3.157 4.673C2.057 5.533 1.187 6.677 0.667 8C1.82 10.927 4.667 13 8 13C9.033 13 10.02 12.8 10.923 12.437L11.207 12.72L13.15 14.667L14 13.82L2.183 2L1.333 2.85ZM5.02 6.533L6.05 7.563C6.02 7.707 6 7.85 6 8C6 9.103 6.897 10 8 10C8.15 10 8.293 9.98 8.433 9.95L9.463 10.98C9.02 11.2 8.527 11.333 8 11.333C6.16 11.333 4.667 9.84 4.667 8C4.667 7.473 4.8 6.98 5.02 6.533ZM7.89 6.01L9.99 8.11L10 8C10 6.897 9.103 6 8 6L7.89 6.01ZM8 3C7.067 3 6.173 3.167 5.343 3.467L6.783 4.903C7.16 4.757 7.57 4.667 8 4.667C9.84 4.667 11.333 6.16 11.333 8C11.333 8.43 11.247 8.84 11.097 9.217L13.047 11.167C14.053 10.327 14.847 9.24 15.337 8C14.18 5.073 11.337 3 8 3Z" fill="#FEFEFE"/>
+            </g>
+            <defs><clipPath id="clip0_eye_off"><rect width="16" height="16" fill="white"/></clipPath></defs>
+          </svg>`;
+        });
+      });
+    </script>
   </body>
 </html>
