@@ -1,16 +1,29 @@
-@import url(../common/theme/variables.css);
+@import url(../../common/modern-reset.css);
+@import url(../../common/theme/variables.css);
+
+.chatbot-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  cursor: pointer;
+  z-index: 99;
+}
 
 .modal-wrapper {
   position: relative;
   background-color: var(--color-cool-gray);
 
-  display: flex;
+  display: none;
   flex-flow: column;
+
+  position: fixed;
+  bottom: 140px;
+  right: 40px;
 
   width: 450px;
   height: 650px;
 
-  border-radius: 5%;
+  border-radius: 3%;
   padding: var(--space-3);
   gap: var(--space-1);
 
@@ -22,11 +35,14 @@
   }
 }
 
+#chatbot-toggle:checked + label.chatbot-btn + .modal-wrapper {
+  display: flex;
+}
+
 .bot-profile {
   display: flex;
   flex-flow: column;
-  /* border: 1px solid black; */
-  background-image: url(../assets/chatbot-icon/icon.svg);
+  background-image: url(../../assets/chatbot-icon/icon.svg);
   background-repeat: no-repeat;
   background-position: -15px -9px;
   padding-top: var(--space-2);
@@ -45,28 +61,71 @@
 }
 
 .trading-hour-popup {
-  border: 1px solid black;
+  background-color: var(--color-white);
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 5px;
+  left: 5px;
   right: 0;
-  width: 100%;
+  width: 98%;
   height: 40%;
-  border-radius: 5%;
+  border-radius: 18px;
   justify-content: start;
   align-content: start;
-  padding: var(--space-3);
+  padding: var(--space-2);
   display: none;
 
   label {
-    background-image: url();
+    display: block;
+    width: 100%;
+    text-align: end;
+    margin-bottom: var(--space-1);
+  }
+
+  .timezone {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray);
+  }
+
+  ul {
+    display: flex;
+    flex-flow: column;
+    gap: var(--space-2);
+
+    .label {
+      font-size: var(--font-size-sm);
+      color: var(--color-dark-gray);
+      margin-bottom: var(--space-1);
+    }
+    .dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-right: var(--space-1);
+    }
+    .green {
+      background-color: green;
+    }
+    .gray {
+      background-color: var(--color-gray);
+    }
+
+    .hours,
+    .holidays {
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--space-1);
+    }
+
+    .day {
+      flex: 1;
+    }
   }
 }
 
 .modal-content {
   display: flex;
   flex-flow: column;
-  /* border: 1px solid brown; */
   border-radius: 10px;
   background-color: var(--color-white);
   padding: var(--space-2);
