@@ -13,6 +13,35 @@ input[type='radio'] {
   padding: var(--space-5);
 
   background-color: var(--color-beige);
+
+  /* 슬라이드 페이지 숫자 버튼 */
+  .slide-page-btn-wrapper {
+    display: flex;
+    gap: var(--space-2);
+    width: 100%;
+    justify-content: center;
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-4);
+
+    .page-btn {
+      cursor: pointer;
+      color: var(--color-gray);
+      transition: background-color 0.3s ease;
+      font-size: var(--font-size-s);
+      font-weight: var(--font-weight-bold);
+    }
+  }
+
+  /* 화살표 조합 */
+  /* slide1  */
+  #main-slide1:checked ~ .controls .next {
+    display: inline-flex;
+  }
+
+  /* slide2 */
+  #main-slide2:checked ~ .controls .prev {
+    display: inline-flex;
+  }
 }
 
 /* 슬라이드 전체 wrapper */
@@ -57,7 +86,7 @@ input[type='radio'] {
 }
 
 /* 슬라이드 그룹 */
-.list-slides {
+.cafe-slide-list {
   display: flex;
   flex-flow: row;
   height: 100%;
@@ -84,40 +113,22 @@ input[type='radio'] {
       bottom: 0;
     }
   }
-}
 
-/* 슬라이드 배경 이미지 */
-.s1 {
-  background-image: url(../../../assets/map-slide-img/map-slide01-BG_M6_MO.webp);
-}
-.s2 {
-  background-image: url(../../../assets/map-slide-img/map-slide02-SW-Timevillas_M6_MO.webp);
+  /* 슬라이드 배경 이미지 */
+  .s1 {
+    background-image: url(../../../assets/map-slide-img/map-slide01-BG_M6_MO.webp);
+  }
+  .s2 {
+    background-image: url(../../../assets/map-slide-img/map-slide02-SW-Timevillas_M6_MO.webp);
+  }
 }
 
 /* 슬라이드 이동 */
-#cafe-slide1:checked ~ .cafe-slide-container .list-slides .s1 {
+#cafe-slide1:checked ~ .cafe-slide-container .cafe-slide-list .s1 {
   transform: translateX(0); /* 1번 슬라이드 */
 }
-#cafe-slide2:checked ~ .cafe-slide-container .list-slides .s2 {
+#cafe-slide2:checked ~ .cafe-slide-container .cafe-slide-list .s2 {
   transform: translateX(-100%); /* 2번 슬라이드 */
-}
-
-/* 슬라이드 페이지 숫자 버튼 */
-.slide-page-btn-wrapper {
-  display: flex;
-  gap: var(--space-2);
-  width: 100%;
-  justify-content: center;
-  margin-top: var(--space-5);
-  margin-bottom: var(--space-4);
-
-  .page-btn {
-    cursor: pointer;
-    color: var(--color-gray);
-    transition: background-color 0.3s ease;
-    font-size: var(--font-size-s);
-    font-weight: var(--font-weight-bold);
-  }
 }
 
 .find-cafe-wrapper {
@@ -134,18 +145,11 @@ input[type='radio'] {
   }
 }
 
-/* 화살표 조합 */
-/* slide1  */
-#main-slide1:checked ~ .controls .next {
-  display: inline-flex;
-}
-
-/* slide2 */
-#main-slide2:checked ~ .controls .prev {
-  display: inline-flex;
-}
-
 @media (min-width: 768px) {
+  .cafe-slide-list .item-slide {
+    min-height: 80vh; /* 예: 데스크탑에서 더 큰 높이 */
+  }
+
   .find-cafe-wrapper {
     a {
       width: 18.75rem;
