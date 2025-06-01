@@ -1,18 +1,35 @@
+:root {
+  --text-color: #333;
+  --font-family-main: 'Noto Sans KR', sans-serif;
+  --bg-light: #fdfbf7;
+  --font-size-sm: 12px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --line-height-sm: 22.8px;
+  --letter-spacing-sm: 0.6px;
+  --header-height: 80px;
+  --submenu-width: 640px;
+  --submenu2-left: 220px;
+  --submenu-padding: 60px;
+  --submenu2-padding-left: 40px;
+  --submenu-border: 1px solid #eee;
+}
+
 /* 무료배송 안내 */
 .free-shipping-msg {
-  color: #333;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 12px;
+  color: var(--text-color);
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-sm);
   font-weight: 350;
-  line-height: 22.8px;
-  letter-spacing: 0.6px;
+  line-height: var(--line-height-sm);
+  letter-spacing: var(--letter-spacing-sm);
   text-align: center;
   padding: 8px 0;
 }
 
 /* 헤더 전체 */
 header {
-  background: #fdfbf7;
+  background: var(--bg-light);
 }
 
 .header-inner {
@@ -20,7 +37,7 @@ header {
   align-items: center;
   justify-content: space-between;
   max-width: 1920px;
-  height: 80px;
+  height: var(--header-height);
   padding: 0 60px;
   margin: 0 auto;
   position: relative;
@@ -44,10 +61,10 @@ header {
 .main-nav a,
 .main-nav button {
   all: unset;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-md);
   font-weight: 500;
-  color: #333;
+  color: var(--text-color);
   cursor: pointer;
   letter-spacing: 0.28px;
 }
@@ -87,14 +104,15 @@ header {
   }
 }
 
+/* 1차 서브메뉴 */
 .submenu {
   position: absolute;
-  top: 80px;
+  top: var(--header-height);
   left: 0;
-  width: 640px;
-  height: calc(100vh - 80px);
-  background-color: #fdfbf7;
-  padding: 60px;
+  width: var(--submenu-width);
+  height: calc(100vh - var(--header-height));
+  background-color: var(--bg-light);
+  padding: var(--submenu-padding);
   box-sizing: border-box;
   display: none;
   flex-direction: column;
@@ -108,7 +126,7 @@ header {
 }
 
 .submenu > li {
-  font-size: 16px;
+  font-size: var(--font-size-lg);
   font-weight: 400;
   line-height: 2;
   cursor: pointer;
@@ -119,15 +137,16 @@ header {
   text-decoration: underline;
 }
 
+/* 2차 서브메뉴 */
 .submenu2 {
   display: none;
   position: absolute;
   top: 0;
-  left: 220px;
-  background: #fdfbf7;
-  padding-left: 40px;
+  left: var(--submenu2-left);
+  background: var(--bg-light);
+  padding-left: var(--submenu2-padding-left);
   white-space: nowrap;
-  border-left: 1px solid #eee;
+  border-left: var(--submenu-border);
   line-height: 2;
   z-index: 600;
 }

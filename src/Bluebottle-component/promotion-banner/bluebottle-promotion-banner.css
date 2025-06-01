@@ -1,0 +1,98 @@
+@import url('../../common/theme/button.css');
+@import url('../../common/theme/variables.css');
+
+/* 이하 브루잉도구 중단점 불문 공통스타일 */
+.wrapper-brewing-tool {
+  gap: var(--space-3);
+  background-image: url('../../assets/brewing/M5_MO.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 20px;
+  height: 656px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: center;
+}
+
+.wrapper-brewing-tool h2 {
+  color: var(--color-white);
+  font-size: var(--font-size-lg);
+  text-align: center;
+  width: 501.52px;
+  font-weight: normal;
+}
+
+.descrpition-brewing-tool {
+  width: 501.52px;
+  color: var(--color-white);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  line-height: 1.9;
+}
+
+.btn-outline.details-btn-brewing-tool {
+  border: none;
+  margin-right: auto;
+  margin-left: 0;
+  width: 501.52px;
+}
+
+.wrapper-brewing-tool .descrpition-brewing-tool .details-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--color-white);
+  background-color: var(--color-beige);
+}
+
+/* 이하 미디어 쿼리 부문 */
+
+@media (min-width: 768px) {
+  /* 이하 768px이상 페이지 새로운 브루잉 도구 */
+  .wrapper-brewing-tool {
+    background-image: url('../../assets/brewing/M5_PC.webp');
+    width: 100%;
+    padding-left: 110px;
+  }
+
+  .wrapper-brewing-tool h2 {
+    text-align: left;
+    width: 501.52px;
+  }
+
+  .descrpition-brewing-tool {
+    max-width: 639.84px;
+    font-size: var(--font-size-sm);
+    text-align: left;
+  }
+
+  .btn-outline.details-btn-brewing-tool {
+    margin-right: auto;
+    margin-left: 0;
+    width: 294px;
+  }
+
+  /* 이하 768px이상 페이지 베스트셀러 카드 컴포넌트 스타일링 */
+  .wrapper-best-sellers-section {
+    padding-top: 80px;
+  }
+
+  .list-best-sellers-products {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .title-best-seller-section {
+    font-size: var(--font-size-xl);
+    text-align: left;
+  }
+
+  .item-best-sellers-products {
+    min-height: 589.625px;
+  }
+
+  .btn-outline.btn-best-sellers-aside {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

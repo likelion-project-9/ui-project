@@ -1,0 +1,166 @@
+@import url('../../common/theme/button.css');
+@import url('../../common/theme/variables.css');
+
+/* 베스트셀러 섹션 시작 */
+/* 이하 제품 카드 중단점 불문 공통스타일 */
+
+.card-best-sellers-products {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 48px 0;
+  min-width: 370px;
+  max-width: 380px;
+  position: relative;
+}
+
+.item-best-sellers-products {
+  background-color: var(--color-creamy-white);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  height: 600px;
+  cursor: pointer;
+}
+
+.container-best-sellers-products-detail {
+  box-sizing: border-box;
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-top: 36px 0 36px 0;
+}
+
+.category-best-sellers {
+  font-size: var(--font-size-xs);
+  background-color: var(--color-light-gray);
+  color: var(--color-dark-gray);
+  height: 16px;
+  margin-top: 12.12%;
+  margin-bottom: 9.35%;
+}
+
+.name-best-sellers {
+  font-size: var(--font-size-m);
+  color: var(--color-dark-gray);
+  margin-bottom: 140%;
+  flex-grow: 1;
+  font-weight: normal;
+}
+
+.container-best-sellers-img {
+  position: absolute;
+  left: 0;
+  top: 30.27%;
+  margin-bottom: 32px;
+  overflow: hidden;
+  width: 64.8%;
+  aspect-ratio: 1 / 1;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.description-best-sellers {
+  font-size: var(--font-size-base);
+  color: var(--color-dark-gray);
+  position: absolute;
+  text-align: center;
+  top: 82%;
+}
+
+.btn.btn-best-sellers {
+  font-size: var(--font-size-xs);
+  color: var(--color-dark-gray);
+  background-color: var(--color-white);
+  display: block;
+  width: 100%;
+  height: 48.8px;
+  margin-top: auto;
+  text-decoration: none;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 12.5px 0;
+  line-height: 25px;
+}
+
+.btn-best-sellers-aside {
+  display: block;
+  margin-right: auto;
+  margin-left: 0;
+  width: 294px;
+}
+
+/* 이하 미디어 쿼리 부문 */
+
+@media (min-width: 768px) {
+  /* 이하 768px이상 페이지 베스트셀러 카드 컴포넌트 스타일링 */
+  .wrapper-best-sellers-section {
+    padding-top: 80px;
+  }
+
+  .card-best-sellers-products {
+    min-width: 378px;
+  }
+
+  .item-best-sellers-products {
+    min-height: 589.625px;
+  }
+
+  .btn-outline.btn-best-sellers-aside {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 이하 768px이상 페이지 이미지 마우스오버 기능 */
+
+  .container-best-sellers-img .img-best-sellers-products,
+  .container-best-sellers-img .img-hover-best-sellers-products {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.4s ease-in-out;
+  }
+
+  .container-best-sellers-img .img-hover-best-sellers-products {
+    opacity: 0;
+  }
+
+  .container-best-sellers-img:hover .img-hover-best-sellers-products {
+    opacity: 1;
+  }
+  .container-best-sellers-img:hover .img-best-sellers-products {
+    opacity: 0;
+  }
+
+  /* 이하 768px이상 페이지 자세히보기 버튼 마우스오버 기능 */
+
+  .btn.btn-best-sellers {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .card-best-sellers-products:hover .btn.btn-best-sellers,
+  .card-best-sellers-products:focus-within .btn.btn-best-sellers {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .btn.btn-best-sellers:hover,
+  .btn.btn-best-sellers:focus {
+    background-color: var(--color-black);
+    color: var(--color-white);
+  }
+
+  .btn-outline.btn-best-sellers-aside:hover {
+    border: 1px solid var(--color-dark-gray);
+    color: var(--color-dark-gray);
+  }
+}
