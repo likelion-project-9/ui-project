@@ -8,23 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <h1>블루보틀</h1>
-    <ul>
-      <li><a href="./src/html/bluebottle.html">메인 페이지</a></li>
-      <li><a href="./src/Bluebottle-component/header/header.html">헤더</a></li>
-      <li><a href="./src/Bluebottle-component/login/login.html">로그인</a></li>
-      <li><a href="./src/Bluebottle-component/footer/footer.html">푸터</a></li>
-      <li><a href="./src/Bluebottle-component/button/bluebottle-button.html">버튼</a></li>
-    </ul>
-    <h1>이디야 sign-up</h1>
-    <ul>
-      <li><a href="./src/Ediya-component/sign-up/components/Button.html">버튼</a></li>
-      <li><a href="./src/Ediya-component/sign-up/components/InputField.html">인풋</a></li>
-      <li><a href="./src/Ediya-component/sign-up/components/SignUpForm.html">폼</a></li>
-      <li><a href="./src/Ediya-component/sign-up/components/VideoBackground.html">비디오</a></li>
-      <li><a href="./src/Ediya-component/sign-up/sign-up.html">sign-up 페이지</a></li>
-    </ul>
-
     <div class="modal-overlay" id="modal">
       <div class="modal-box">
         <h2>안내</h2>
@@ -36,91 +19,102 @@
       </div>
     </div>
 
+    <div class="member-info">
+      <div class="team-card">
+        <div class="character">
+          <img src="face1.png" alt="팀원 얼굴" class="face" />
+          <img src="amongus-red.png" alt="Among Us 캐릭터" class="suit" />
+        </div>
+        <h3 class="name">안동원</h3>
+        <p class="role">팀장 / 스크럼 마스터</p>
+        <p class="desc">
+          사용자에게 친절한 정보 탐색과<br />
+          편리한 이용을 위한 전체 UI 설계.
+        </p>
+      </div>
+      <div class="team-card">
+        <div class="character">
+          <img src="face1.png" alt="팀원 얼굴" class="face" />
+          <img src="amongus-red.png" alt="Among Us 캐릭터" class="suit" />
+        </div>
+        <h3 class="name">우혜리</h3>
+        <p class="role">팀원</p>
+        <p class="desc">
+          사용자에게 친절한 정보 탐색과<br />
+          편리한 이용을 위한 전체 UI 설계.
+        </p>
+      </div>
+      <div class="team-card">
+        <div class="character">
+          <img src="face1.png" alt="팀원 얼굴" class="face" />
+          <img src="amongus-red.png" alt="Among Us 캐릭터" class="suit" />
+        </div>
+        <h3 class="name">이형민</h3>
+        <p class="role">팀원</p>
+        <p class="desc">
+          사용자에게 친절한 정보 탐색과<br />
+          편리한 이용을 위한 전체 UI 설계.
+        </p>
+      </div>
+      <div class="team-card">
+        <div class="character">
+          <img src="face1.png" alt="팀원 얼굴" class="face" />
+          <img src="amongus-red.png" alt="Among Us 캐릭터" class="suit" />
+        </div>
+        <h3 class="name">홍민영</h3>
+        <p class="role">팀원</p>
+        <p class="desc">
+          사용자에게 친절한 정보 탐색과<br />
+          편리한 이용을 위한 전체 UI 설계.
+        </p>
+      </div>
+    </div>
+
     <header>
-      <h1>☕ Cafe UI Project Index</h1>
+      <h1>☕ Cafe UI Project</h1>
       <p>Blue Bottle & Ediya 감성 UI 컴포넌트 모음</p>
     </header>
 
-    <section class="grid">
+    <section class="card-list">
       <div class="card">
-        <h2>Blue Bottle 페이지</h2>
+        <h2 class="blue">Blue Bottle</h2>
         <ul>
-          <li><a href="#">메인 페이지</a></li>
-          <li><a href="#">Special Order</a></li>
-          <li><a href="#">Magazine 영역</a></li>
+          <li><a href="./src/html/bluebottle.html">메인페이지</a></li>
         </ul>
       </div>
 
-      <div class="card">
-        <h2>Ediya 페이지</h2>
+      <div class="card blue">
+        <h2>블루보틀 컴포넌트</h2>
         <ul>
-          <li><a href="#">회원가입</a></li>
-          <li><a href="#">로그인</a></li>
-          <li><a href="#">마이페이지</a></li>
+          <li><a href="./src/Bluebottle-component/button/bluebottle-button.html">블루보틀 버튼 공통스타일</a></li>
+          <li><a href="./src/Bluebottle-component/header/header.html">헤더</a></li>
+          <li><a href="./src/Bluebottle-component/footer/footer.html">푸터</a></li>
+          <li><a href="./src/Bluebottle-component/login/">로그인</a></li>
+          <li><a href="./src/Bluebottle-component/image-text/bluebottle-min.html">이미지+텍스트 카드</a></li>
+          <li><a href="./src/Bluebottle-component/product-card/bluebottle-product-card-alone.html">제품카드</a></li>
+          <li><a href="./src/Bluebottle-component/promotion-banner/bluebottle-promotion-banner.html">광고배너</a></li>
+          <li><a href="./src/Bluebottle-component/slide(js)/">자바스크립트 제품 광고 슬라이드</a></li>
+          <li><a href="./src/Bluebottle-component/slide/product-slider.html">메인 광고 슬라이드</a></li>
+          <li><a href="./src/Bluebottle-component/slide/cafe-slide/cafe-slide.html">카페소개 슬라이드</a></li>
+          <li><a href="./src/Bluebottle-component/modal-popup/modal-popup.html">챗봇위젯</a></li>
         </ul>
       </div>
 
-      <div class="card">
-        <h2>공통 컴포넌트</h2>
+      <div class="card navy">
+        <h2>Ediya</h2>
         <ul>
-          <li><a href="#">Header</a></li>
-          <li><a href="#">Footer1</a></li>
-          <li><a href="#">Navigation Bar</a></li>
-          <li><a href="#">모달창</a></li>
+          <li><a href="./src/Ediya-component/sign-up/sign-up.html">이디야 회원가입 페이지</a></li>
+        </ul>
+      </div>
+
+      <div class="card navy">
+        <h2>이디야 컴포넌트</h2>
+        <ul>
+          <li><a href="./src/Ediya-component/sign-up/components/Button.html">이디야 회원가입 버튼</a></li>
+          <li><a href="./src/Ediya-component/sign-up/components/InputField.html">회원가입 인풋 필드</a></li>
+          <li><a href="./src/Ediya-component/sign-up/components/VideoBackground.html">비디오 백그라운드</a></li>
         </ul>
       </div>
     </section>
-
-    <!-- <script>
-      function hideModalForToday() {
-        const now = new Date();
-        const expire = new Date();
-        expire.setHours(23, 59, 59, 999); // 오늘 밤 11:59까지
-        localStorage.setItem('hideModalUntil', expire.getTime());
-        document.getElementById('modal').style.display = 'none';
-      }
-
-      window.addEventListener('DOMContentLoaded', () => {
-        const hideUntil = localStorage.getItem('hideModalUntil');
-        const now = Date.now();
-        if (hideUntil && parseInt(hideUntil) > now) {
-          document.getElementById('modal').style.display = 'none';
-        }
-      });
-    </script> -->
-
-    <!-- 팀원 카드 예시 -->
-    <div class="team-card">
-      <div class="character">
-        <img src="face1.png" alt="팀원 얼굴" class="face" />
-        <img src="amongus-red.png" alt="Among Us 캐릭터" class="suit" />
-      </div>
-      <h3 class="name">안동원</h3>
-      <p class="role">팀장 / 스크럼 마스터<br />메인페이지</p>
-      <p class="desc">
-        사용자에게 친절한 정보 탐색과<br />
-        편리한 이용을 위한 전체 UI 설계.
-      </p>
-    </div>
-
-    <!-- 복사해서 팀원 수만큼 추가 -->
-    <div class="team-card">
-      <div class="character">
-        <img src="face2.png" alt="팀원 얼굴" class="face" />
-        <img src="amongus-orange.png" alt="Among Us 캐릭터" class="suit" />
-      </div>
-      <h3 class="name">홍민영</h3>
-      <p class="role">마이페이지<br />상품정보 페이지</p>
-      <p class="desc">
-        사용자 정보와 상품 정보를<br />
-        쉽게 확인하고 관리할 수 있도록 UI 구성.
-      </p>
-    </div>
-    <a href="./src/html/bluebottle.html">메인 페이지</a>
-    <a href="./src/Bluebottle-component/modal-popup/modal-popup.html">위젯</a>
-    <a href="./src/Bluebottle-component/header/header.html">헤더</a>
-    <a href="./src/Bluebottle-component/login/login.html">로그인</a>
-    <a href="./src/Bluebottle-component/footer/footer.html">푸터</a>
-    <a href="./src/Bluebottle-component/button/bluebottle-button.html">버튼</a>
   </body>
 </html>

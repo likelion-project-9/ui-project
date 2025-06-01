@@ -1,3 +1,5 @@
+@import url(./common/theme/variables.css);
+
 :root {
   --bg: #f4f4f1;
   --text: #1a1a1a;
@@ -34,11 +36,71 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-.grid {
+.member-info {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+
+  .team-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 200px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+
+  .character {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    margin-bottom: 12px;
+  }
+
+  .character .suit {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .character .face {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 45%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  .name {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 4px 0;
+    color: #1c1c1c;
+  }
+
+  .role {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .desc {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.5;
+  }
+}
+
+.card-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
   gap: 2rem;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -48,31 +110,36 @@ h2 {
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
 
-.card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  color: var(--primary);
-}
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 
-.card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+  li {
+    margin-bottom: 0.5rem;
+  }
 
-.card li {
-  margin-bottom: 0.5rem;
-}
+  a {
+    text-decoration: none;
+    color: var(--text);
+  }
 
-.card a {
-  text-decoration: none;
-  color: var(--text);
+  a:hover {
+    color: var(--primary);
+  }
 }
-
-.card a:hover {
-  color: var(--primary);
+.blue {
+  color: var(--color-blue);
+}
+.navy {
+  color: navy;
 }
 
 /* 모달 */
@@ -98,102 +165,39 @@ h2 {
   max-width: 420px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
   text-align: center;
-}
 
-.modal-box h2 {
-  font-size: 1.4rem;
-}
+  h2 {
+    font-size: 1.4rem;
+  }
+  p {
+    font-size: 1rem;
+    margin: 1rem 0 2rem;
+  }
 
-.modal-box p {
-  font-size: 1rem;
-  margin: 1rem 0 2rem;
-}
+  .btn-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
 
-.modal-box .btn-group {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-}
+  button {
+    flex: 1;
+    padding: 0.75rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-.modal-box button {
-  flex: 1;
-  padding: 0.75rem;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.modal-box button:hover {
-  background: var(--primary-dark);
+  button:hover {
+    background: var(--primary-dark);
+  }
 }
 
 body {
   margin: 0;
   font-family: 'Pretendard', sans-serif;
   background-color: #f0f0f0;
-}
-
-.team-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px;
-}
-
-.team-card {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  width: 200px;
-  padding: 20px 16px;
-  text-align: center;
-}
-
-.character {
-  position: relative;
-  width: 100%;
-  height: 140px;
-  margin-bottom: 12px;
-}
-
-.character .suit {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-.character .face {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  width: 45%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-.name {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 4px 0;
-  color: #1c1c1c;
-}
-
-.role {
-  font-size: 13px;
-  color: #666;
-  margin-bottom: 8px;
-  line-height: 1.4;
-}
-
-.desc {
-  font-size: 13px;
-  color: #444;
-  line-height: 1.5;
 }
