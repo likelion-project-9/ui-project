@@ -3,8 +3,8 @@
 
 .chatbot-btn {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: 0;
+  right: 20px;
   cursor: pointer;
   z-index: 99;
 }
@@ -12,13 +12,14 @@
 .modal-wrapper {
   position: relative;
   background-color: var(--color-cool-gray);
+  z-index: 99;
 
   display: none;
   flex-flow: column;
 
   position: fixed;
-  bottom: 140px;
-  right: 40px;
+  bottom: 120px;
+  right: 45px;
 
   width: 450px;
   height: 650px;
@@ -26,6 +27,8 @@
   border-radius: 3%;
   padding: var(--space-3);
   gap: var(--space-1);
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 
   > a {
     color: var(--color-dark-gray);
@@ -73,6 +76,8 @@
   align-content: start;
   padding: var(--space-2);
   display: none;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 
   label {
     display: block;
