@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cafe UI Project Index</title>
     <link rel="stylesheet" href="./src/style.css" />
+    <link rel="shortcut icon" href="/public/favicon/favicon-bluebottle.webp" type="image/x-icon" />
+    <link rel="icon" href="/public/favicon/favicon-bluebottle.webp" type="image/webp" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" />
   </head>
   <body>
@@ -100,5 +102,24 @@
         </ul>
       </div>
     </section>
+
+    <script>
+      function hideModalForToday() {
+        const today = new Date();
+        const expire = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+        localStorage.setItem('hideModalUntil', expire.getTime());
+        document.getElementById('modal').style.display = 'none';
+      }
+
+      function checkModalVisibility() {
+        const hideUntil = localStorage.getItem('hideModalUntil');
+        const now = Date.now();
+        if (hideUntil && now < parseInt(hideUntil, 10)) {
+          document.getElementById('modal').style.display = 'none';
+        }
+      }
+
+      window.onload = checkModalVisibility;
+    </script>
   </body>
 </html>
