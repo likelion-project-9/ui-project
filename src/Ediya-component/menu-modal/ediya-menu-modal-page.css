@@ -1,0 +1,144 @@
+@import url('../../common/theme/button.css');
+@import url('../../common/theme/variables.css');
+
+/* 모달 메뉴 모바일 부분 */
+
+.list-drink-menu {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+.card-drink-product {
+  background-color: #f5f5f5;
+  flex-direction: column;
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  width: 339px;
+  height: 373px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.card-drink-product h3 {
+  width: auto;
+  height: 24px;
+  font-size: var(--font-size-md);
+  text-align: center;
+  font-weight: normal;
+}
+
+.container-modal-drink-product {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.modal-drink-product {
+  display: none;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: start;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  font-weight: normal;
+  border: solid 1px var(--color-smoke-white);
+}
+
+.modal-close-btn {
+  background-color: rgba(255, 255, 255, 0.6);
+  text-align: right;
+  border: none;
+  padding: 8px 12px;
+  width: 100%;
+}
+
+.modal-drink-name-description {
+  background-color: rgba(255, 255, 255, 0.6);
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: start;
+  display: flex;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.modal-drink-name-description h3 {
+  font-size: var(--font-size-sm);
+}
+
+.modal-drink-name-description h3:nth-of-type(2) {
+  color: #616161;
+  border-bottom: 3px solid var(--color-black);
+  width: 100%;
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+.modal-drink-product p {
+  font-size: var(--font-size-md);
+  margin-bottom: 190px;
+  line-height: 1.4;
+}
+
+.modal-specifications {
+  padding-top: 6px;
+  padding-bottom: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: #f8f8f8;
+  width: 100%;
+  height: 63px;
+  font-size: var(--font-size-sm);
+}
+
+.modal-specifications-left {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  padding-left: 14px;
+}
+.modal-specifications-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-left: #333 solid 2px;
+  gap: 1px;
+  padding-left: 20px;
+}
+
+/* 모달 메뉴 pc 부분 */
+
+@media (min-width: 768px) {
+  .card-drink-product {
+    width: 359px;
+  }
+  .list-drink-menu {
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 738px;
+  }
+  .hover-trigger-area:hover .container-modal-drink-product {
+    display: block;
+  }
+  .modal-close-btn {
+    display: none;
+  }
+}
+
+/* 자바스크립트 구현을 위한 모바일 부분*/
+@media (max-width: 767px) {
+  .container-modal-drink-product.mobile-modal-active {
+    display: block;
+  }
+}
