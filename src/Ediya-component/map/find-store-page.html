@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>매장 찾기 페이지</title>
+    <link rel="stylesheet" href="/src/common/modern-reset.css" />
+    <link rel="stylesheet" href="/src/Ediya-component/map/find-store-page.css" />
+
+    <!-- Naver Map API -->
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=l8j4hl32y3"></script>
+  </head>
+  <body>
+    <h1 class="sr-only">매장 찾기 페이지</h1>
+
+    <div class="component-box">
+      <div class="tab-wrapper">
+        <form id="search-form">
+          <div class="tab-menu-wrapper">
+            <div class="label">
+              <div class="tab-menu">
+                <input type="radio" name="store-filter" id="store-name" value="store-name" checked />
+                <label for="store-name">점포명</label>
+              </div>
+              <br />
+              <div class="tab-menu">
+                <input type="radio" name="store-filter" id="store-address" value="store-address" />
+                <label for="store-address">주소</label>
+              </div>
+            </div>
+            <p class="keyboard-guide sr-only">← → 키로 필터를 변경하세요</p>
+            <div class="search-input">
+              <input type="text" placeholder="검색어" class="label" />
+              <button type="submit">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <ellipse cx="11.7584" cy="11.6272" rx="5.51836" ry="5.38696" stroke="#24388D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M15.5965 15.6533L17.76 17.7598" stroke="#24388D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </form>
+        <ul class="search-result-list">
+          <li>
+            <div class="search-result">
+              <figure>
+                <img src="/src/assets/ediay-find-store/ediyacoffee-img.svg" alt="" />
+                <figcaption>
+                  <p class="store-title"><strong>길음 뉴타운점</strong></p>
+                  <p class="store-detail">서울 성북구 길음로 74 (길음동, 길음 에스에이치빌)</p>
+                </figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="search-result">
+              <figure>
+                <img src="/src/assets/ediay-find-store/ediyacoffee-img.svg" alt="" />
+                <figcaption>
+                  <p class="store-title"><strong>길음 중앙점</strong></p>
+                  <p class="store-detail">서울 성북구 도봉로 11 (길음동, 삼주빌딩)</p>
+                </figcaption>
+              </figure>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="map" id="map"></div>
+    </div>
+
+    <script>
+      let map;
+      let markers = [];
+
+      function initMap() {
+        console.log('🗺 지도 초기화 중...');
+        if (!window.naver || !naver.maps) {
+          console.error('❌ 네이버 지도 API 로드 실패');
+          return;
+        }
+
+        map = new naver.maps.Map('map', {
+          center: new naver.maps.LatLng(37.5665, 126.978),
+          zoom: 13,
+        });
+
+        console.log('✅ 지도 생성 완료');
+      }
+
+      // 기존 마커 제거 함수
+      function clearMarkers() {
+        markers.forEach((marker) => marker.setMap(null));
+        markers = [];
+      }
+
+      // 마커 생성 및 지도 표시 함수
+      function addMarker(lat, lng, title, address) {
+        const position = new naver.maps.LatLng(lat, lng);
+
+        const marker = new naver.maps.Marker({
+          map: map,
+          position: position,
+        });
+
+        const infowindow = new naver.maps.InfoWindow({
+          content: `<div style="padding:10px; min-width:150px;">
+                      <strong>${title}</strong><br />
+                      <span>${address}</span>
+                    </div>`,
+        });
+
+        naver.maps.Event.addListener(marker, 'click', () => {
+          infowindow.open(map, marker);
+        });
+
+        markers.push(marker);
+
+        // 마커 위치로 지도 중심 이동
+        map.setCenter(position);
+        map.setZoom(15);
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initMap();
+
+        const searchForm = document.getElementById('search-form');
+        const searchInput = searchForm.querySelector('input[type="text"]');
+        const filterRadios = searchForm.elements['store-filter'];
+
+        // 더미 매장 데이터 (실제 API나 DB로 교체 가능)
+        const stores = [
+          {
+            name: '길음 뉴타운점',
+            address: '서울 성북구 길음로 74 (길음동, 길음 에스에이치빌)',
+            lat: 37.6135,
+            lng: 127.0248,
+          },
+          {
+            name: '길음 중앙점',
+            address: '서울 성북구 도봉로 11 (길음동, 삼주빌딩)',
+            lat: 37.615,
+            lng: 127.023,
+          },
+        ];
+
+        searchForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const keyword = searchInput.value.trim();
+          if (!keyword) return;
+
+          // 필터값 확인 (store-name or store-address)
+          const filter = Array.from(filterRadios).find((r) => r.checked).value;
+
+          // 기존 마커 삭제
+          clearMarkers();
+
+          // 검색 결과 필터링
+          const filteredStores = stores.filter((store) => {
+            if (filter === 'store-name') {
+              return store.name.includes(keyword);
+            } else if (filter === 'store-address') {
+              return store.address.includes(keyword);
+            }
+            return false;
+          });
+
+          if (filteredStores.length === 0) {
+            alert('검색 결과가 없습니다.');
+            return;
+          }
+
+          // 검색 결과 마커 찍기
+          filteredStores.forEach((store) => {
+            addMarker(store.lat, store.lng, store.name, store.address);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
