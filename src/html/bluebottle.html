@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>블루보틀 홈화면</title>
     <link rel="icon" href="../../public/favicon/favicon-bluebottle.webp" type="image/png" />
     <link rel="stylesheet" href="../common/modern-reset.css" />
     <link rel="stylesheet" href="../Bluebottle-component/header/header.css" />
@@ -95,16 +96,17 @@
                 <li><a href="#">라이프 스타일</a></li>
               </ul>
             </li>
-            <li><a href="#">베스트셀러</a></li>
-            <li><a href="#">놀라 NOLA</a></li>
-            <li><a href="#">카페</a></li>
-            <li><a href="#">블로그</a></li>
+            <li><a href="#">메뉴</a></li>
+            <li><a href="#">뉴스</a></li>
+            <li><a href="#">매장찾기</a></li>
+            <li><a href="../Ediya-component/sign-up/sign-up.html">회원가입</a></li>
           </ul>
         </nav>
 
         <!-- 로고 -->
         <h1 class="logo">
-          <a href="/" aria-label="블루보틀 메인페이지 이동">
+          <a href="/" aria-label="블루보틀"
+            ><span class="sr-only">블루보틀</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="58" viewBox="0 0 24 58" fill="none">
               <path
                 fill-rule="evenodd"
@@ -128,12 +130,14 @@
             </a>
           </li>
           <!-- 사람 아이콘 -->
-          <label for="toggle-login" aria-label="내 계정" class="login-btn-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-              <path d="M10.9898 9.63398C13.2114 9.63398 15.0124 7.83302 15.0124 5.61143C15.0124 3.38983 13.2114 1.58887 10.9898 1.58887C8.76825 1.58887 6.96729 3.38983 6.96729 5.61143C6.96729 7.83302 8.76825 9.63398 10.9898 9.63398Z" stroke="#333333" stroke-width="1.57895" />
-              <path d="M19.411 20.047C19.411 15.3962 15.6407 11.626 10.9899 11.626C6.33908 11.626 2.56885 15.3962 2.56885 20.047" stroke="#333333" stroke-width="1.57895" />
-            </svg>
-          </label>
+          <li>
+            <label for="toggle-login" aria-label="내 계정" class="login-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                <path d="M10.9898 9.63398C13.2114 9.63398 15.0124 7.83302 15.0124 5.61143C15.0124 3.38983 13.2114 1.58887 10.9898 1.58887C8.76825 1.58887 6.96729 3.38983 6.96729 5.61143C6.96729 7.83302 8.76825 9.63398 10.9898 9.63398Z" stroke="#333333" stroke-width="1.57895" />
+                <path d="M19.411 20.047C19.411 15.3962 15.6407 11.626 10.9899 11.626C6.33908 11.626 2.56885 15.3962 2.56885 20.047" stroke="#333333" stroke-width="1.57895" />
+              </svg>
+            </label>
+          </li>
           <!-- 장바구니 아이콘 -->
           <li>
             <a href="#" aria-label="장바구니"
@@ -158,38 +162,44 @@
     </header>
 
     <!-- 로그인 모달을 여닫기 위한 숨겨진 체크박스 -->
-    <!-- label[for="toggle-login"] 클릭 시 이 체크박스가 on/off 되고,
-        CSS에서 이 checked 상태를 감지해서 .modal을 보이게 함 -->
     <input type="checkbox" id="toggle-login" hidden />
 
     <!-- 슬라이드 로그인 패널 -->
-    <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="login-title">
       <div class="modal-panel">
         <!-- 닫기 -->
-        <label for="toggle-login" class="close-btn" aria-label="닫기">
+        <button type="button" class="close-btn" id="close-login" aria-label="닫기">
           <span>닫기</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L13 13M13 1L1 13" stroke="#000" stroke-width="1.5" />
           </svg>
-        </label>
+        </button>
 
-        <h1>로그인</h1>
+        <h1 id="login-title">로그인</h1>
         <p class="login-desc">블루보틀 온라인 스토어의 다양한 혜택을 만나보세요</p>
 
         <form>
           <div class="field">
             <input type="email" id="email" placeholder=" " required />
-            <label for="email">이메일 주소 *</label>
+            <label for="email">
+              이메일 주소
+              <span aria-hidden="true">*</span>
+              <span class="sr-only"> (필수 입력 항목)</span>
+            </label>
           </div>
 
           <div class="field">
             <input type="password" id="password" placeholder=" " required />
-            <label for="password">비밀번호 *</label>
+            <label for="password">
+              비밀번호
+              <span aria-hidden="true">*</span>
+              <span class="sr-only"> (필수 입력 항목)</span>
+            </label>
           </div>
 
           <a href="#">비밀번호를 잊으셨나요?</a>
           <button type="submit" class="login-btn">로그인</button>
-          <button type="button" class="signup-btn">회원 가입</button>
+          <a href="../Ediya-component/sign-up/sign-up.html" class="signup-btn">회원 가입</a>
         </form>
         <div class="sns-login">
           <!-- 네이버 로그인 -->
@@ -236,6 +246,12 @@
             item.classList.add('active');
           });
         });
+      });
+    </script>
+
+    <script>
+      document.getElementById('close-login').addEventListener('click', () => {
+        document.getElementById('toggle-login').checked = false;
       });
     </script>
 
@@ -613,16 +629,16 @@
     <!-- footer -->
     <footer class="footer">
       <div class="footer-inner">
-        <section class="footer-links">
+        <div class="footer-links">
           <div>
-            <h2>블루보틀 커피</h2>
+            <strong class="footer-title">블루보틀 커피</strong>
             <ul>
               <li><a href="#">카페 찾기</a></li>
               <li><a href="#">커리어</a></li>
             </ul>
           </div>
           <div>
-            <h2>알아보기</h2>
+            <strong class="footer-title">알아보기</strong>
             <ul>
               <li><a href="#">브랜드 소개</a></li>
               <li><a href="#">블루보틀 커피</a></li>
@@ -632,7 +648,7 @@
             </ul>
           </div>
           <div>
-            <h2>문의</h2>
+            <strong class="footer-title">문의</strong>
             <ul>
               <li><a href="#">고객 문의</a></li>
               <li><a href="#">단체/기업 구매 문의</a></li>
@@ -725,15 +741,13 @@
               </a>
             </div>
           </div>
-        </section>
+        </div>
 
-        <section class="footer-legal">
-          <p>
-            상호: 블루보틀커피코리아 유한회사 | 대표자: KARL WILLIAM STROVINK | 개인정보관리책임자: 임홍주<br />
-            사업자등록번호: 155-81-01195 | <a href="#">사업정보확인</a> | 통신판매업신고: 2023-서울성동-0715 | 대표번호: 1533-6906<br />
-            이메일: support_kr@bluebottlecoffee.com | 주소: 서울특별시 성동구 아차산로 7(성수동 1가) | 호스팅서비스 제공자: Shopify, Inc.
-          </p>
-        </section>
+        <address class="footer-legal">
+          상호: 블루보틀커피코리아 유한회사 | 대표자: KARL WILLIAM STROVINK | 개인정보관리책임자: 임홍주<br />
+          사업자등록번호: 155-81-01195 | <a href="#">사업정보확인</a> | 통신판매업신고: 2023-서울성동-0715 | 대표번호: 1533-6906<br />
+          이메일: <a href="mailto:support_kr@bluebottlecoffee.com">support_kr@bluebottlecoffee.com</a> | 주소: 서울특별시 성동구 아차산로 7(성수동 1가) | 호스팅서비스 제공자: Shopify, Inc.
+        </address>
 
         <div class="footer-bottom">
           <ul>
@@ -741,7 +755,7 @@
             <li><a href="#">판매이용약관</a></li>
             <li><a href="#">환불 정책</a></li>
           </ul>
-          <p>© 2023 BLUE BOTTLE COFFEE INC., ALL RIGHTS RESERVED</p>
+          <small>© 2023 BLUE BOTTLE COFFEE INC., ALL RIGHTS RESERVED</small>
         </div>
       </div>
     </footer>
