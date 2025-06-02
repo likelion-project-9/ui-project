@@ -1,0 +1,50 @@
+:root {
+  /* Typography */
+
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 32px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+
+  /* Colors (from Figma) */
+  --color-navy: #002f6c; /* Ediya Blue */
+  --color-light-blue: #7ac4e0; /* Light Blue */
+  --color-accent: #e4f4fc;
+
+  --color-text-strong: #222;
+  --color-text-default: #555;
+  --color-text-light: #888;
+  --color-text-white: #fff;
+
+  --color-bg: #ffffff;
+  --color-bg-light: #f9f9f9;
+  --color-border: #ddd;
+
+  /* Button */
+  --btn-radius: 6px;
+  --btn-padding: 10px 16px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+  /* Transition */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-slow: 0.4s ease-in-out;
+}
