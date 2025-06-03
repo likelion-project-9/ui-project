@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이디야 회원가입 페이지 컴포넌트 정리</title>
     <link rel="stylesheet" href="./component.css" />
   </head>
   <body>
@@ -41,7 +42,7 @@
     <section class="component-box">
       <h2 class="component-title">form-title 컴포넌트</h2>
       <div class="component-preview">
-        <h1 class="signup-title">회원가입</h1>
+        <h2 class="signup-title">회원가입</h2>
         <p class="signup-subtitle">Join Us, Ediya Coffee</p>
         <p class="signup-description">이디야멤버스 가입을 진행합니다.</p>
       </div>
@@ -62,9 +63,9 @@
     <section class="component-box">
       <h2 class="component-title">form-input-password 컴포넌트</h2>
       <div class="component-preview">
-        <label class="form-group password-group">
-          <span class="form-label">패스워드</span>
-          <input type="password" class="form-input password" placeholder="비밀번호 입력" />
+        <div class="form-group password-group">
+          <label class="form-label" for="password">패스워드</label>
+          <input id="password" type="password" class="form-input password" placeholder="비밀번호 입력" />
           <button type="button" class="toggle-password" aria-label="비밀번호 보기">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
               <g clip-path="url(#clip0_3508_3377)">
@@ -80,7 +81,8 @@
               </defs>
             </svg>
           </button>
-        </label>
+        </div>
+        <p class="password-tip">패스워드는 숫자, 영어 포함 6자리 이상 입력해야 합니다.</p>
       </div>
     </section>
 
@@ -88,9 +90,9 @@
     <section class="component-box">
       <h2 class="component-title">form-input-password-confirm 컴포넌트</h2>
       <div class="component-preview">
-        <label class="form-group password-group">
-          <span class="form-label">패스워드 확인</span>
-          <input type="password" class="form-input password-confirm" placeholder="비밀번호 재입력" />
+        <div class="form-group password-group">
+          <label class="form-label" for="password-confirm">패스워드 확인</label>
+          <input id="password-confirm" type="password" class="form-input password-confirm" placeholder="비밀번호 재입력" />
           <button type="button" class="toggle-password" aria-label="비밀번호 보기">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
               <g clip-path="url(#clip0_3508_3350)">
@@ -106,7 +108,7 @@
               </defs>
             </svg>
           </button>
-        </label>
+        </div>
       </div>
     </section>
 
@@ -189,6 +191,22 @@
               </svg>`;
         });
       });
+    </script>
+
+    <script>
+      const passwordInput = document.querySelector('#password');
+      const passwordTip = document.querySelector('.password-tip');
+
+      if (passwordInput && passwordTip) {
+        passwordInput.addEventListener('input', () => {
+          const value = passwordInput.value;
+          const isValid = /[a-zA-Z]/.test(value) && /[0-9]/.test(value) && value.length >= 6;
+
+          passwordTip.textContent = isValid ? '안전한 비밀번호입니다.' : '패스워드는 숫자, 영어 포함 6자리 이상 입력해야 합니다.';
+
+          passwordTip.style.color = isValid ? '#00e676' : '#ff5252';
+        });
+      }
     </script>
   </body>
 </html>
