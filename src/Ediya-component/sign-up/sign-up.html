@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이디야 회원가입 페이지</title>
     <link rel="stylesheet" href="./sign-up.css" />
   </head>
   <body>
@@ -23,9 +24,9 @@
             <input type="email" class="form-input" placeholder="이메일 입력" required />
           </label>
 
-          <label class="form-group password-group">
-            <span class="form-label">패스워드</span>
-            <input type="password" class="form-input password" placeholder="비밀번호 입력" required />
+          <div class="form-group password-group">
+            <label class="form-label" for="password">패스워드</label>
+            <input id="password" type="password" class="form-input password" placeholder="비밀번호 입력" required />
             <button type="button" class="toggle-password" aria-label="비밀번호 보기">
               <!-- 보기 아이콘 -->
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -42,11 +43,11 @@
                 </defs>
               </svg>
             </button>
-          </label>
+          </div>
 
-          <label class="form-group password-group">
-            <span class="form-label">패스워드 확인</span>
-            <input type="text" class="form-input password-confirm" placeholder="비밀번호 재입력" required />
+          <div class="form-group password-group">
+            <label class="form-label" for="password-confirm">패스워드 확인</label>
+            <input id="password-confirm" type="text" class="form-input password-confirm" placeholder="비밀번호 재입력" required />
             <button type="button" class="toggle-password" aria-label="비밀번호 가리기">
               <!-- 가리기 아이콘 -->
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -63,7 +64,7 @@
                 </defs>
               </svg>
             </button>
-          </label>
+          </div>
 
           <p class="password-tip">패스워드는 숫자, 영어 포함 6자리 이상 입력해야 합니다.</p>
 
@@ -107,7 +108,8 @@
 
       toggleBtns.forEach((btn) => {
         btn.addEventListener('click', () => {
-          const input = btn.previousElementSibling;
+          const wrapper = btn.closest('.form-group');
+          const input = wrapper.querySelector('input');
           const isHidden = input.type === 'password';
 
           input.type = isHidden ? 'text' : 'password';
@@ -127,6 +129,27 @@
             <defs><clipPath id="clip0_eye_off"><rect width="16" height="16" fill="white"/></clipPath></defs>
           </svg>`;
         });
+      });
+    </script>
+
+    <script>
+      const passwordInput = document.querySelector('.password');
+      const passwordTip = document.querySelector('.password-tip');
+
+      passwordInput.addEventListener('input', () => {
+        const value = passwordInput.value;
+
+        const hasLetter = /[a-zA-Z]/.test(value);
+        const hasNumber = /[0-9]/.test(value);
+        const isLongEnough = value.length >= 6;
+
+        if (hasLetter && hasNumber && isLongEnough) {
+          passwordTip.textContent = '안전한 비밀번호입니다.';
+          passwordTip.style.color = '#00e676'; // 초록색
+        } else {
+          passwordTip.textContent = '패스워드는 숫자, 영어 포함 6자리 이상 입력해야 합니다.';
+          passwordTip.style.color = '#ff5252'; // 빨간색
+        }
       });
     </script>
   </body>

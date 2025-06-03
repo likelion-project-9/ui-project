@@ -122,6 +122,13 @@ video.bg-video {
   border: none;
   cursor: pointer;
   padding: 0;
+
+  /* 접근성 터치 영역 확보 */
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .password-tip {
@@ -184,7 +191,7 @@ video.bg-video {
     color: #d2c9b6;
   }
   .btn {
-    flex-wrap: nowrap; /* ✅ 한 줄로 고정 */
-    white-space: nowrap; /* ✅ 줄바꿈 절대 금지 */
+    flex-wrap: nowrap;
+    white-space: nowrap;
   }
 }
