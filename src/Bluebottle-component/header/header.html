@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>블루보틀 헤더</title>
     <link rel="stylesheet" href="../../common/modern-reset.css" />
     <link rel="stylesheet" href="./header.css" />
   </head>
@@ -62,16 +62,17 @@
                 <li><a href="#">라이프 스타일</a></li>
               </ul>
             </li>
-            <li><a href="#">베스트셀러</a></li>
-            <li><a href="#">놀라 NOLA</a></li>
-            <li><a href="#">카페</a></li>
-            <li><a href="#">블로그</a></li>
+            <li><a href="#">메뉴</a></li>
+            <li><a href="#">뉴스</a></li>
+            <li><a href="#">매장찾기</a></li>
+            <li><a href="#">회원가입</a></li>
           </ul>
         </nav>
 
         <!-- 로고 -->
         <h1 class="logo">
-          <a href="/" aria-label="블루보틀 메인페이지 이동">
+          <a href="/" aria-label="블루보틀"
+            ><span class="sr-only">블루보틀</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="58" viewBox="0 0 24 58" fill="none">
               <path
                 fill-rule="evenodd"
@@ -85,22 +86,24 @@
         <!-- 검색 아이콘 -->
         <ul class="utility-menu">
           <li>
-            <a href="#" aria-label="검색"
-              ><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+            <button type="button" aria-label="검색">
+              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
                 <path
                   d="M18.7434 17.3621C19.0718 17.6905 19.0718 18.2251 18.7434 18.5535C18.4149 18.8819 17.8801 18.8819 17.5516 18.5535L13.4332 14.4362C13.2689 14.272 12.9784 14.2509 12.7931 14.3772C12.7931 14.3772 12.6794 14.4656 12.4352 14.6046C11.5129 15.1266 10.4434 15.4297 9.30637 15.4297C5.8196 15.4297 2.98975 12.6006 2.98975 9.11476C2.98975 5.6289 5.8196 2.7998 9.30637 2.7998C12.7931 2.7998 15.6229 5.6289 15.6229 9.11476C15.6229 10.2599 15.3155 11.3376 14.7849 12.2638C14.646 12.4996 14.5702 12.5964 14.5702 12.5964C14.4354 12.7901 14.4607 13.0763 14.6249 13.2405L18.7434 17.3621ZM9.30637 13.7457C11.8667 13.7457 13.9385 11.6744 13.9385 9.11476C13.9385 6.5551 11.8667 4.48379 9.30637 4.48379C6.74603 4.48379 4.67418 6.5551 4.67418 9.11476C4.67418 11.6744 6.74603 13.7457 9.30637 13.7457Z"
                   fill="#333333"
                 />
               </svg>
-            </a>
+            </button>
           </li>
           <!-- 사람 아이콘 -->
-          <label for="toggle-login" aria-label="내 계정" class="login-btn-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-              <path d="M10.9898 9.63398C13.2114 9.63398 15.0124 7.83302 15.0124 5.61143C15.0124 3.38983 13.2114 1.58887 10.9898 1.58887C8.76825 1.58887 6.96729 3.38983 6.96729 5.61143C6.96729 7.83302 8.76825 9.63398 10.9898 9.63398Z" stroke="#333333" stroke-width="1.57895" />
-              <path d="M19.411 20.047C19.411 15.3962 15.6407 11.626 10.9899 11.626C6.33908 11.626 2.56885 15.3962 2.56885 20.047" stroke="#333333" stroke-width="1.57895" />
-            </svg>
-          </label>
+          <li>
+            <label for="toggle-login" aria-label="내 계정" class="login-btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                <path d="M10.9898 9.63398C13.2114 9.63398 15.0124 7.83302 15.0124 5.61143C15.0124 3.38983 13.2114 1.58887 10.9898 1.58887C8.76825 1.58887 6.96729 3.38983 6.96729 5.61143C6.96729 7.83302 8.76825 9.63398 10.9898 9.63398Z" stroke="#333333" stroke-width="1.57895" />
+                <path d="M19.411 20.047C19.411 15.3962 15.6407 11.626 10.9899 11.626C6.33908 11.626 2.56885 15.3962 2.56885 20.047" stroke="#333333" stroke-width="1.57895" />
+              </svg>
+            </label>
+          </li>
           <!-- 장바구니 아이콘 -->
           <li>
             <a href="#" aria-label="장바구니"

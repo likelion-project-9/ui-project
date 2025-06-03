@@ -137,10 +137,19 @@ form a {
 }
 
 .signup-btn {
+  display: inline-block;
+  width: 317.16px;
   height: 48px;
+  line-height: 48px;
+  text-align: center;
+  font-size: 16px;
   border: 1px solid var(--btn-border);
   background: var(--white);
+  color: var(--btn-border);
   margin-top: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
 }
 
 .sns-login {
