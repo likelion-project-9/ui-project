@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>숫자 네비게이터</title>
+    <link rel="stylesheet" href="/src/common/modern-reset.css" />
+    <link rel="stylesheet" href="/src/Ediya-component/news/components/news_navigator.css" />
+   
+  </head>
+  <body>
+    
+   <div class="component-box">
+      <h2 class="component-title">숫자 네비게이터</h2>
+      <div class="component-preview">
+        
+         <nav class="pagination">
+              <ul class="list-pagination">
+                <li>
+                  <a href="#" aria-label="이전 페이지" class="pagination-prev">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16" fill="none">
+            <path fill="#919BC6" fill-rule="evenodd" d="M14.591 6.987a6.674 6.674 0 0 1-6.59 7.68A6.674 6.674 0 0 1 1.333 8 6.674 6.674 0 0 1 8 1.333c2.086 0 4.012.95 5.285 2.602a.486.486 0 0 1-.769.592A5.657 5.657 0 0 0 8 2.303 5.704 5.704 0 0 0 2.303 8 5.703 5.703 0 0 0 8 13.697a5.703 5.703 0 0 0 5.632-6.563.485.485 0 0 1 .959-.147ZM6.138 8c0-.133.052-.26.147-.354l2.324-2.314a.5.5 0 1 1 .706.708L7.346 8l1.969 1.96a.5.5 0 0 1-.706.708L6.285 8.354A.496.496 0 0 1 6.138 8Z" clip-rule="evenodd"/></svg>
+                  </a>
+                </li>
+               <li><a href="#" aria-label="다음 페이지" class="pagination-nxt"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16" fill="none">
+            <path fill="#919BC6" fill-rule="evenodd" d="M14.591 6.987a6.674 6.674 0 0 1-6.59 7.68A6.674 6.674 0 0 1 1.333 8 6.674 6.674 0 0 1 8 1.333c2.086 0 4.012.95 5.285 2.602a.486.486 0 0 1-.769.592A5.657 5.657 0 0 0 8 2.303 5.704 5.704 0 0 0 2.303 8 5.703 5.703 0 0 0 8 13.697a5.703 5.703 0 0 0 5.632-6.563.485.485 0 0 1 .959-.147ZM6.138 8c0-.133.052-.26.147-.354l2.324-2.314a.5.5 0 1 1 .706.708L7.346 8l1.969 1.96a.5.5 0 0 1-.706.708L6.285 8.354A.496.496 0 0 1 6.138 8Z" clip-rule="evenodd"/>
+          </svg></a>
+                </li>
+              </ul>
+            </nav>
+       </div>
+    </div>
+
+            <!-- 자바스크립트 코드 -->
+             <script>
+  const paginationList = document.querySelector('.list-pagination');
+  const prevBtn = document.querySelector('.pagination-prev');
+  const nextBtn = document.querySelector('.pagination-nxt');
+
+  const totalPages = 100;  // 총 페이지 수 (예시)
+  const pageGroupSize = 10;
+  let currentGroup = 0;
+
+  function renderPageButtons() {
+    // 기존 번호 버튼 제거
+    document.querySelectorAll('.page-num').forEach(btn => btn.remove());
+
+    const start = currentGroup * pageGroupSize + 1;
+    const end = Math.min(start + pageGroupSize - 1, totalPages);
+
+    for (let i = start; i <= end; i++) {
+      const li = document.createElement('li');
+      li.classList.add('page-num');
+      li.innerHTML = `<a href="#">${i}</a>`;
+      paginationList.insertBefore(li, nextBtn.parentElement);
+    }
+
+    // prev/next 비활성화 처리
+    prevBtn.classList.toggle('disabled', currentGroup === 0);
+    nextBtn.classList.toggle('disabled', end >= totalPages);
+  }
+
+  prevBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (currentGroup > 0) {
+      currentGroup--;
+      renderPageButtons();
+    }
+  });
+
+  nextBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if ((currentGroup + 1) * pageGroupSize < totalPages) {
+      currentGroup++;
+      renderPageButtons();
+    }
+  });
+
+  renderPageButtons(); // 초기 렌더링
+</script>
+    
+  </body>
+</html>

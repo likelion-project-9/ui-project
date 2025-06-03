@@ -1,0 +1,113 @@
+@import url(../../../common/theme/ediya-variables.css);
+
+:root {
+  --color-primary: #1428a0;
+  --color-text: #333;
+  --color-white: #fff;
+  --color-line: #ccc;
+  --font-main: 'Pretendard', sans-serif;
+  --gap-mobile-row: 2px;
+  --gap-mobile-col: 3px;
+  --gap-desktop: 1.95px;
+  --font-size-sm: 0.875rem; /* = 14px */
+}
+
+/* body {
+  margin: 0;
+  padding: 2rem;
+  background-color: #111;
+  color: #fff;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.component-box {
+  border: 1px dashed #444;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+}
+
+.component-title {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: #dadada;
+}
+
+.component-preview {
+  padding: 1rem;
+  background-color: #222;
+  border-radius: 6px;
+} */
+
+
+
+.nav-desktop {
+  display: none;
+}
+
+.nav-desktop a {
+  color: #24388d;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  /* gap:2em; */
+  }
+
+.list-pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0;
+  margin: 0;
+  font-weight: var(--font-weight-bold);
+ }
+
+.list-pagination a {
+  display: flex; /* 기존 inline-block → flex */
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  font-size: var(--font-size-sm);
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-text-light);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .nav-desktop {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.pagination-prev svg{
+  border-radius: 50%; 
+}
+.pagination-nxt svg{
+ transform: rotate(180deg);
+ border-radius: 50%;
+}
+
+.page-num a:hover {
+  color: var(--color-primary);
+}
+
+.pagination-prev:hover svg, 
+.pagination-nxt:hover svg {
+  border: 3px solid var(--color-primary);
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New 텝 컴포넌트</title>
+    <link rel="stylesheet" href="/src/common/modern-reset.css" />
+    <link rel="stylesheet" href="/src/Ediya-component/news/components/news_select.css" />
+    </head>
+  <body>
+   <div class="component-box">
+      <h2 class="component-title">New 텝 컴포넌트</h2>
+      <div class="component-preview">
+
+        <form class="search-form">
+              <label for="category" class="sr-only">카테고리 선택</label>
+              <div class="select-wrapper">
+                <select id="category">
+                  <option value="title">제목</option>
+                  <option value="content">내용</option>
+                </select>
+            
+                <!-- 아이콘: 기본/포커스 상태 전환용 -->
+                <div class="select-icon">
+                  <!-- 검은 역삼각형 -->
+                  <svg class="icon-down" xmlns="http://www.w3.org/2000/svg" width="10" height="8" viewBox="0 0 10 8" fill="none">
+                    <path d="M5 8L10 0H0L5 8Z" fill="#0F0F0F" />
+                  </svg>
+                  <!-- 파란 정삼각형 -->
+                  <svg class="icon-up" xmlns="http://www.w3.org/2000/svg" width="10" height="8" viewBox="0 0 10 8" fill="none">
+                    <path d="M5 0L10 8H0L5 0Z" fill="#24388D" />
+                  </svg>
+                </div>
+              </div>
+            </form>
+
+      </div>
+    </div>
+  </body>
+</html>
