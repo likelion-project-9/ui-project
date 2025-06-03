@@ -1,0 +1,99 @@
+@import url(../../../common/theme/ediya-variables.css);
+
+:root {
+  --color-primary: #1428a0;
+  --color-text: #333;
+  --color-white: #fff;
+  --color-line: #ccc;
+  --font-main: 'Pretendard', sans-serif;
+  --gap-mobile-row: 2px;
+  --gap-mobile-col: 3px;
+  --gap-desktop: 1.95px;
+  --font-size-sm: 0.875rem; /* = 14px */
+}
+
+/* body {
+  margin: 0;
+  padding: 2rem;
+  background-color: #111;
+  color: #fff;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.component-box {
+  border: 1px dashed #444;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+}
+
+.component-title {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: #dadada;
+}
+
+.component-preview {
+  padding: 1rem;
+  background-color: #222;
+  border-radius: 6px;
+} */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background-color: var(--color-white);
+  line-height: 1.5;
+}
+
+.news-wrapper {
+  padding: 2rem 0;
+}
+.tab-menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap-mobile-row) var(--gap-mobile-col);
+  margin-bottom: 1rem;
+}
+
+.tab-menu button {
+  padding: 1rem;
+  background: var(--color-white);
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--color-line);
+}
+
+.tab-menu .active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+
+/* Responsive */
+@media (min-width: 768px) {
+   .tab-menu {
+    display: flex;
+    gap: var(--gap-desktop);
+  }
+
+  .tab-menu button {
+    flex: 1;
+  }
+}
