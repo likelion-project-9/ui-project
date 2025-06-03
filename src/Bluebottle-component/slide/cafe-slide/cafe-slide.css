@@ -21,7 +21,7 @@
 .cafe-slider {
   position: relative;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   overflow: hidden;
 
   .cafe-slides {
@@ -120,7 +120,7 @@
   .cafe-promo-section {
     background-color: var(--color-beige);
     padding: var(--space-5) 10%;
-    max-height: 100vh;
+    max-height: 110vh;
 
     .button-describe {
       text-align: center;

@@ -10,38 +10,41 @@
     <link rel="stylesheet" href="../Bluebottle-component/login/login.css" />
     <link rel="stylesheet" href="../Bluebottle-component/promotion-banner/bluebottle-promotion-banner.css" />
     <link rel="stylesheet" href="../Bluebottle-component/product-card/bluebottle-product-card-page.css" />
-    <link rel="stylesheet" href="../Bluebottle-component/slide/product-slider.css" />
+    <link rel="stylesheet" href="../Bluebottle-component/slide/main-slider.css" />
     <link rel="stylesheet" href="../Bluebottle-component/slide(js)/product-display.css" />
     <link rel="stylesheet" href="../css/bluebottle-min2.css"/>
     <link rel="stylesheet" href="../Bluebottle-component/modal-popup/modal-popup.css" />
     <link rel="stylesheet" href="../Bluebottle-component/slide/cafe-slide/cafe-slide.css" />
     <link rel="stylesheet" href="../Bluebottle-component/footer/footer.css" />
+    <script src="../js/mainslider.js" defer></script>
+    <script src="../js/cafe-slider.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const display = document.querySelector('.product-container');
+        const list = document.querySelector('.list-product');
+        const leftBtn = document.querySelector('.nav-arrow.left');
+        const rightBtn = document.querySelector('.nav-arrow.right');
+
+        const slideWidth = list.firstElementChild.offsetWidth;
+
+        leftBtn.addEventListener('click', () => {
+          display.scrollBy({
+            left: -slideWidth,
+            behavior: 'smooth',
+          });
+        });
+
+        rightBtn.addEventListener('click', () => {
+          display.scrollBy({
+            left: slideWidth,
+            behavior: 'smooth',
+          });
+        });
+      });
+    </script>
   </head>
   <!-- 우혜리 슬라이드 자바스크립트 -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const display = document.querySelector('.product-container');
-      const list = document.querySelector('.list-product');
-      const leftBtn = document.querySelector('.nav-arrow.left');
-      const rightBtn = document.querySelector('.nav-arrow.right');
 
-      const slideWidth = list.firstElementChild.offsetWidth;
-
-      leftBtn.addEventListener('click', () => {
-        display.scrollBy({
-          left: -slideWidth,
-          behavior: 'smooth',
-        });
-      });
-
-      rightBtn.addEventListener('click', () => {
-        display.scrollBy({
-          left: slideWidth,
-          behavior: 'smooth',
-        });
-      });
-    });
-  </script>
   <body>
     <!-- 안동원 헤더 -->
     <p class="free-shipping-msg">35,000원 이상 구매 시 무료 배송 (제주도 별도)</p>
@@ -255,87 +258,44 @@
       });
     </script>
 
-    <!-- 우혜리 슬라이드 -->
-    <h1 class="sr-only">메인 광고 슬라이드</h1>
-    <div class="main-slide-wrapper">
-      <input type="radio" name="main-slider" id="main-slide1" checked />
-      <input type="radio" name="main-slider" id="main-slide2" />
-      <input type="radio" name="main-slider" id="main-slide3" />
-
-      <div class="main-slides-container">
-        <ul class="main-slide-list">
-          <li class="item-slide s1">
-            <div class="banner-txt">
-              <div class="slide-title">여름을 위한 아이템</div>
-              <p class="slide-subtitle">신제품 클리어 콜드 텀블러 20oz 를 만나보세요</p>
-              <a href="/" class="btn">자세히 보기</a>
-            </div>
-          </li>
-          <li class="item-slide s2">
-            <div class="banner-txt">
-              <div class="slide-title">새로운 시즌 아이템</div>
-              <p class="slide-subtitle">선물하기 좋은 블루보틀 베스트셀러</p>
-              <a href="/" class="btn">자세히 보기</a>
-            </div>
-          </li>
-          <li class="item-slide s3">
-            <div class="banner-txt">
-              <div class="slide-title">선물 제안</div>
-              <p class="slide-subtitle">소중한 분을 위한 블로보틀 선물세트</p>
-              <a href="/" class="btn">자세히 보기</a>
-            </div>
-          </li>
-        </ul>
+    <!-- 우혜리 메인 슬라이드 -->
+    <section aria-label="메인 광고 슬라이드" class="main-slider">
+      <div class="main-slides" role="list">
+        <article class="slide s1" id="s1">
+          <div class="slide-text">
+            <p class="slide-title">여름을 위한 아이템</p>
+            <p class="slide-subtitle">신제품 클리어 콜드 텀블러 20oz 를 만나보세요</p>
+            <a href="/" class="btn">자세히 보기</a>
+          </div>
+        </article>
+        <article class="slide s2" id="s2">
+          <div class="slide-text">
+            <p class="slide-title">새로운 시즌 아이템</p>
+            <p class="slide-subtitle">선물하기 좋은 블루보틀 베스트셀러</p>
+            <a href="/" class="btn">자세히 보기</a>
+          </div>
+        </article>
+        <article class="slide s3" id="s3">
+          <div class="slide-text">
+            <p class="slide-title">선물 제안</p>
+            <p class="slide-subtitle">소중한 분을 위한 블루보틀 선물세트</p>
+            <a href="/" class="btn">자세히 보기</a>
+          </div>
+        </article>
       </div>
-
-      <!-- 호버시 화살표 -->
-      <div class="controls">
-        <!-- slide1 -->
-        <label for="main-slide3" class="p1">
-          <svg transform="rotate(180)" width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
-          </svg>
-        </label>
-        <label for="main-slide2" class="n1">
-          <svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
-          </svg>
-        </label>
-        <!-- slide2 -->
-        <label for="main-slide1" class="p2">
-          <svg transform="rotate(180)" width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
-          </svg>
-        </label>
-        <label for="main-slide3" class="n2">
-          <svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
-          </svg>
-        </label>
-        <!-- slide3 -->
-        <label for="main-slide2" class="p3">
-          <svg transform="rotate(180)" width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
-          </svg>
-        </label>
-        <label for="main-slide1" class="n3">
-          <svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
-          </svg>
-        </label>
+      <nav class="main-slide-controls" aria-label="슬라이드 컨트롤">
+        <button class="prev" aria-label="이전 슬라이드">←</button>
+        <button class="next" aria-label="다음 슬라이드">→</button>
+      </nav>
+      <div class="main-slide-pagination" role="tablist" aria-label="슬라이드 선택">
+        <button class="page-btn" role="tab" aria-selected="true" aria-controls="s1">01</button>
+        <button class="page-btn" role="tab" aria-selected="false" aria-controls="s2">02</button>
+        <button class="page-btn" role="tab" aria-selected="false" aria-controls="s3">03</button>
       </div>
+    </section>
 
-      <!-- 슬라이드 페이지 버튼 -->
-      <div class="slide-page-btn-wrapper">
-        <label for="main-slide1" class="page-btn">01</label>
-        <label for="main-slide2" class="page-btn">02</label>
-        <label for="main-slide3" class="page-btn">03</label>
-      </div>
-    </div>
-
-    <!-- 우혜리 js 슬라이드 -->
-    <!-- 제품 리스트 그리드 -->
-    <div class="product-list-wrapper">
+    <!-- 우혜리 제품 광고 카드 슬라이드 -->
+    <section class="product-list-wrapper">
       <button class="nav-arrow left" aria-label="이전">
         <svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path transform="rotate(180 18 4.5)" d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
@@ -348,71 +308,76 @@
       </button>
 
       <section class="product-container">
-        <h2 class="sr-only">주력 상품</h2>
+        <div class="sr-only">주력 상품 광고 섹션</div>
         <ul class="list-product">
           <li>
             <div class="product-card">
-              <figure>
-                <img class="" src="../assets/product-display/prdt-01.webp" alt="product-name" />
-                <figcaption class="describe">
-                  <div>클리어 콜드 텀블러 16oz</div>
-                  <p>아이스 음료 전용 텀블러</p>
-                </figcaption>
-                <a href="/" class="full-link" aria-label="상세페이지로 이동" title="상세페이지 이동"></a>
-              </figure>
+              <a href="/" class="full-link" aria-label="상세페이지로 이동" title="클리어 콜드 텀블러 16oz">
+                <figure>
+                  <img src="../assets/product-display/prdt-01.webp" alt="클리어 콜드 텀블러 16oz" />
+                  <figcaption class="describe">
+                    <div>클리어 콜드 텀블러 16oz</div>
+                    <p>아이스 음료 전용 텀블러</p>
+                  </figcaption>
+                </figure>
+              </a>
             </div>
           </li>
           <li>
             <div class="product-card">
-              <figure>
-                <img class="" src="../assets/product-display/prdt-02.webp" alt="product-name" />
-                <figcaption class="describe">
-                  <div>콜드브루 커피 세트</div>
-                  <p>간편하게 즐기는 스페셜티 커피</p>
-                </figcaption>
-                <a href="/" class="full-link" aria-label="상세페이지로 이동" title="상세페이지 이동"></a>
-              </figure>
+              <a href="/" class="full-link" aria-label="상세페이지로 이동" title="콜드브루 커피 세트">
+                <figure>
+                  <img src="../assets/product-display/prdt-02.webp" alt="콜드브루 커피 세트" />
+                  <figcaption class="describe">
+                    <div>콜드브루 커피 세트</div>
+                    <p>간편하게 즐기는 스페셜티 커피</p>
+                  </figcaption>
+                </figure>
+              </a>
             </div>
           </li>
           <li>
             <div class="product-card">
-              <figure>
-                <img class="" src="../assets/product-display/prdt-03.webp" alt="product-name" />
-                <figcaption class="describe">
-                  <div>더블윌 써모 글라스 세트</div>
-                  <p>시원한 음료를 위한 감각적인 디자인</p>
-                </figcaption>
-                <a href="/" class="full-link" aria-label="상세페이지로 이동" title="상세페이지 이동"></a>
-              </figure>
+              <a href="/" class="full-link" aria-label="상세페이지로 이동" title="더블윌 써모 글라스 세트">
+                <figure>
+                  <img src="../assets/product-display/prdt-03.webp" alt="더블윌 써모 글라스 세트" />
+                  <figcaption class="describe">
+                    <div>더블윌 써모 글라스 세트</div>
+                    <p>시원한 음료를 위한 감각적인 디자인</p>
+                  </figcaption>
+                </figure>
+              </a>
             </div>
           </li>
           <li>
             <div class="product-card">
-              <figure>
-                <img class="" src="../assets/product-display/prdt-04.webp" alt="product-name" />
-                <figcaption class="describe">
-                  <div>트래블 머그 화이트20oz</div>
-                  <p>넉넉한 사이즈와 실용적인 디자인</p>
-                </figcaption>
-                <a href="/" class="full-link" aria-label="상세페이지로 이동" title="상세페이지 이동"></a>
-              </figure>
+              <a href="/" class="full-link" aria-label="상세페이지로 이동" title="트래블 머그 화이트20oz">
+                <figure>
+                  <img src="../assets/product-display/prdt-04.webp" alt="트래블 머그 화이트20oz" />
+                  <figcaption class="describe">
+                    <div>트래블 머그 화이트20oz</div>
+                    <p>넉넉한 사이즈와 실용적인 디자인</p>
+                  </figcaption>
+                </figure>
+              </a>
             </div>
           </li>
           <li>
             <div class="product-card">
-              <figure>
-                <img class="" src="../assets/product-display/prdt-05.webp" alt="product-name" />
-                <figcaption class="describe">
-                  <div>벨라 도노반</div>
-                  <p>블루보틀 시그니처 블렌드</p>
-                </figcaption>
-                <a href="/" class="full-link" aria-label="상세페이지로 이동" title="상세페이지 이동"></a>
-              </figure>
+              <a href="/" class="full-link" aria-label="상세페이지로 이동" title="벨라 도노반">
+                <figure>
+                  <img src="../assets/product-display/prdt-05.webp" alt="벨라 도노반" />
+                  <figcaption class="describe">
+                    <div>벨라 도노반</div>
+                    <p>블루보틀 시그니처 블렌드</p>
+                  </figcaption>
+                </figure>
+              </a>
             </div>
           </li>
         </ul>
       </section>
-    </div>
+    </section>
 
     <!-- 형민님 -->
     <section class="wrapper-brewing-tool" aria-labelledby="promo-heading">
@@ -586,43 +551,29 @@
     </div>
     <!-- 혜리님 카페 슬라이드 -->
     <div class="cafe-promo-section">
-      <div class="cafe-slide-wrapper">
-        <input type="radio" name="cafe-slider" id="cafe-slide1" checked />
-        <input type="radio" name="cafe-slider" id="cafe-slide2" />
+      <section aria-label="카페 광고 슬라이드" class="cafe-slider">
+        <ul class="cafe-slides">
+          <li class="slide s1" id="slide1">
+            <p class="slide-title">블루보틀 부산 기장 카페</p>
+          </li>
+          <li class="slide s2" id="slide2">
+            <p class="slide-title">블루 보틀 수원 타임빌라스 팝업</p>
+          </li>
+        </ul>
 
-        <div class="cafe-slide-container">
-          <ul class="cafe-slide-list">
-            <li class="item-slide s1"></li>
-            <li class="item-slide s2"></li>
-          </ul>
+        <nav class="cafe-slide-controls" aria-label="슬라이드 컨트롤">
+          <button class="prev" aria-label="이전 슬라이드">←</button>
+          <button class="next" aria-label="다음 슬라이드">→</button>
+        </nav>
+        <div class="cafe-slide-pagination" role="tablist" aria-label="슬라이드 선택">
+          <button class="page-btn" role="tab" aria-selected="true" aria-controls="slide1">01</button>
+          <button class="page-btn" role="tab" aria-selected="false" aria-controls="slide2">02</button>
         </div>
-
-        <div class="controls">
-          <!-- slide2 -->
-          <label for="cafe-slide1" class="prev">
-            <svg transform="rotate(180)" width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
-            </svg>
-          </label>
-          <!-- slide1 -->
-          <label for="cafe-slide2" class="next">
-            <svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
-            </svg>
-          </label>
-        </div>
-      </div>
-      <!-- 슬라이드 페이지 버튼 -->
-      <div class="slide-page-btn-wrapper">
-        <label for="cafe-slide1" class="page-btn">01</label>
-        <label for="cafe-slide2" class="page-btn">02</label>
-      </div>
-
-      <div class="find-cafe-wrapper">
-        <p class="describe">가까운 블루보틀 카페를 확인해보세요</p>
-        <a href="#" class="btn-outline">카페 찾기</a>
-      </div>
+        <p class="button-describe">가까운 블루보틀 카페를 확인해보세요</p>
+        <a href="#" class="btn-outline find-cafe-btn">카페 찾기</a>
+      </section>
     </div>
+
     <!-- 안동원 푸터 -->
     <!-- footer -->
     <footer class="footer">
