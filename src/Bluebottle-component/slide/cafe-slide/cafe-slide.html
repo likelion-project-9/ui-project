@@ -11,42 +11,65 @@
     <h1 class="sr-only">카페 소개 슬라이드</h1>
 
     <div class="cafe-promo-section">
-      <div class="cafe-slide-wrapper">
-        <input type="radio" name="cafe-slider" id="cafe-slide1" checked />
-        <input type="radio" name="cafe-slider" id="cafe-slide2" />
+      <section aria-label="카페 광고 슬라이드" class="cafe-slider">
+        <ul class="cafe-slides">
+          <li class="slide s1" id="slide1">
+            <p class="slide-title">블루보틀 부산 기장 카페</p>
+          </li>
+          <li class="slide s2" id="slide2">
+            <p class="slide-title">블루 보틀 수원 타임빌라스 팝업</p>
+          </li>
+        </ul>
 
-        <div class="cafe-slide-container">
-          <ul class="cafe-slide-list">
-            <li class="item-slide s1"></li>
-            <li class="item-slide s2"></li>
-          </ul>
+        <nav class="cafe-slide-controls" aria-label="슬라이드 컨트롤">
+          <button class="prev" aria-label="이전 슬라이드">←</button>
+          <button class="next" aria-label="다음 슬라이드">→</button>
+        </nav>
+        <div class="cafe-slide-pagination" role="tablist" aria-label="슬라이드 선택">
+          <button class="page-btn" role="tab" aria-selected="true" aria-controls="slide1">01</button>
+          <button class="page-btn" role="tab" aria-selected="false" aria-controls="slide2">02</button>
         </div>
-
-        <div class="controls">
-          <!-- slide2 -->
-          <label for="cafe-slide1" class="prev">
-            <svg transform="rotate(180)" width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
-            </svg>
-          </label>
-          <!-- slide1 -->
-          <label for="cafe-slide2" class="next">
-            <svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
-            </svg>
-          </label>
-        </div>
-      </div>
-      <!-- 슬라이드 페이지 버튼 -->
-      <div class="slide-page-btn-wrapper">
-        <label for="cafe-slide1" class="page-btn">01</label>
-        <label for="cafe-slide2" class="page-btn">02</label>
-      </div>
-
-      <div class="find-cafe-wrapper">
-        <p class="describe">가까운 블루보틀 카페를 확인해보세요</p>
-        <a href="#" class="btn-outline">카페 찾기</a>
-      </div>
+        <p class="button-describe">가까운 블루보틀 카페를 확인해보세요</p>
+        <a href="#" class="btn-outline find-cafe-btn">카페 찾기</a>
+      </section>
     </div>
+
+    <script>
+      const slides = document.querySelector('.cafe-slides');
+      const slideItems = document.querySelectorAll('.cafe-slides li');
+      const prevBtn = document.querySelector('.prev');
+      const nextBtn = document.querySelector('.next');
+      const pageBtns = document.querySelectorAll('.page-btn');
+
+      let currentIndex = 0;
+      const totalSlides = slideItems.length;
+
+      <!-- 슬라이드 wrapper와 아이템 각각 너비 설정 -->
+      slides.style.width = `${100 * totalSlides}%`;
+      slideItems.forEach((slide) => {
+        slide.style.width = `${100 / totalSlides}%`;
+      });
+
+      function goToSlide(index) {
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+
+        slides.style.transform = `translateX(-${(100 / totalSlides) * index}%)`;
+
+        pageBtns.forEach((btn, i) => {
+          btn.setAttribute('aria-selected', i === index);
+        });
+        currentIndex = index;
+      }
+
+      prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+      nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+      pageBtns.forEach((btn, i) => {
+        btn.addEventListener('click', () => goToSlide(i));
+      });
+
+      // 초기화
+      goToSlide(0);
+    </script>
   </body>
 </html>
