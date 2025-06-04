@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../Bluebottle-component/product-card/bluebottle-product-card-page.css" />
     <link rel="stylesheet" href="../Bluebottle-component/slide/main-slider.css" />
     <link rel="stylesheet" href="../Bluebottle-component/slide(js)/product-display.css" />
-    <link rel="stylesheet" href="../css/bluebottle-min2.css"/>
+    <link rel="stylesheet" href="../css/bluebottle-min2.css" />
     <link rel="stylesheet" href="../Bluebottle-component/modal-popup/modal-popup.css" />
     <link rel="stylesheet" href="../Bluebottle-component/slide/cafe-slide/cafe-slide.css" />
     <link rel="stylesheet" href="../Bluebottle-component/footer/footer.css" />
@@ -452,65 +452,65 @@
 
     <!-- 민영님 -->
     <!-- 드리퍼 카드 -->
-<div class="cards-wrapper">
-  <div class="img-boxtxt dripper"></div>
-  <div class="card-text">
-    <h2 class="sr-only">푸어 오버 키트 소개</h2>
-    <div class="headline">
-      <p>온라인 스토어 단독</p>
-      <p>오버 키트를 만나보세요</p>
+    <div class="cards-wrapper">
+      <div class="img-boxtxt dripper"></div>
+      <div class="card-text">
+        <h2 class="sr-only">푸어 오버 키트 소개</h2>
+        <div class="headline">
+          <p>온라인 스토어 단독</p>
+          <p>오버 키트를 만나보세요</p>
+        </div>
+        <dl class="product-list">
+          <dt>커피 드리퍼</dt>
+          <dd>최상의 푸어 오버를 위해 탄생한 정교한 디자인과 기능</dd>
+          <dt>커피 카라페</dt>
+          <dd>드리퍼와 함께 편리하게 사용할 수 있는 디자인과 사이즈</dd>
+          <dt>커피 필터</dt>
+          <dd>블루보틀의 노하우를 담은 독창적 디자인의 필터</dd>
+        </dl>
+        <a href="#" class="btn-outline">푸어 오버 키트 보기</a>
+      </div>
     </div>
-    <dl class="product-list">
-      <dt>커피 드리퍼</dt>
-      <dd>최상의 푸어 오버를 위해 탄생한 정교한 디자인과 기능</dd>
-      <dt>커피 카라페</dt>
-      <dd>드리퍼와 함께 편리하게 사용할 수 있는 디자인과 사이즈</dd>
-      <dt>커피 필터</dt>
-      <dd>블루보틀의 노하우를 담은 독창적 디자인의 필터</dd>
-    </dl>
-    <a href="#" class="btn-outline">푸어 오버 키트 보기</a>
-  </div>
-</div>
 
-<!-- 라이프 스타일 카드 -->
-<div class="cards-wrapper reverse">
-  <div class="img-boxtxt life-style"></div>
-  <div class="card-text">
-    <h2 class="sr-only">라이프 스타일 제품</h2>
-    <div class="headline">
-      <p>다채로운 라이프스타일</p>
-      <p>아이템을 소개합니다</p>
+    <!-- 라이프 스타일 카드 -->
+    <div class="cards-wrapper reverse">
+      <div class="img-boxtxt life-style"></div>
+      <div class="card-text">
+        <h2 class="sr-only">라이프 스타일 제품</h2>
+        <div class="headline">
+          <p>다채로운 라이프스타일</p>
+          <p>아이템을 소개합니다</p>
+        </div>
+        <dl class="product-list">
+          <dt>런치백</dt>
+          <dd>아폴리스와의 협업으로 탄생한 토트백</dd>
+          <dt>핸드 케어 세트</dt>
+          <dd>시낭과의 협업으로 탄생한 핸드 크림과 스크럽</dd>
+          <dt>엠브로이더리 에코 백 미니</dt>
+          <dd>볼앤체인과 블루보틀 커피가 협업한 에코백</dd>
+        </dl>
+        <a href="#" class="btn-outline">라이프 스타일 보기</a>
+      </div>
     </div>
-    <dl class="product-list">
-      <dt>런치백</dt>
-      <dd>아폴리스와의 협업으로 탄생한 토트백</dd>
-      <dt>핸드 케어 세트</dt>
-      <dd>시낭과의 협업으로 탄생한 핸드 크림과 스크럽</dd>
-      <dt>엠브로이더리 에코 백 미니</dt>
-      <dd>볼앤체인과 블루보틀 커피가 협업한 에코백</dd>
-    </dl>
-    <a href="#" class="btn-outline">라이프 스타일 보기</a>
-  </div>
-</div>
     <!-- 혜리님 팝업 -->
     <div class="chatbot-widget">
-      <!-- 챗봇 버튼 -->
-      <input type="checkbox" id="chatbot-toggle" hidden />
-      <label for="chatbot-toggle" class="chatbot-btn">
-        <img src="../assets/chatbot-icon/icon.svg" alt="챗봇" />
-      </label>
+      <!-- 챗봇 버튼 (button으로 변경) -->
+      <button id="chatbot-toggle-btn" class="chatbot-btn" aria-label="채팅 열기">
+        <img src="../assets/chatbot-icon/icon.svg" alt="블루보틀 로고" />
+      </button>
 
       <!-- 모달창 -->
-      <div class="modal-wrapper">
+      <div class="modal-wrapper" id="modalWrapper">
         <div class="bot-profile">
           <div class="name"><strong>블루보틀</strong></div>
-          <input type="checkbox" id="popup-toggle" hidden />
-          <label for="popup-toggle" class="open-toggle">운영시간 보기 > </label>
+
+          <!-- 운영시간 토글 버튼 -->
+          <button id="open-toggle-btn" class="open-toggle" aria-label="운영시간 보기">운영시간 보기 ></button>
 
           <!-- 모달 창 안의 팝업 -->
           <div id="trading-hour-popup" class="trading-hour-popup">
-            <label for="popup-toggle" id="close-toggle">닫기</label>
-            <ul list-trading-hour>
+            <button id="close-toggle-btn" aria-label="닫기">닫기</button>
+            <ul data-list-trading-hour>
               <li class="hours-list">
                 <div class="label">운영시간</div>
                 <div class="hours">
@@ -539,6 +539,7 @@
             <span class="timezone">-Timezone: Asia/Seoul</span>
           </div>
         </div>
+
         <div class="modal-content">
           <div class="content">
             <p>이용시간아님</p>
@@ -608,9 +609,9 @@
             <h2>구독하고 최신 정보를 받아보세요.</h2>
             <p>이메일 뉴스레터에 가입하여 독점 혜택, 블루보틀 뉴스, 이벤트, 그리고 기분 좋은 신제품 소식을 누구보다 먼저 알아보세요.</p>
             <form>
-              <label for="email" class="sr-only">이메일 주소 입력</label>
+              <label for="newsletter-email" class="sr-only">이메일 주소 입력</label>
               <div class="input-group">
-                <input type="email" id="email" placeholder="이메일 주소를 입력해 주세요." />
+                <input type="email" id="newsletter-email" placeholder="이메일 주소를 입력해 주세요." />
                 <button type="submit" aria-label="뉴스레터 구독">
                   <svg xmlns="http://www.w3.org/2000/svg" width="36" height="9" viewBox="0 0 36 9" fill="none">
                     <path d="M35.4488 4.85356C35.6441 4.6583 35.6441 4.34171 35.4488 4.14645L32.2668 0.96447C32.0715 0.769207 31.755 0.769207 31.5597 0.96447C31.3644 1.15973 31.3644 1.47631 31.5597 1.67158L34.3881 4.5L31.5597 7.32843C31.3644 7.52369 31.3644 7.84028 31.5597 8.03554C31.755 8.2308 32.0715 8.2308 32.2668 8.03554L35.4488 4.85356ZM-3.4865e-08 5L35.0952 5L35.0952 4L3.4865e-08 4L-3.4865e-08 5Z" fill="white"></path>
@@ -708,5 +709,28 @@
         </div>
       </div>
     </footer>
+    <!-- 혜리님 chatbot -->
+    <script>
+      // 챗봇 버튼 클릭 시 모달 토글
+      const chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
+      const modalWrapper = document.getElementById('modalWrapper');
+
+      chatbotToggleBtn.addEventListener('click', () => {
+        modalWrapper.classList.toggle('active');
+      });
+
+      // 운영시간 보기 버튼
+      const openToggleBtn = document.getElementById('open-toggle-btn');
+      const closeToggleBtn = document.getElementById('close-toggle-btn');
+      const tradingHourPopup = document.getElementById('trading-hour-popup');
+
+      openToggleBtn.addEventListener('click', () => {
+        tradingHourPopup.classList.add('active');
+      });
+
+      closeToggleBtn.addEventListener('click', () => {
+        tradingHourPopup.classList.remove('active');
+      });
+    </script>
   </body>
 </html>
