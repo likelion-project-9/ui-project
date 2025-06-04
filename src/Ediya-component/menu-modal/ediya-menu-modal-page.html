@@ -165,15 +165,33 @@
             return;
           }
 
+          triggerArea.setAttribute('tabindex', '0');
+
+          triggerArea.addEventListener('focusin', function () {
+            modalContainer.style.display = 'block';
+          });
+
+          card.addEventListener('focusout', function (event) {
+            setTimeout(() => {
+              if (!card.contains(document.activeElement)) {
+                if (!modalContainer.classList.contains('mobile-modal-active')) {
+                  modalContainer.style.display = '';
+                }
+              }
+            }, 0);
+          });
+
           function openModalForMobile() {
             modalContainer.classList.add('mobile-modal-active');
+            modalContainer.style.display = 'block';
           }
 
           function closeModalForMobile() {
             modalContainer.classList.remove('mobile-modal-active');
+            modalContainer.style.display = '';
           }
 
-          const handleMobileTriggerClick = (event) => {
+          const handleMobileTriggerClick = () => {
             if (!window.matchMedia('(min-width: 768px)').matches) {
               openModalForMobile();
             }
