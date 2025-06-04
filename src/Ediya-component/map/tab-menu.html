@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>탭메뉴 컴포넌트</title>
+    <link rel="stylesheet" href="/src/common/modern-reset.css" />
+    <link rel="stylesheet" href="/src/Ediya-component/map/tab-menu.css" />
+    <link rel="stylesheet" href="/src/common/theme/ediya-component-page.css" />
+  </head>
+  <body>
+    <h1>매장 찾기 페이지 컴포넌트</h1>
+    <div class="component-box">
+      <h2>input type radio를 활용한 탭 버튼</h2>
+      <div class="label" role="tablist" aria-label="탭 메뉴">
+        <div class="tab-menu">
+          <input type="radio" name="type" id="label-1" value="value1" checked />
+          <label for="label-1">레이블1</label>
+        </div>
+        <div class="tab-menu">
+          <input type="radio" name="type" id="label-2" value="value2" />
+          <label for="label-2">레이블2</label>
+        </div>
+      </div>
+    </div>
+    <div class="component-box">
+      <h2>검색</h2>
+      <div class="search-input">
+        <input type="text" aria-label="검색어 입력" placeholder="검색어" class="label" />
+        <button type="submit" aria-label="검색버튼">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="11.7584" cy="11.6272" rx="5.51836" ry="5.38696" stroke="#24388D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M15.5965 15.6533L17.76 17.7598" stroke="#24388D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="component-box">
+      <h2>검색 결과들</h2>
+      <div class="search-result">
+        <figure>
+          <img src="/src/assets/ediay-find-store/ediyacoffee-img.svg" alt="" />
+          <figcaption>
+            <p class="store-title"><strong>점포 이름</strong></p>
+            <p class="store-detail">점포 주소(요약,정보)</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="component-box">
+      <h2>탭메뉴</h2>
+      <form id="search-form">
+        <div class="tab-menu-wrapper">
+          <div class="label">
+            <div class="tab-menu">
+              <input type="radio" name="store-filter" id="store-name" value="store-name" checked />
+              <label for="store-name">점포명</label>
+            </div>
+            <br />
+            <div class="tab-menu">
+              <input type="radio" name="store-filter" id="store-address" value="store-address" />
+              <label for="store-address">주소</label>
+            </div>
+          </div>
+          <p class="keyboard-guide sr-only">← → 키로 필터를 변경하세요</p>
+          <div class="search-input">
+            <input type="text" placeholder="검색어" class="label" />
+            <button type="submit">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="11.7584" cy="11.6272" rx="5.51836" ry="5.38696" stroke="#24388D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M15.5965 15.6533L17.76 17.7598" stroke="#24388D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </form>
+      <ul>
+        <li>
+          <div class="search-result">
+            <figure>
+              <img src="/src/assets/ediay-find-store/ediyacoffee-img.svg" alt="" />
+              <figcaption>
+                <p class="store-title"><strong>길음 뉴타운점</strong></p>
+                <p class="store-detail">서울 성북구 길음로 74 (길음동, 길음 에스에이치빌)</p>
+              </figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="search-result">
+            <figure>
+              <img src="/src/assets/ediay-find-store/ediyacoffee-img.svg" alt="" />
+              <figcaption>
+                <p class="store-title"><strong>길음 중앙점</strong></p>
+                <p class="store-detail">서울 성북구 도봉로 11 (길음동, 삼주빌딩)</p>
+              </figcaption>
+            </figure>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

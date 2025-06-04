@@ -1,0 +1,138 @@
+@import url(/src/common/theme/button.css);
+@import url(/src/common/theme/variables.css);
+
+/* 스크린리더 전용 텍스트 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: minmax(498px, 1fr) auto;
+  min-height: 648px;
+  padding: 128px;
+  align-content: center;
+  width: 100%;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: start;
+  min-width: 294px;
+  margin-left: 112px;
+  width: fit-content;
+}
+
+.img-boxtxt {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 500px;
+  width: 100%;
+  height: auto;
+}
+
+.img-boxtxt.dripper {
+  background-image: url('/src/assets/img-textbox/textbox01-Blue-Bottle-Pour-Over-Kit.webp');
+}
+
+.img-boxtxt.life-style {
+  background-image: url('/src/assets/img-textbox/textbox02-M5_PC.webp');
+}
+
+.headline {
+  display: block;
+  color: #333;
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.headline p{
+  margin-bottom: 0;
+}
+
+.product-list {
+  padding: 0;
+  margin-top: var(--space-4);
+  width: 100%;
+}
+
+.product-list dt {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  width: 100%;
+}
+
+.product-list dd {
+  font-size: var(--font-size-xs);
+  margin: var(--space-3) 0;
+  width: 100%;
+}
+
+.card-text .btn-outline {
+  font-size: var(--font-size-xs);
+  margin-top: var(--space-4);
+  width: 294px !important;
+  height: 48px !important;
+}
+
+/* 반전 레이아웃 (짝수 카드용) */
+@media (min-width: 769px) {
+  .cards-wrapper.reverse {
+    grid-template-columns: minmax(294px, auto) 1fr;
+  }
+
+  .cards-wrapper.reverse .img-boxtxt {
+    order: 2;
+  }
+
+  .cards-wrapper.reverse .card-text {
+    margin-right: 112px;
+    margin-left: 0;
+  }
+}
+
+/* 반응형 모바일 대응 */
+@media (max-width: 768px) {
+  .cards-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    gap: 20px;
+    margin-top: 50px;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  .img-boxtxt {
+    background-position: center;
+    background-size: contain;
+    aspect-ratio: 3 / 2;
+    min-height: unset;
+    padding-top: unset;
+  }
+
+  .card-text {
+    padding-left: 0;
+    margin-left: 0;
+    width: 100%;
+    max-width: none;
+  }
+
+  .card-text .btn-outline {
+    width: 100% !important;
+    box-sizing: border-box;
+    display: block;
+  }
+}

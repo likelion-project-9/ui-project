@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메인 슬라이드</title>
+    <link rel="stylesheet" href="/src/common/modern-reset.css" />
+    <link rel="stylesheet" href="/src/Bluebottle-component/slide/main-slider.css" />
+    <link rel="stylesheet" href="/src/common/theme/component-page.css" />
+    <link rel="stylesheet" href="./cafe-slide/cafe-slide.css" />
+    <link rel="stylesheet" href="/src/Bluebottle-component/slide(js)/product-display.css" />
+    <script src="/src/js/mainslider.js" defer></script>
+    <script src="/src/js/cafe-slider.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const display = document.querySelector('.product-container');
+        const list = document.querySelector('.list-product');
+        const leftBtn = document.querySelector('.nav-arrow.left');
+        const rightBtn = document.querySelector('.nav-arrow.right');
+
+        const slideWidth = list.firstElementChild.offsetWidth;
+
+        // 슬라이드 최대 스크롤 위치 계산
+        const maxScrollLeft = list.scrollWidth - display.clientWidth;
+
+        // 버튼 상태 갱신 함수 (왼쪽 끝/오른쪽 끝에서 disabled 처리)
+        function updateBtnState() {
+          if (display.scrollLeft <= 0) {
+            leftBtn.setAttribute('aria-disabled', 'true');
+            leftBtn.disabled = true;
+          } else {
+            leftBtn.setAttribute('aria-disabled', 'false');
+            leftBtn.disabled = false;
+          }
+
+          if (display.scrollLeft >= maxScrollLeft) {
+            rightBtn.setAttribute('aria-disabled', 'true');
+            rightBtn.disabled = true;
+          } else {
+            rightBtn.setAttribute('aria-disabled', 'false');
+            rightBtn.disabled = false;
+          }
+        }
+
+        leftBtn.addEventListener('click', () => {
+          display.scrollBy({
+            left: -slideWidth,
+            behavior: 'smooth',
+          });
+        });
+
+        rightBtn.addEventListener('click', () => {
+          display.scrollBy({
+            left: slideWidth,
+            behavior: 'smooth',
+          });
+        });
+
+        // 스크롤 감지해서 버튼 상태 업데이트
+        display.addEventListener('scroll', updateBtnState);
+
+        // 초기 상태 세팅
+        updateBtnState();
+
+        // 키보드 방향키 지원 (포커스 있을 때 작동)
+        display.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            if (!leftBtn.disabled) {
+              display.scrollBy({
+                left: -slideWidth,
+                behavior: 'smooth',
+              });
+            }
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            if (!rightBtn.disabled) {
+              display.scrollBy({
+                left: slideWidth,
+                behavior: 'smooth',
+              });
+            }
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>슬라이드 컴포넌트</h1>
+    <div class="component-box">
+      <h2>메인슬라이드</h2>
+      <section aria-label="메인 광고 슬라이드" class="main-slider" tabindex="0">
+        <div class="main-slides" role="list">
+          <article class="slide s1" id="s1" role="group" aria-roledescription="slide" aria-hidden="false" aria-label="1 / 3">
+            <div class="slide-text">
+              <p class="slide-title">여름을 위한 아이템</p>
+              <p class="slide-subtitle">신제품 클리어 콜드 텀블러 20oz 를 만나보세요</p>
+              <a href="/" class="btn">자세히 보기</a>
+            </div>
+          </article>
+          <article class="slide s2" id="s2" role="group" aria-roledescription="slide" aria-label="2 / 3" aria-hidden="true">
+            <div class="slide-text">
+              <p class="slide-title">새로운 시즌 아이템</p>
+              <p class="slide-subtitle">선물하기 좋은 블루보틀 베스트셀러</p>
+              <a href="/" class="btn">자세히 보기</a>
+            </div>
+          </article>
+          <article class="slide s3" id="s3" role="group" aria-roledescription="slide" aria-label="3 / 3" aria-hidden="true">
+            <div class="slide-text">
+              <p class="slide-title">선물 제안</p>
+              <p class="slide-subtitle">소중한 분을 위한 블루보틀 선물세트</p>
+              <a href="/" class="btn">자세히 보기</a>
+            </div>
+          </article>
+        </div>
+        <nav class="main-slide-controls" aria-label="슬라이드 컨트롤">
+          <button class="prev" aria-label="이전 슬라이드">←</button>
+          <button class="next" aria-label="다음 슬라이드">→</button>
+        </nav>
+        <div class="main-slide-pagination" role="tablist" aria-label="슬라이드 선택">
+          <button class="page-btn" role="tab" aria-selected="true" aria-controls="s1">01</button>
+          <button class="page-btn" role="tab" aria-selected="false" aria-controls="s2">02</button>
+          <button class="page-btn" role="tab" aria-selected="false" aria-controls="s3">03</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="component-box">
+      <h2>카페 소개 슬라이드</h2>
+      <div class="cafe-promo-section">
+        <section aria-label="카페 광고 슬라이드" class="cafe-slider" tabindex="0">
+          <ul class="cafe-slides" role="group">
+            <li class="slide s1" id="slide1">
+              <p class="slide-title">블루보틀 부산 기장 카페</p>
+            </li>
+            <li class="slide s2" id="slide2">
+              <p class="slide-title">블루 보틀 수원 타임빌라스 팝업</p>
+            </li>
+          </ul>
+
+          <nav class="cafe-slide-controls" aria-label="슬라이드 컨트롤">
+            <button class="prev" aria-label="이전 슬라이드">←</button>
+            <button class="next" aria-label="다음 슬라이드">→</button>
+          </nav>
+          <div class="cafe-slide-pagination" role="tablist" aria-label="슬라이드 선택">
+            <button class="page-btn" role="tab" aria-selected="true" tabindex="0" aria-controls="slide1">01</button>
+            <button class="page-btn" role="tab" aria-selected="false" tabindex="-1" aria-controls="slide2">02</button>
+          </div>
+
+          <p class="button-describe">가까운 블루보틀 카페를 확인해보세요</p>
+          <a href="#" class="btn-outline find-cafe-btn">카페 찾기</a>
+
+          <!-- 스크린리더 전용 현재 슬라이드 상태 알림 -->
+          <p id="carousel-status" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+        </section>
+      </div>
+    </div>
+
+    <div class="component-box">
+      <h2>제품 광고 슬라이드</h2>
+      <section class="product-list-wrapper">
+        <button class="nav-arrow left" aria-label="이전">
+          <svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path transform="rotate(180 18 4.5)" d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
+          </svg>
+        </button>
+        <button class="nav-arrow right" aria-label="다음">
+          <svg width="36" height="9" viewBox="0 0 36 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M35.4488 4.85341C35.6441 4.65815 35.6441 4.34156 35.4488 4.1463L32.2668 0.964318C32.0715 0.769055 31.755 0.769055 31.5597 0.964318C31.3644 1.15958 31.3644 1.47616 31.5597 1.67143L34.3881 4.49985L31.5597 7.32828C31.3644 7.52354 31.3644 7.84013 31.5597 8.03539C31.755 8.23065 32.0715 8.23065 32.2668 8.03539L35.4488 4.85341ZM0 4.99985H35.0952V3.99985H6.973e-08L0 4.99985Z" fill="black" />
+          </svg>
+        </button>
+
+        <div class="product-container" tabindex="0" aria-label="주력 상품 리스트">
+          <div class="sr-only">주력 상품</div>
+          <ul class="list-product" role="list">
+            <li>
+              <div class="product-card">
+                <a href="/" class="full-link" aria-label="상세페이지로 이동" title="클리어 콜드 텀블러 16oz">
+                  <figure>
+                    <img src="../../assets/product-display/prdt-01.webp" alt="클리어 콜드 텀블러 16oz" />
+                    <figcaption class="describe">
+                      <div>클리어 콜드 텀블러 16oz</div>
+                      <p>아이스 음료 전용 텀블러</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="product-card">
+                <a href="/" class="full-link" aria-label="상세페이지로 이동" title="콜드브루 커피 세트">
+                  <figure>
+                    <img src="../../assets/product-display/prdt-02.webp" alt="콜드브루 커피 세트" />
+                    <figcaption class="describe">
+                      <div>콜드브루 커피 세트</div>
+                      <p>간편하게 즐기는 스페셜티 커피</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="product-card">
+                <a href="/" class="full-link" aria-label="상세페이지로 이동" title="더블윌 써모 글라스 세트">
+                  <figure>
+                    <img src="../../assets/product-display/prdt-03.webp" alt="더블윌 써모 글라스 세트" />
+                    <figcaption class="describe">
+                      <div>더블윌 써모 글라스 세트</div>
+                      <p>시원한 음료를 위한 감각적인 디자인</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="product-card">
+                <a href="/" class="full-link" aria-label="상세페이지로 이동" title="트래블 머그 화이트20oz">
+                  <figure>
+                    <img src="../../assets/product-display/prdt-04.webp" alt="트래블 머그 화이트20oz" />
+                    <figcaption class="describe">
+                      <div>트래블 머그 화이트20oz</div>
+                      <p>넉넉한 사이즈와 실용적인 디자인</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="product-card">
+                <a href="/" class="full-link" aria-label="상세페이지로 이동" title="벨라 도노반">
+                  <figure>
+                    <img src="../../assets/product-display/prdt-05.webp" alt="벨라 도노반" />
+                    <figcaption class="describe">
+                      <div>벨라 도노반</div>
+                      <p>블루보틀 시그니처 블렌드</p>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -3,62 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>블루보틀 로그인</title>
     <link rel="stylesheet" href="../../common/modern-reset.css" />
-    <link rel="stylesheet" href="./login2.css" />
+    <link rel="stylesheet" href="./login-component.css" />
+    <link rel="stylesheet" href="../../common/theme/component-page.css" />
   </head>
   <body>
-    <!-- 슬라이드 로그인 패널 -->
-    <div class="modal" role="dialog" aria-modal="true">
-      <div class="modal-panel">
-        <!-- 닫기 -->
-        <label for="toggle-login" class="close-btn" aria-label="닫기">
-          <span>닫기</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L13 13M13 1L1 13" stroke="#000" stroke-width="1.5" />
-          </svg>
-        </label>
-
-        <h1>로그인</h1>
-        <p class="login-desc">블루보틀 온라인 스토어의 다양한 혜택을 만나보세요</p>
-
-        <form>
-          <div class="field">
-            <input type="email" id="email" placeholder=" " required />
-            <label for="email">이메일 주소 *</label>
-          </div>
-
-          <div class="field">
-            <input type="password" id="password" placeholder=" " required />
-            <label for="password">비밀번호 *</label>
-          </div>
-
-          <a href="#">비밀번호를 잊으셨나요?</a>
-          <button type="submit" class="login-btn">로그인</button>
-          <button type="button" class="signup-btn">회원 가입</button>
-        </form>
-        <div class="sns-login">
-          <!-- 네이버 로그인 -->
-          <a href="https://nid.naver.com/oauth2.0/authorize?client_id=BES9ido8V2708LenebaF&redirect_uri=https%3A%2F%2Fl9j9pa1owh.execute-api.ap-northeast-2.amazonaws.com%2Fproduction%2Fnaver%2Fcallback&response_type=code&state=uuid%253D08ce874a-bbea-4df1-a4b5-80aa302eb76c%2526login_return_to%253D%25252F%2526register_return_to%253D%25252F%2526provider%253Dnaver" class="sns-btn naver" aria-label="네이버 로그인">
-            <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="27.5" cy="27.5" r="27.5" fill="#03C75A" />
-              <path d="M31.0746 28.2008L23.6326 17.5465H17.4634V37.4513H23.9259V26.7996L31.3679 37.4513H37.5371V17.5465H31.0746V28.2008Z" fill="white" />
+    <h1>로그인 컴포넌트</h1>
+    <div class="component-box">
+      <!-- 슬라이드 로그인 패널 -->
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="login-title">
+        <div class="modal-panel">
+          <!-- 닫기 -->
+          <button type="button" class="close-btn" id="close-login" aria-label="닫기">
+            <span>닫기</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L13 13M13 1L1 13" stroke="#000" stroke-width="1.5" />
             </svg>
-          </a>
+          </button>
 
-          <!-- 카카오 로그인 -->
-          <a
-            href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fclient_id%3Dcb39602e4aa0d7a6223a2c03128976ba%26redirect_uri%3Dhttps%253A%252F%252Fl9j9pa1owh.execute-api.ap-northeast-2.amazonaws.com%252Fproduction%252Fkakao%252Fcallback%26response_type%3Dcode%26state%3Duuid%25253D81910fac-d16f-41d3-9b59-53e1a76bfdc0%252526login_return_to%25253D%2525252F%252526register_return_to%25253D%2525252F%252526provider%25253Dkakao%26through_account%3Dtrue#login"
-            class="sns-btn kakao"
-            aria-label="카카오 로그인"
-          >
-            <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="27.5" cy="27.5" r="27.5" fill="#FFEB00" />
-              <path d="M27.9997 15C20.8206 15 14.9995 19.5903 14.9995 25.2514C14.9995 28.6486 17.1006 31.6555 20.3294 33.5215L18.7988 39.2271C18.6527 39.7743 19.2642 40.2097 19.7339 39.893L26.3745 35.4194C26.9074 35.4715 27.4486 35.5021 27.9997 35.5021C35.1787 35.5021 40.9998 30.9132 40.9998 25.2514C40.9998 19.5903 35.1787 15 27.9997 15Z" fill="black" />
-            </svg>
-          </a>
+          <h1 id="login-title">로그인</h1>
+          <p class="login-desc">블루보틀 온라인 스토어의 다양한 혜택을 만나보세요</p>
+
+          <form>
+            <div class="field">
+              <input type="email" id="email" placeholder=" " required />
+              <label for="email">
+                이메일 주소
+                <span aria-hidden="true">*</span>
+                <span class="sr-only"> (필수 입력 항목)</span>
+              </label>
+            </div>
+
+            <div class="field">
+              <input type="password" id="password" placeholder=" " required />
+              <label for="password">
+                비밀번호
+                <span aria-hidden="true">*</span>
+                <span class="sr-only"> (필수 입력 항목)</span>
+              </label>
+            </div>
+
+            <a href="#">비밀번호를 잊으셨나요?</a>
+            <button type="submit" class="login-btn">로그인</button>
+            <a href="../../Ediya-component/sign-up/sign-up.html" class="signup-btn">회원 가입</a>
+          </form>
+          <div class="sns-login">
+            <!-- 네이버 로그인 -->
+            <a href="https://nid.naver.com/oauth2.0/authorize?client_id=BES9ido8V2708LenebaF&redirect_uri=https%3A%2F%2Fl9j9pa1owh.execute-api.ap-northeast-2.amazonaws.com%2Fproduction%2Fnaver%2Fcallback&response_type=code&state=uuid%253D08ce874a-bbea-4df1-a4b5-80aa302eb76c%2526login_return_to%253D%25252F%2526register_return_to%253D%25252F%2526provider%253Dnaver" class="sns-btn naver" aria-label="네이버 로그인">
+              <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="27.5" cy="27.5" r="27.5" fill="#03C75A" />
+                <path d="M31.0746 28.2008L23.6326 17.5465H17.4634V37.4513H23.9259V26.7996L31.3679 37.4513H37.5371V17.5465H31.0746V28.2008Z" fill="white" />
+              </svg>
+            </a>
+
+            <!-- 카카오 로그인 -->
+            <a
+              href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fclient_id%3Dcb39602e4aa0d7a6223a2c03128976ba%26redirect_uri%3Dhttps%253A%252F%252Fl9j9pa1owh.execute-api.ap-northeast-2.amazonaws.com%252Fproduction%252Fkakao%252Fcallback%26response_type%3Dcode%26state%3Duuid%25253D81910fac-d16f-41d3-9b59-53e1a76bfdc0%252526login_return_to%25253D%2525252F%252526register_return_to%25253D%2525252F%252526provider%25253Dkakao%26through_account%3Dtrue#login"
+              class="sns-btn kakao"
+              aria-label="카카오 로그인"
+            >
+              <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="27.5" cy="27.5" r="27.5" fill="#FFEB00" />
+                <path d="M27.9997 15C20.8206 15 14.9995 19.5903 14.9995 25.2514C14.9995 28.6486 17.1006 31.6555 20.3294 33.5215L18.7988 39.2271C18.6527 39.7743 19.2642 40.2097 19.7339 39.893L26.3745 35.4194C26.9074 35.4715 27.4486 35.5021 27.9997 35.5021C35.1787 35.5021 40.9998 30.9132 40.9998 25.2514C40.9998 19.5903 35.1787 15 27.9997 15Z" fill="black" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
+    <script>
+      document.getElementById('close-login').addEventListener('click', () => {
+        document.getElementById('toggle-login').checked = false;
+      });
+    </script>
   </body>
 </html>

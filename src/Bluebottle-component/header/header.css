@@ -1,3 +1,5 @@
+@import url(/src/common/theme/component-page.css);
+
 :root {
   --text-color: #333;
   --font-family-main: 'Noto Sans KR', sans-serif;
@@ -67,6 +69,18 @@ header {
   color: var(--text-color);
   cursor: pointer;
   letter-spacing: 0.28px;
+
+  display: inline-block; /* 포커스 가능하게 */
+  text-decoration: none; /* a 태그 밑줄 제거 */
+  outline: none; /* 기본 포커스 테두리 제거 */
+}
+
+/* 포커스 시 스타일 명시적으로 지정 */
+.main-nav a:focus-visible,
+.main-nav button:focus-visible {
+  outline: 1px solid #333;
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 /* 로고 중앙 정렬 */

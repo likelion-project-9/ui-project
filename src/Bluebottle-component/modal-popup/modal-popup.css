@@ -7,6 +7,22 @@
   right: 20px;
   cursor: pointer;
   z-index: 99;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  &:focus-visible::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    width: 57px;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    box-shadow: 0 0 0 1px var(--color-blue);
+    pointer-events: none;
+  }
 }
 
 .modal-wrapper {
@@ -14,6 +30,7 @@
   background-color: var(--color-cool-gray);
   z-index: 99;
 
+  /* 초기엔 숨김 */
   display: none;
   flex-flow: column;
 
@@ -21,24 +38,25 @@
   bottom: 120px;
   right: 45px;
 
-  width: 450px;
-  height: 650px;
+  width: 358.4px;
+  height: 580px;
 
   border-radius: 3%;
   padding: var(--space-3);
   gap: var(--space-1);
 
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-
-  > a {
-    color: var(--color-dark-gray);
-    font-size: var(--font-size-sm);
-    text-decoration: none;
-    text-align: center;
-  }
 }
 
-#chatbot-toggle:checked + label.chatbot-btn + .modal-wrapper {
+.modal-wrapper > a {
+  color: var(--color-dark-gray);
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  text-align: center;
+}
+
+/* 버튼 클릭 시 표시 */
+.modal-wrapper.active {
   display: flex;
 }
 
@@ -53,14 +71,20 @@
 
   height: 90px;
   padding-left: 90px;
-  .name {
-    font-size: var(--font-size-m);
-  }
+}
 
-  label {
-    font-size: var(--font-size-sm);
-    color: var(--color-dark-gray);
-  }
+.bot-profile .name {
+  font-size: var(--font-size-m);
+}
+
+.bot-profile button.open-toggle {
+  font-size: var(--font-size-sm);
+  color: var(--color-dark-gray);
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
 }
 
 .trading-hour-popup {
@@ -78,54 +102,68 @@
   display: none;
 
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
 
-  label {
-    display: block;
-    width: 100%;
-    text-align: end;
-    margin-bottom: var(--space-1);
-  }
+/* 운영시간 팝업 활성화 시 표시 */
+.trading-hour-popup.active {
+  display: block;
+}
 
-  .timezone {
-    font-size: var(--font-size-sm);
-    color: var(--color-gray);
-  }
+.trading-hour-popup label,
+.trading-hour-popup button#close-toggle-btn {
+  display: block;
+  width: 100%;
+  text-align: end;
+  margin-bottom: var(--space-1);
+  background: none;
+  border: none;
+  font-size: var(--font-size-sm);
+  color: var(--color-dark-gray);
+  cursor: pointer;
+}
 
-  ul {
-    display: flex;
-    flex-flow: column;
-    gap: var(--space-2);
+.trading-hour-popup .timezone {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray);
+}
 
-    .label {
-      font-size: var(--font-size-sm);
-      color: var(--color-dark-gray);
-      margin-bottom: var(--space-1);
-    }
-    .dot {
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      margin-right: var(--space-1);
-    }
-    .green {
-      background-color: green;
-    }
-    .gray {
-      background-color: var(--color-gray);
-    }
+.trading-hour-popup ul {
+  display: flex;
+  flex-flow: column;
+  gap: var(--space-2);
+}
 
-    .hours,
-    .holidays {
-      display: flex;
-      align-items: center;
-      margin-bottom: var(--space-1);
-    }
+.trading-hour-popup .label {
+  font-size: var(--font-size-sm);
+  color: var(--color-dark-gray);
+  margin-bottom: var(--space-1);
+}
 
-    .day {
-      flex: 1;
-    }
-  }
+.trading-hour-popup .dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: var(--space-1);
+}
+
+.trading-hour-popup .green {
+  background-color: green;
+}
+
+.trading-hour-popup .gray {
+  background-color: var(--color-gray);
+}
+
+.trading-hour-popup .hours,
+.trading-hour-popup .holidays {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-1);
+}
+
+.trading-hour-popup .day {
+  flex: 1;
 }
 
 .modal-content {
@@ -134,30 +172,26 @@
   border-radius: 10px;
   background-color: var(--color-white);
   padding: var(--space-2);
-
-  .inquiry-btn {
-    display: inline-block;
-    background-color: var(--color-blue);
-    border-radius: 10px;
-    line-height: var(--button-line-height);
-    color: var(--color-white);
-    font-weight: var(--button-font-weight);
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-
-    margin-top: var(--space-2);
-    margin-bottom: var(--space-1);
-  }
-
-  em {
-    font-size: var(--font-size-sm);
-    width: auto;
-    text-align: center;
-  }
 }
 
-#popup-toggle:checked + label.open-toggle + .trading-hour-popup {
-  display: block;
+.modal-content .inquiry-btn {
+  display: inline-block;
+  background-color: var(--color-blue);
+  border-radius: 10px;
+  line-height: var(--button-line-height);
+  color: var(--color-white);
+  font-weight: var(--button-font-weight);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.modal-content em {
+  font-size: var(--font-size-sm);
+  width: auto;
+  text-align: center;
 }

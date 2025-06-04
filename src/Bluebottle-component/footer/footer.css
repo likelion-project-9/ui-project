@@ -1,4 +1,5 @@
 /* footer.css */
+@import url(/src/common/theme/component-page.css);
 
 :root {
   --footer-bg: #333;
@@ -50,13 +51,16 @@
   gap: 40px;
 }
 
-.footer-links h2,
+.footer-title,
 .footer-newsletter h2 {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-md);
   letter-spacing: var(--letter-spacing-xl);
   color: var(--footer-text);
+  display: block;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
 .footer-links ul li a {
@@ -149,6 +153,7 @@
   letter-spacing: var(--letter-spacing-md);
   color: var(--footer-text);
   padding-top: 20px;
+  font-style: normal;
 }
 
 .footer-bottom {
@@ -176,13 +181,14 @@
   color: var(--footer-text);
 }
 
-.footer-bottom p {
+.footer-bottom small {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-light);
   line-height: 15.6px;
   letter-spacing: var(--letter-spacing-md);
   color: var(--footer-text);
   white-space: nowrap;
+  font-style: normal;
 }
 
 .footer a,

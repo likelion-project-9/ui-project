@@ -1,0 +1,277 @@
+@import url(../../../common/theme/ediya-variables.css);
+@import url(../../../common/modern-reset.css);
+
+:root {
+  --color-primary: #1428a0;
+  --color-text: #333;
+  --color-white: #fff;
+  --color-line: #ccc;
+  --color-navy: #24388d;
+  --font-main: 'Pretendard', sans-serif;
+  --gap-mobile-row: 2px;
+  --gap-mobile-col: 3px;
+  --gap-desktop: 1.95px;
+  --font-size-sm: 0.875rem; /* = 14px */
+}
+
+
+/* 컴포넌트 페이지 기본 */
+
+body{
+  font-family: var(--font-main);
+  color: var(--color-navy);
+  padding: 2rem;
+  line-height: 1.15;
+  background-color: var(--color-bg-light);
+}
+
+.component-preview{
+  background: var(--color-white);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 32px;
+}
+
+h1{
+  margin-bottom: 16px;
+}
+
+/* 뉴스 탭 시작 */
+
+.news-wrapper {
+  padding: 2rem 0;
+}
+.tab-menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap-mobile-row) var(--gap-mobile-col);
+  margin-bottom: 1rem;
+}
+
+.tab-menu button {
+  padding: 1rem;
+  background: var(--color-white);
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--color-line);
+}
+
+.tab-menu .active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+
+/* Responsive */
+@media (min-width: 768px) {
+   .tab-menu {
+    display: flex;
+    gap: var(--gap-desktop);
+  }
+
+  .tab-menu button {
+    flex: 1;
+  }
+}
+
+/* 선택 컴포넌트 시작 */
+.search-form{
+  margin-top: 1rem; /* 배경 서식 */
+}
+
+.select-wrapper {
+  position: relative;
+  width: fit-content;
+}
+
+.select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.select-icon {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+/* 기본 상태: 검정 삼각형만 표시 */
+.select-wrapper .icon-up {
+  display: none;
+}
+
+/* select:focus 또는 열린 상태일 때 교체 */
+.select-wrapper:has(select:focus) .icon-down {
+  display: none;
+}
+.select-wrapper:has(select:focus) .icon-up {
+  display: block;
+}
+
+/* Search 컴포넌트 시작 */
+.search-form{
+  position: relative;
+ }
+
+.search-form input {
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  border: none;
+  border-bottom: 1px solid var(--color-line);
+  flex: 1;
+  width: 100%;
+  max-width: 376px; /* 200 (input) + 36 (btn) + 0.75rem gap */
+}
+
+/* 버튼 (모바일 기본 상태) */
+.btn-search {
+  border: none;
+  background: transparent;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  top: 8px;
+  right: 30px;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .search-form {
+    margin-left: auto;
+    justify-content: flex-start;
+    width: 400px;
+    gap: 0.75rem;
+  }
+
+  .search-form input {
+    border: none;
+    border-bottom: 1px solid var(--color-line);
+    border-radius: 0;
+    padding: 0.5rem 0.75rem;
+    flex: none;
+    width: 100%;
+    max-width: 376px;
+  }
+
+  .btn-search {
+  scale: 80%;
+  right: 25px;
+  top: 10px;
+}
+}
+
+/* Table 컴포넌트 시작 */
+.news-section h2 {
+  margin: 2rem 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.news-section p {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+
+.news-table {
+  width: 100%;
+  border-top: 2px solid var(--color-primary);
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+.news-table th,
+.news-table td {
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid var(--color-line);
+  text-align: left;
+}
+
+.news-table a{
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* 숫자 페이지 네비게이터 컴포넌트 시작 */
+.nav-desktop {
+  display: none;
+}
+
+.nav-desktop a {
+  color: #24388d;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  /* gap:2em; */
+  }
+
+.list-pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0;
+  margin: 0;
+  font-weight: var(--font-weight-bold);
+ }
+
+.list-pagination a {
+  display: flex; /* 기존 inline-block → flex */
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  font-size: var(--font-size-sm);
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-text-light);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .nav-desktop {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.pagination-prev svg{
+  border-radius: 50%; 
+}
+.pagination-nxt svg{
+ transform: rotate(180deg);
+ border-radius: 50%;
+}
+
+.page-num a:hover {
+  color: var(--color-primary);
+}
+
+.pagination-prev:hover svg, 
+.pagination-nxt:hover svg {
+  border: 3px solid var(--color-primary);
+}

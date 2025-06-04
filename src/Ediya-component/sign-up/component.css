@@ -1,0 +1,186 @@
+:root {
+  --color-navy: #002f6c; /* Ediya Blue */
+  --color-light-blue: #7ac4e0; /* Light Blue */
+  --color-accent: #e4f4fc;
+
+  --color-text-strong: #222;
+  --color-text-default: #555;
+  --color-text-light: #888;
+  --color-text-white: #fff;
+
+  --color-bg: #ffffff;
+  --color-bg-light: #f9f9f9;
+  --color-border: #ddd;
+}
+
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--color-navy);
+}
+
+.component-preview {
+  padding: 1rem;
+  background-color: #222;
+  border-radius: 6px;
+}
+
+video.bg-video {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.video-toggle-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.signup-title {
+  color: #fefefe;
+  font-size: 2.25rem;
+  font-weight: 300;
+  letter-spacing: -0.72px;
+  text-align: center;
+  line-height: normal;
+  margin-top: 0;
+}
+
+.signup-subtitle {
+  color: #fefefe;
+  font-size: 1.125rem;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: -0.36px;
+  line-height: normal;
+  margin: 0;
+}
+
+.signup-description {
+  color: #fefefe;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: -0.24px;
+  line-height: normal;
+  margin: 0;
+}
+
+.form-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 1rem;
+}
+
+.form-label {
+  font-size: 0.75rem;
+  color: #dadada;
+}
+
+.form-input {
+  font-size: 1rem;
+  padding: 0.75rem;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: #aaa;
+}
+
+.password-group .toggle-password {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  /* 접근성 터치 영역 확보 */
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-group .toggle-password svg {
+  width: 16px;
+  height: 16px;
+  fill: #fefefe;
+}
+
+.password-tip {
+  font-size: 0.75rem;
+  color: #fff;
+  opacity: 0.8;
+  margin-top: 12px;
+}
+
+.btn {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.875rem;
+  border-radius: 0.5rem;
+  border: 1px solid #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+  margin-top: 1rem;
+}
+
+.btn-icon .arrow-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  color: inherit;
+}
+
+.btn-primary {
+  background-color: #fefefe;
+  color: #24388d;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #f5f5f5;
+  backdrop-filter: blur(2px);
+}
+
+@media (min-width: 768px) {
+  .component-preview {
+    max-width: 480px;
+  }
+  .signup-title {
+    font-size: 2.25rem;
+  }
+  .signup-subtitle,
+  .signup-description {
+    font-size: 1rem;
+  }
+  .btn-primary,
+  .btn-secondary {
+    color: #d2c9b6;
+  }
+  .btn {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+}
