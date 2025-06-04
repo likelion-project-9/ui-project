@@ -1,3 +1,5 @@
+@import url(/src/common/theme/component-page.css);
+
 :root {
   --text-color: #333;
   --font-family-main: 'Noto Sans KR', sans-serif;

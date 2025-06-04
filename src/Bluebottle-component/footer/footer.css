@@ -1,4 +1,5 @@
 /* footer.css */
+@import url(/src/common/theme/component-page.css);
 
 :root {
   --footer-bg: #333;
