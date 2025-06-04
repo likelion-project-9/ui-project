@@ -91,6 +91,7 @@ body {
 
 .list-drink-menu {
   display: grid;
+  place-items: center;
   gap: 20px;
   grid-template-columns: 1fr;
   margin-top: 50px;
@@ -227,7 +228,7 @@ body {
     gap: 1rem;
   }
 
-  .btn-hamburger{
+  .btn-hamburger {
     display: none;
     pointer-events: none;
   }
