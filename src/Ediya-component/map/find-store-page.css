@@ -31,7 +31,7 @@
 }
 
 body {
-  padding:0;
+  padding: 0;
   font-family: var(--font-main);
   color: var(--color-text);
   background-color: var(--color-white);
@@ -93,19 +93,21 @@ body {
   margin-top: var(--space-1);
 }
 
-
+input[type='radio']:focus + label {
+  outline: 5px solid var(--color-black);
+}
 
 @media (min-width: 768px) {
-    .nav-desktop {
+  .nav-desktop {
     display: flex;
     gap: 1rem;
   }
 
-  .btn-hamburger{
+  .btn-hamburger {
     display: none;
     pointer-events: none;
   }
-  
+
   .component-box {
     position: relative;
   }
