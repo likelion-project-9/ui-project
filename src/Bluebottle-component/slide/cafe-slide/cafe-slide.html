@@ -6,13 +6,15 @@
     <title>슬라이드박스</title>
     <link rel="stylesheet" href="/src/common/modern-reset.css" />
     <link rel="stylesheet" href="./cafe-slide.css" />
+
+    <script src="/src/js/cafe-slider.js" defer></script>
   </head>
   <body>
     <h1 class="sr-only">카페 소개 슬라이드</h1>
 
     <div class="cafe-promo-section">
-      <section aria-label="카페 광고 슬라이드" class="cafe-slider">
-        <ul class="cafe-slides">
+      <section aria-label="카페 광고 슬라이드" class="cafe-slider" tabindex="0">
+        <ul class="cafe-slides" role="group">
           <li class="slide s1" id="slide1">
             <p class="slide-title">블루보틀 부산 기장 카페</p>
           </li>
@@ -26,50 +28,16 @@
           <button class="next" aria-label="다음 슬라이드">→</button>
         </nav>
         <div class="cafe-slide-pagination" role="tablist" aria-label="슬라이드 선택">
-          <button class="page-btn" role="tab" aria-selected="true" aria-controls="slide1">01</button>
-          <button class="page-btn" role="tab" aria-selected="false" aria-controls="slide2">02</button>
+          <button class="page-btn" role="tab" aria-selected="true" tabindex="0" aria-controls="slide1">01</button>
+          <button class="page-btn" role="tab" aria-selected="false" tabindex="-1" aria-controls="slide2">02</button>
         </div>
+
         <p class="button-describe">가까운 블루보틀 카페를 확인해보세요</p>
         <a href="#" class="btn-outline find-cafe-btn">카페 찾기</a>
+
+        <!-- 스크린리더 전용 현재 슬라이드 상태 알림 -->
+        <p id="carousel-status" class="sr-only" aria-live="polite" aria-atomic="true"></p>
       </section>
     </div>
-
-    <script>
-      const slides = document.querySelector('.cafe-slides');
-      const slideItems = document.querySelectorAll('.cafe-slides li');
-      const prevBtn = document.querySelector('.prev');
-      const nextBtn = document.querySelector('.next');
-      const pageBtns = document.querySelectorAll('.page-btn');
-
-      let currentIndex = 0;
-      const totalSlides = slideItems.length;
-
-      <!-- 슬라이드 wrapper와 아이템 각각 너비 설정 -->
-      slides.style.width = `${100 * totalSlides}%`;
-      slideItems.forEach((slide) => {
-        slide.style.width = `${100 / totalSlides}%`;
-      });
-
-      function goToSlide(index) {
-        if (index < 0) index = totalSlides - 1;
-        if (index >= totalSlides) index = 0;
-
-        slides.style.transform = `translateX(-${(100 / totalSlides) * index}%)`;
-
-        pageBtns.forEach((btn, i) => {
-          btn.setAttribute('aria-selected', i === index);
-        });
-        currentIndex = index;
-      }
-
-      prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-      nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
-      pageBtns.forEach((btn, i) => {
-        btn.addEventListener('click', () => goToSlide(i));
-      });
-
-      // 초기화
-      goToSlide(0);
-    </script>
   </body>
 </html>

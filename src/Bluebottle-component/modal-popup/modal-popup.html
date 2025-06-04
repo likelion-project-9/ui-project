@@ -15,16 +15,16 @@
       <div class="chatbot-widget">
         <!-- 챗봇 버튼 (button으로 변경) -->
         <button id="chatbot-toggle-btn" class="chatbot-btn" aria-label="채팅 열기">
-          <img src="../../assets/chatbot-icon/icon.svg" alt="블루보틀 로고" />
+          <img src="../../assets/chatbot-icon/icon.svg" alt="" />
         </button>
         <!-- 모달창 -->
-        <div class="modal-wrapper" id="modalWrapper">
+        <div class="modal-wrapper" id="modalWrapper" role="dialog" hidden>
           <div class="bot-profile">
             <div class="name"><strong>블루보틀</strong></div>
             <!-- 운영시간 토글 버튼 -->
             <button id="open-toggle-btn" class="open-toggle" aria-label="운영시간 보기">운영시간 보기 ></button>
             <!-- 모달 창 안의 팝업 -->
-            <div id="trading-hour-popup" class="trading-hour-popup">
+            <div id="trading-hour-popup" class="trading-hour-popup" role="dialog" hidden>
               <button id="close-toggle-btn" aria-label="닫기">닫기</button>
               <ul data-list-trading-hour>
                 <li class="hours-list">
@@ -68,25 +68,51 @@
     </div>
 
     <script>
-      // 챗봇 버튼 클릭 시 모달 토글
       const chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
       const modalWrapper = document.getElementById('modalWrapper');
+      const firstFocusable = document.getElementById('open-toggle-btn');
+      let lastFocusedElement = null;
 
+      // 챗봇 열기/닫기
       chatbotToggleBtn.addEventListener('click', () => {
-        modalWrapper.classList.toggle('active');
+        const isHidden = modalWrapper.hasAttribute('hidden');
+
+        if (isHidden) {
+          lastFocusedElement = document.activeElement;
+          modalWrapper.removeAttribute('hidden');
+          modalWrapper.classList.add('active');
+          firstFocusable.focus();
+        } else {
+          modalWrapper.classList.remove('active');
+          modalWrapper.setAttribute('hidden', true);
+          if (lastFocusedElement) lastFocusedElement.focus();
+        }
       });
 
-      // 운영시간 보기 버튼
+      // ESC 키로 닫기
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modalWrapper.hasAttribute('hidden')) {
+          modalWrapper.classList.remove('active');
+          modalWrapper.setAttribute('hidden', true);
+          if (lastFocusedElement) lastFocusedElement.focus();
+        }
+      });
+
+      // 운영시간 보기
       const openToggleBtn = document.getElementById('open-toggle-btn');
       const closeToggleBtn = document.getElementById('close-toggle-btn');
       const tradingHourPopup = document.getElementById('trading-hour-popup');
 
       openToggleBtn.addEventListener('click', () => {
+        tradingHourPopup.removeAttribute('hidden');
         tradingHourPopup.classList.add('active');
+        closeToggleBtn.focus();
       });
 
       closeToggleBtn.addEventListener('click', () => {
         tradingHourPopup.classList.remove('active');
+        tradingHourPopup.setAttribute('hidden', true);
+        openToggleBtn.focus();
       });
     </script>
   </body>

@@ -28,6 +28,28 @@
 
         const slideWidth = list.firstElementChild.offsetWidth;
 
+        // 슬라이드 최대 스크롤 위치 계산
+        const maxScrollLeft = list.scrollWidth - display.clientWidth;
+
+        // 버튼 상태 갱신 함수 (왼쪽 끝/오른쪽 끝에서 disabled 처리)
+        function updateBtnState() {
+          if (display.scrollLeft <= 0) {
+            leftBtn.setAttribute('aria-disabled', 'true');
+            leftBtn.disabled = true;
+          } else {
+            leftBtn.setAttribute('aria-disabled', 'false');
+            leftBtn.disabled = false;
+          }
+
+          if (display.scrollLeft >= maxScrollLeft) {
+            rightBtn.setAttribute('aria-disabled', 'true');
+            rightBtn.disabled = true;
+          } else {
+            rightBtn.setAttribute('aria-disabled', 'false');
+            rightBtn.disabled = false;
+          }
+        }
+
         leftBtn.addEventListener('click', () => {
           display.scrollBy({
             left: -slideWidth,
@@ -41,10 +63,36 @@
             behavior: 'smooth',
           });
         });
+
+        // 스크롤 감지해서 버튼 상태 업데이트
+        display.addEventListener('scroll', updateBtnState);
+
+        // 초기 상태 세팅
+        updateBtnState();
+
+        // 키보드 방향키 지원 (포커스 있을 때 작동)
+        display.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            if (!leftBtn.disabled) {
+              display.scrollBy({
+                left: -slideWidth,
+                behavior: 'smooth',
+              });
+            }
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            if (!rightBtn.disabled) {
+              display.scrollBy({
+                left: slideWidth,
+                behavior: 'smooth',
+              });
+            }
+          }
+        });
       });
     </script>
   </head>
-  <!-- 우혜리 슬라이드 자바스크립트 -->
 
   <body>
     <!-- 안동원 헤더 -->
@@ -260,23 +308,23 @@
     </script>
 
     <!-- 우혜리 메인 슬라이드 -->
-    <section aria-label="메인 광고 슬라이드" class="main-slider">
+    <section aria-label="메인 광고 슬라이드" class="main-slider" tabindex="0">
       <div class="main-slides" role="list">
-        <article class="slide s1" id="s1">
+        <article class="slide s1" id="s1" aria-roledescription="slide" aria-hidden="false" aria-label="1 / 3">
           <div class="slide-text">
             <p class="slide-title">여름을 위한 아이템</p>
             <p class="slide-subtitle">신제품 클리어 콜드 텀블러 20oz 를 만나보세요</p>
             <a href="/" class="btn">자세히 보기</a>
           </div>
         </article>
-        <article class="slide s2" id="s2">
+        <article class="slide s2" id="s2" aria-roledescription="slide" aria-label="2 / 3" aria-hidden="true">
           <div class="slide-text">
             <p class="slide-title">새로운 시즌 아이템</p>
             <p class="slide-subtitle">선물하기 좋은 블루보틀 베스트셀러</p>
             <a href="/" class="btn">자세히 보기</a>
           </div>
         </article>
-        <article class="slide s3" id="s3">
+        <article class="slide s3" id="s3" aria-roledescription="slide" aria-label="3 / 3" aria-hidden="true">
           <div class="slide-text">
             <p class="slide-title">선물 제안</p>
             <p class="slide-subtitle">소중한 분을 위한 블루보틀 선물세트</p>
@@ -308,9 +356,9 @@
         </svg>
       </button>
 
-      <section class="product-container">
-        <div class="sr-only">주력 상품 광고 섹션</div>
-        <ul class="list-product">
+      <div class="product-container" tabindex="0" aria-label="주력 상품 리스트">
+        <div class="sr-only">주력 상품</div>
+        <ul class="list-product" role="list">
           <li>
             <div class="product-card">
               <a href="/" class="full-link" aria-label="상세페이지로 이동" title="클리어 콜드 텀블러 16oz">
@@ -377,7 +425,7 @@
             </div>
           </li>
         </ul>
-      </section>
+      </div>
     </section>
 
     <!-- 형민님 -->
@@ -493,23 +541,20 @@
         <a href="#" class="btn-outline">라이프 스타일 보기</a>
       </div>
     </div>
-    <!-- 혜리님 팝업 -->
+    <!-- 혜리님 챗봇위젯 -->
     <div class="chatbot-widget">
       <!-- 챗봇 버튼 (button으로 변경) -->
-      <button id="chatbot-toggle-btn" class="chatbot-btn" aria-label="채팅 열기">
-        <img src="../assets/chatbot-icon/icon.svg" alt="블루보틀 로고" />
+      <button id="chatbot-toggle-btn" class="chatbot-btn" tabindex="1" aria-label="채팅 열기">
+        <img src="../assets/chatbot-icon/icon.svg" alt="" />
       </button>
-
       <!-- 모달창 -->
-      <div class="modal-wrapper" id="modalWrapper">
+      <div class="modal-wrapper" id="modalWrapper" role="dialog" hidden>
         <div class="bot-profile">
           <div class="name"><strong>블루보틀</strong></div>
-
           <!-- 운영시간 토글 버튼 -->
           <button id="open-toggle-btn" class="open-toggle" aria-label="운영시간 보기">운영시간 보기 ></button>
-
           <!-- 모달 창 안의 팝업 -->
-          <div id="trading-hour-popup" class="trading-hour-popup">
+          <div id="trading-hour-popup" class="trading-hour-popup" role="dialog" hidden>
             <button id="close-toggle-btn" aria-label="닫기">닫기</button>
             <ul data-list-trading-hour>
               <li class="hours-list">
@@ -540,7 +585,6 @@
             <span class="timezone">-Timezone: Asia/Seoul</span>
           </div>
         </div>
-
         <div class="modal-content">
           <div class="content">
             <p>이용시간아님</p>
@@ -551,10 +595,61 @@
         <a href="#">채널톡 이용중</a>
       </div>
     </div>
+
+    <!-- chatbot widget script -->
+    <script>
+      const chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
+      const modalWrapper = document.getElementById('modalWrapper');
+      const firstFocusable = document.getElementById('open-toggle-btn');
+      let lastFocusedElement = null;
+
+      // 챗봇 열기/닫기
+      chatbotToggleBtn.addEventListener('click', () => {
+        const isHidden = modalWrapper.hasAttribute('hidden');
+
+        if (isHidden) {
+          lastFocusedElement = document.activeElement;
+          modalWrapper.removeAttribute('hidden');
+          modalWrapper.classList.add('active');
+          firstFocusable.focus();
+        } else {
+          modalWrapper.classList.remove('active');
+          modalWrapper.setAttribute('hidden', true);
+          if (lastFocusedElement) lastFocusedElement.focus();
+        }
+      });
+
+      // ESC 키로 닫기
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modalWrapper.hasAttribute('hidden')) {
+          modalWrapper.classList.remove('active');
+          modalWrapper.setAttribute('hidden', true);
+          if (lastFocusedElement) lastFocusedElement.focus();
+        }
+      });
+
+      // 운영시간 보기
+      const openToggleBtn = document.getElementById('open-toggle-btn');
+      const closeToggleBtn = document.getElementById('close-toggle-btn');
+      const tradingHourPopup = document.getElementById('trading-hour-popup');
+
+      openToggleBtn.addEventListener('click', () => {
+        tradingHourPopup.removeAttribute('hidden');
+        tradingHourPopup.classList.add('active');
+        closeToggleBtn.focus();
+      });
+
+      closeToggleBtn.addEventListener('click', () => {
+        tradingHourPopup.classList.remove('active');
+        tradingHourPopup.setAttribute('hidden', true);
+        openToggleBtn.focus();
+      });
+    </script>
+
     <!-- 혜리님 카페 슬라이드 -->
     <div class="cafe-promo-section">
-      <section aria-label="카페 광고 슬라이드" class="cafe-slider">
-        <ul class="cafe-slides">
+      <section aria-label="카페 광고 슬라이드" class="cafe-slider" tabindex="0">
+        <ul class="cafe-slides" role="group">
           <li class="slide s1" id="slide1">
             <p class="slide-title">블루보틀 부산 기장 카페</p>
           </li>
@@ -568,11 +663,15 @@
           <button class="next" aria-label="다음 슬라이드">→</button>
         </nav>
         <div class="cafe-slide-pagination" role="tablist" aria-label="슬라이드 선택">
-          <button class="page-btn" role="tab" aria-selected="true" aria-controls="slide1">01</button>
-          <button class="page-btn" role="tab" aria-selected="false" aria-controls="slide2">02</button>
+          <button class="page-btn" role="tab" aria-selected="true" tabindex="0" aria-controls="slide1">01</button>
+          <button class="page-btn" role="tab" aria-selected="false" tabindex="-1" aria-controls="slide2">02</button>
         </div>
+
         <p class="button-describe">가까운 블루보틀 카페를 확인해보세요</p>
         <a href="#" class="btn-outline find-cafe-btn">카페 찾기</a>
+
+        <!-- 스크린리더 전용 현재 슬라이드 상태 알림 -->
+        <p id="carousel-status" class="sr-only" aria-live="polite" aria-atomic="true"></p>
       </section>
     </div>
 
