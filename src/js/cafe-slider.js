@@ -32,5 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => goToSlide(i));
   });
 
+  // 키보드 접근성 향상: 좌우 방향키로 슬라이드 이동 가능하도록 처리
+  cafeSlider.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      goToSlide(currentIndex - 1);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      goToSlide(currentIndex + 1);
+    }
+  });
+
   goToSlide(0);
 });

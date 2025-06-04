@@ -38,9 +38,9 @@
         </svg>
       </button>
 
-      <section class="product-container">
+      <div class="product-container" tabindex="0" aria-label="주력 상품 리스트">
         <div class="sr-only">주력 상품</div>
-        <ul class="list-product">
+        <ul class="list-product" role="list">
           <li>
             <div class="product-card">
               <a href="/" class="full-link" aria-label="상세페이지로 이동" title="클리어 콜드 텀블러 16oz">
@@ -107,7 +107,7 @@
             </div>
           </li>
         </ul>
-      </section>
+      </div>
     </section>
 
     <script>
@@ -118,6 +118,28 @@
         const rightBtn = document.querySelector('.nav-arrow.right');
 
         const slideWidth = list.firstElementChild.offsetWidth;
+
+        // 슬라이드 최대 스크롤 위치 계산
+        const maxScrollLeft = list.scrollWidth - display.clientWidth;
+
+        // 버튼 상태 갱신 함수 (왼쪽 끝/오른쪽 끝에서 disabled 처리)
+        function updateBtnState() {
+          if (display.scrollLeft <= 0) {
+            leftBtn.setAttribute('aria-disabled', 'true');
+            leftBtn.disabled = true;
+          } else {
+            leftBtn.setAttribute('aria-disabled', 'false');
+            leftBtn.disabled = false;
+          }
+
+          if (display.scrollLeft >= maxScrollLeft) {
+            rightBtn.setAttribute('aria-disabled', 'true');
+            rightBtn.disabled = true;
+          } else {
+            rightBtn.setAttribute('aria-disabled', 'false');
+            rightBtn.disabled = false;
+          }
+        }
 
         leftBtn.addEventListener('click', () => {
           display.scrollBy({
@@ -131,6 +153,33 @@
             left: slideWidth,
             behavior: 'smooth',
           });
+        });
+
+        // 스크롤 감지해서 버튼 상태 업데이트
+        display.addEventListener('scroll', updateBtnState);
+
+        // 초기 상태 세팅
+        updateBtnState();
+
+        // 키보드 방향키 지원 (포커스 있을 때 작동)
+        display.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            if (!leftBtn.disabled) {
+              display.scrollBy({
+                left: -slideWidth,
+                behavior: 'smooth',
+              });
+            }
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            if (!rightBtn.disabled) {
+              display.scrollBy({
+                left: slideWidth,
+                behavior: 'smooth',
+              });
+            }
+          }
         });
       });
     </script>

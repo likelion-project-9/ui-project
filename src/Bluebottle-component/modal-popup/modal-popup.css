@@ -10,6 +10,19 @@
   border: none;
   outline: none;
   background-color: transparent;
+
+  &:focus-visible::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    width: 57px;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    box-shadow: 0 0 0 1px var(--color-blue);
+    pointer-events: none;
+  }
 }
 
 .modal-wrapper {

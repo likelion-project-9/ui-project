@@ -6,25 +6,27 @@
     <title>메인 슬라이드</title>
     <link rel="stylesheet" href="/src/common/modern-reset.css" />
     <link rel="stylesheet" href="./main-slider.css" />
+
+    <script src="/src/js/mainslider.js" defer></script>
   </head>
   <body>
-    <section aria-label="메인 광고 슬라이드" class="main-slider">
+    <section aria-label="메인 광고 슬라이드" class="main-slider" tabindex="0">
       <div class="main-slides" role="list">
-        <article class="slide s1" id="s1">
+        <article class="slide s1" id="s1" aria-roledescription="slide" aria-hidden="false" aria-label="1 / 3">
           <div class="slide-text">
             <p class="slide-title">여름을 위한 아이템</p>
             <p class="slide-subtitle">신제품 클리어 콜드 텀블러 20oz 를 만나보세요</p>
             <a href="/" class="btn">자세히 보기</a>
           </div>
         </article>
-        <article class="slide s2" id="s2">
+        <article class="slide s2" id="s2" aria-roledescription="slide" aria-label="2 / 3" aria-hidden="true">
           <div class="slide-text">
             <p class="slide-title">새로운 시즌 아이템</p>
             <p class="slide-subtitle">선물하기 좋은 블루보틀 베스트셀러</p>
             <a href="/" class="btn">자세히 보기</a>
           </div>
         </article>
-        <article class="slide s3" id="s3">
+        <article class="slide s3" id="s3" aria-roledescription="slide" aria-label="3 / 3" aria-hidden="true">
           <div class="slide-text">
             <p class="slide-title">선물 제안</p>
             <p class="slide-subtitle">소중한 분을 위한 블루보틀 선물세트</p>
@@ -42,31 +44,5 @@
         <button class="page-btn" role="tab" aria-selected="false" aria-controls="s3">03</button>
       </div>
     </section>
-
-    <script>
-      const slides = document.querySelector('.main-slides');
-      const slideCount = document.querySelectorAll('.main-slides .slide').length;
-      const prevBtn = document.querySelector('.prev');
-      const nextBtn = document.querySelector('.next');
-      const pageBtns = document.querySelectorAll('.page-btn');
-
-      let currentIndex = 0;
-
-      function goToSlide(index) {
-        if (index < 0) index = slideCount - 1;
-        if (index >= slideCount) index = 0;
-        slides.style.transform = `translateX(-${index * 100}%)`;
-        pageBtns.forEach((btn, i) => {
-          btn.setAttribute('aria-selected', i === index);
-        });
-        currentIndex = index;
-      }
-
-      prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-      nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
-      pageBtns.forEach((btn, i) => {
-        btn.addEventListener('click', () => goToSlide(i));
-      });
-    </script>
   </body>
 </html>

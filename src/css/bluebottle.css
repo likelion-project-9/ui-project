@@ -1,9 +1,4 @@
 /* 블루보틀 css */
 body {
-  color: var(--color-black);
   padding: 0;
-
-  p {
-    color: var(--color-black);
-  }
 }
