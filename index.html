@@ -1,127 +1,259 @@
 <!DOCTYPE html>
-<html lang="ko-KR">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cafe UI Project Index</title>
+    <title>UI 프로젝트</title>
+    <link rel="stylesheet" href="./src/common/modern-reset.css" />
     <link rel="stylesheet" href="./src/style.css" />
-    <link rel="shortcut icon" href="/public/favicon/favicon-bluebottle.webp" type="image/x-icon" />
-    <link rel="icon" href="/public/favicon/favicon-bluebottle.webp" type="image/webp" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <div class="modal-overlay" id="modal">
-      <div class="modal-box">
-        <h2>안내</h2>
-        <p>해당 사이트는<br />비상업적 취업 포트폴리오 용도로 제작되었습니다.<br />카페 UI 컴포넌트를 모아둔 프로젝트입니다.</p>
-        <div class="btn-group">
-          <button onclick="hideModalForToday()">오늘 하루 안보기</button>
-          <button onclick="document.getElementById('modal').style.display='none'">닫기</button>
+    <div class="modal" id="warningModal">
+      <div class="modal-inner">
+        <p>이 사이트는 멋쟁이사자처럼 프론트엔드 부트캠프 UI 프로젝트 발표용으로 제작되었습니다.</p>
+        <div class="modal-buttons">
+          <button id="closeModal">닫기</button>
+          <button id="hideToday">오늘 하루 안 보기</button>
         </div>
       </div>
     </div>
+    <div class="page-wrapper">
+      <!-- 우측 상단 외부 링크 -->
+      <div class="external-links">
+        <a href="https://github.com/" target="_blank" aria-label="GitHub">
+          <img src="./src/assets/icons/github.svg" alt="GitHub" />
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.notion.so/" target="_blank" aria-label="Notion">
+          <img src="./src/assets/icons/notion.svg" alt="Notion" />
+          <span>Notion</span>
+        </a>
+        <a href="https://www.figma.com/" target="_blank" aria-label="Figma">
+          <img src="./src/assets/icons/figma.svg" alt="Figma" />
+          <span>Figma</span>
+        </a>
+      </div>
 
-    <div class="member-info">
-      <div class="team-card">
-        <div class="character">
-          <img src="./src/assets/member-proflie/ahn.png" alt="팀원 얼굴" class="face" />
-        </div>
-        <h3 class="name">안동원</h3>
-        <p class="role">팀장 / 스크럼 마스터</p>
-        <p class="desc">ui 프로젝트를 통해 많이 배우고 성장하고 싶습니다</p>
-      </div>
-      <div class="team-card">
-        <div class="character">
-          <img src="./src/assets/member-proflie/woo.jpg" alt="팀원 얼굴" class="face" />
-        </div>
-        <h3 class="name">우혜리</h3>
-        <p class="role">팀원</p>
-        <p class="desc">화이팅~!</p>
-      </div>
-      <div class="team-card">
-        <div class="character">
-          <img src="./src/assets/member-proflie/lee.jpg" alt="팀원 얼굴" class="face" />
-        </div>
-        <h3 class="name">이형민</h3>
-        <p class="role">팀원</p>
-        <p class="desc">마라톤 사랑 평화</p>
-      </div>
-      <div class="team-card">
-        <div class="character">
-          <img src="./src/assets/member-proflie/hong.jpg" alt="팀원 얼굴" class="face" />
-        </div>
-        <h3 class="name">홍민영</h3>
-        <p class="role">팀원</p>
-        <p class="desc">잘 모르겠으나 일단 함</p>
-      </div>
-    </div>
+      <!-- 프로젝트 소개 -->
+      <section class="project-intro section">
+        <h1 class="logo">멋쟁이 사자처럼 부트캠프 14기 9조 119</h1>
+        <h2 class="title">Cafe UI 프로젝트</h2>
+      </section>
 
-    <header>
-      <h1>☕ Cafe UI Project</h1>
-      <p>Blue Bottle & Ediya UI 컴포넌트 모음</p>
-    </header>
-
-    <section class="card-list">
-      <div class="card">
-        <h2 class="blue">Blue Bottle</h2>
-        <ul>
-          <li><a href="./src/html/bluebottle.html">메인페이지</a></li>
+      <!-- 팀원 소개 -->
+      <section class="team section">
+        <h2 class="section-title">팀원 소개</h2>
+        <ul class="team-list">
+          <li class="member">
+            <img src="./src/assets/member-profile/ahn.png" alt="안동원" />
+            <strong class="name">안동원</strong>
+            <span class="role">스크럼 마스터</span>
+            <span class="mbti">ISFP</span>
+            <p class="intro">과정 중심의 프로젝트 진행, 다들 파이팅!</p>
+            <p class="email">ado2188@naver.com</p>
+            <a href="#" class="github-btn">GitHub</a>
+          </li>
+          <li class="member">
+            <img src="./src/assets/member-profile/woo.jpg" alt="우혜리" />
+            <strong class="name">우혜리</strong>
+            <span class="role">팀원</span>
+            <span class="mbti">INFP</span>
+            <p class="intro">화이팅~</p>
+            <p class="email">ado2188@naver.com</p>
+            <a href="#" class="github-btn">GitHub</a>
+          </li>
+          <li class="member">
+            <img src="./src/assets/member-profile/lee.jpg" alt="이형민" />
+            <strong class="name">이형민</strong>
+            <span class="role">팀원</span>
+            <span class="mbti">INTP</span>
+            <p class="intro">규율을 지켜 프로젝트를 완수하기!</p>
+            <p class="email">ado2188@naver.com</p>
+            <a href="#" class="github-btn">GitHub</a>
+          </li>
+          <li class="member">
+            <img src="./src/assets/member-profile/hong.jpg" alt="홍민영" />
+            <strong class="name">홍민영</strong>
+            <span class="role">팀장</span>
+            <span class="mbti">ENFP</span>
+            <p class="intro">팀원과의 협력, UI/UX 중심의 프로젝트 진행</p>
+            <p class="email">ado2188@naver.com</p>
+            <a href="#" class="github-btn">GitHub</a>
+          </li>
         </ul>
-      </div>
+      </section>
 
-      <div class="card blue">
-        <h2>블루보틀 컴포넌트</h2>
-        <ul>
-          <li><a href="./src/Bluebottle-component/button/bluebottle-button.html">블루보틀 버튼 공통스타일</a></li>
-          <li><a href="./src/Bluebottle-component/header/header.html">헤더</a></li>
-          <li><a href="./src/Bluebottle-component/footer/footer.html">푸터</a></li>
-          <li><a href="./src/Bluebottle-component/login/login.html">로그인</a></li>
-          <li><a href="./src/Bluebottle-component/image-text/image-text.html">이미지+텍스트 카드</a></li>
-          <li><a href="./src/Bluebottle-component/product-card/bluebottle-product-card-alone.html">제품카드</a></li>
-          <li><a href="./src/Bluebottle-component/promotion-banner/bluebottle-promotion-banner.html">광고배너</a></li>
-          <li><a href="./src/Bluebottle-component/slide(js)/product-display.html">제품 광고 슬라이드</a></li>
-          <li><a href="./src/Bluebottle-component/slide/main-slider.html">메인 광고 슬라이드</a></li>
-          <li><a href="./src/Bluebottle-component/slide/cafe-slide/cafe-slide.html">카페소개 슬라이드</a></li>
-          <li><a href="./src/Bluebottle-component/modal-popup/modal-popup.html">챗봇위젯</a></li>
-        </ul>
-      </div>
+      <!-- WorkFlow 요약 -->
+      <section class="workflow section">
+        <h2 class="section-title"><em>WorkFlow 요약</em></h2>
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-toggle">1 탭표 & 디자인<span class="icon"></span></button>
+            <div class="accordion-content">
+              <ul>
+                <li>생각된 기능 정보 정리</li>
+                <li>Figma 시안 조정 후 개발 구조 설계</li>
+                <li>토요 건 자신이 쓰면 된다고 가정</li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-toggle">2 개발<span class="icon"></span></button>
+            <div class="accordion-content">
+              <ul>
+                <li>컨퍼니셀 단위 마크업 구조 설계</li>
+                <li>Tailwind CSS로 스타일링</li>
+                <li>일반 JavaScript로 도적 기능 구현</li>
+                <li>기능 별 분단 & 협업 진행</li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-toggle">3 기능 테스트 & 피드뫌<span class="icon"></span></button>
+            <div class="accordion-content">
+              <ul>
+                <li>Live Server 가상 게이지로 테스트</li>
+                <li>포맷 요소 조정 과 정보 제공</li>
+                <li>html, css 규칙 정리 및 검사</li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-toggle">4 최종 점검 & 발표 준비<span class="icon"></span></button>
+            <div class="accordion-content">
+              <ul>
+                <li>현재 테스트 목록 모두 처리</li>
+                <li>취재와 결과 정리</li>
+                <li>분류별 결과지만 아니라, 가장 보좌적으로 만들어 내고자</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <div class="card navy">
-        <h2>Ediya</h2>
-        <ul>
-          <li><a href="./src/Ediya-component/sign-up/sign-up.html">이디야 회원가입 페이지</a></li>
-          <li><a href="./src/Ediya-component/menu-modal/ediya-menu-modal-page.html">메뉴 모달 페이지</a></li>
-          <li><a href="./src/Ediya-component/map/find-store-page.html">카페 찾기 페이지</a></li>
-        </ul>
-      </div>
+      <!-- 컴포넌트 설명 영역 -->
+      <section class="components-wrapper section">
+        <div class="components-group">
+          <h2>컴포넌트</h2>
+          <div class="components">
+            <h3 class="section-title blue">블루보틀</h3>
+            <details open>
+              <summary>컴포넌트</summary>
+              <div class="component-cards">
+                <a href="./src/Bluebottle-component/header/header.html" class="card"><strong>header</strong></a>
+                <a href="./src/Bluebottle-component/button/bluebottle-button.html" class="card"><strong>button</strong></a>
+                <a href="#" class="card"><strong>slide</strong></a>
+                <a href="#" class="card"><strong>footer</strong></a>
+              </div>
+            </details>
+            <details open>
+              <summary>페이지</summary>
+              <div class="component-cards">
+                <a href="#" class="card"><strong>홈 메인 페이지</strong></a>
+              </div>
+            </details>
+          </div>
 
-      <div class="card navy">
-        <h2>이디야 컴포넌트</h2>
-        <ul>
-          <li><a href="./src/Ediya-component/sign-up/component.html">회원가입 페이지 컴포넌트 정리</a></li>
-          <li><a href="./src/Ediya-component/menu-modal/ediya-menu-modal-component.html">메뉴모달 페이지 컴포넌트 정리</a></li>
-          <li><a href="./src/Ediya-component/map/tab-menu.html">매장찾기 페이지 컴포넌트 정리</a></li>
-        </ul>
-      </div>
-    </section>
+          <div class="components">
+            <h3 class="section-title navy">이디야</h3>
+            <details open>
+              <summary>컴포넌트</summary>
+              <div class="component-cards">
+                <a href="#" class="card"><strong>메뉴 페이지 컴포넌트</strong></a>
+                <a href="#" class="card"><strong>뉴스 페이지 컴포넌트</strong></a>
+                <a href="#" class="card"><strong>매장찾기 페이지 컴포넌트</strong></a>
+                <a href="#" class="card"><strong>회원가입 페이지 컴포넌트</strong></a>
+              </div>
+            </details>
+            <details open>
+              <summary>페이지</summary>
+              <div class="component-cards">
+                <a href="#" class="card"><strong>메뉴 페이지</strong></a>
+                <a href="#" class="card"><strong>뉴스 페이지</strong></a>
+                <a href="#" class="card"><strong>매장찾기 페이지</strong></a>
+                <a href="#" class="card"><strong>회원가입 페이지</strong></a>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
 
-    <script>
-      function hideModalForToday() {
-        const today = new Date();
-        const expire = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
-        localStorage.setItem('hideModalUntil', expire.getTime());
-        document.getElementById('modal').style.display = 'none';
-      }
+      <section class="retrospective section">
+        <h2 class="section-title"><em>회고</em></h2>
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-toggle">안동원<span class="icon"></span></button>
+            <div class="accordion-content">
+              <div class="retrospective-content">
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-toggle">우혜리<span class="icon"></span></button>
+            <div class="accordion-content">
+              <div class="retrospective-content">
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-toggle">이형민<span class="icon"></span></button>
+            <div class="accordion-content">
+              <div class="retrospective-content">
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-toggle">홍민영<span class="icon"></span></button>
+            <div class="accordion-content">
+              <div class="retrospective-content">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      function checkModalVisibility() {
-        const hideUntil = localStorage.getItem('hideModalUntil');
-        const now = Date.now();
-        if (hideUntil && now < parseInt(hideUntil, 10)) {
-          document.getElementById('modal').style.display = 'none';
+      <script>
+        window.addEventListener('DOMContentLoaded', () => {
+          const toggles = document.querySelectorAll('.accordion-toggle');
+          toggles.forEach((btn) => {
+            btn.addEventListener('click', () => {
+              const item = btn.parentElement;
+              item.classList.toggle('active');
+            });
+          });
+        });
+
+        // 모달 관련 요소
+        const modal = document.getElementById('warningModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const hideTodayBtn = document.getElementById('hideToday');
+
+        // 현재 시각이 자정 이전인지 확인
+        const now = new Date();
+        const storedExpiry = localStorage.getItem('hideModalUntil');
+
+        if (storedExpiry && new Date(storedExpiry) > now) {
+          modal.style.display = 'none';
         }
-      }
 
-      window.onload = checkModalVisibility;
-    </script>
+        // 닫기 버튼
+        closeModalBtn.addEventListener('click', () => {
+          modal.style.display = 'none';
+        });
+
+        // 오늘 하루 안 보기 버튼
+        hideTodayBtn.addEventListener('click', () => {
+          const now = new Date();
+          const midnight = new Date();
+          midnight.setHours(24, 0, 0, 0); // 오늘 자정 12시로 설정
+          localStorage.setItem('hideModalUntil', midnight.toISOString());
+          modal.style.display = 'none';
+        });
+      </script>
+    </div>
   </body>
 </html>
