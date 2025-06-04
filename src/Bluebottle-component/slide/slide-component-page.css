@@ -1,6 +1,5 @@
 @import url(../../common/theme/variables.css);
 @import url(../../common/theme/button.css);
-@import url(/src/common/theme/component-page.css);
 
 button {
   border: 0;

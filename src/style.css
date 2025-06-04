@@ -212,9 +212,6 @@ body {
     font-size: var(--font-size-lg);
   }
 }
-.components {
-  min-width: 540px;
-}
 
 .components summary {
   background: var(--color-light-blue);
@@ -233,14 +230,14 @@ body {
 
 .component-cards {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   gap: 0.75rem;
   margin: 10px;
 }
 
 .card {
   background: var(--color-white);
-  width: 100%;
+  width: fit-content;
   border-radius: 0.75rem;
   padding: 0.75rem;
   text-align: center;
