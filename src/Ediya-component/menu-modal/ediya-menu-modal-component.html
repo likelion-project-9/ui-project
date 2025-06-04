@@ -129,28 +129,21 @@
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const drinkCards = document.querySelectorAll('.card-drink-product');
-
         drinkCards.forEach(function (card) {
           const triggerArea = card.querySelector('.hover-trigger-area');
           const modalContainer = card.querySelector('.container-modal-drink-product');
-
           if (!triggerArea || !modalContainer) {
             return;
           }
-
           const modalItself = modalContainer.querySelector('.modal-drink-product');
           const closeButton = modalContainer.querySelector('.modal-close-btn');
-
           if (!modalItself || !closeButton) {
             return;
           }
-
           triggerArea.setAttribute('tabindex', '0');
-
           triggerArea.addEventListener('focusin', function () {
             modalContainer.style.display = 'block';
           });
-
           card.addEventListener('focusout', function (event) {
             setTimeout(() => {
               if (!card.contains(document.activeElement)) {
@@ -160,46 +153,21 @@
               }
             }, 0);
           });
-
-          function openModalForMobile() {
+          function openModal() {
             modalContainer.classList.add('mobile-modal-active');
             modalContainer.style.display = 'block';
           }
-
-          function closeModalForMobile() {
+          function closeModal() {
             modalContainer.classList.remove('mobile-modal-active');
             modalContainer.style.display = '';
           }
-
-          const handleMobileTriggerClick = () => {
-            if (!window.matchMedia('(min-width: 768px)').matches) {
-              openModalForMobile();
-            }
-          };
-
-          const handleMobileCloseClick = (event) => {
-            if (!window.matchMedia('(min-width: 768px)').matches) {
-              event.stopPropagation();
-              closeModalForMobile();
-            }
-          };
-
-          function updateEventListenersByViewport() {
-            triggerArea.removeEventListener('click', handleMobileTriggerClick);
-            closeButton.removeEventListener('click', handleMobileCloseClick);
-
-            if (window.matchMedia('(min-width: 768px)').matches) {
-              if (modalContainer.classList.contains('mobile-modal-active')) {
-                closeModalForMobile();
-              }
-            } else {
-              triggerArea.addEventListener('click', handleMobileTriggerClick);
-              closeButton.addEventListener('click', handleMobileCloseClick);
-            }
-          }
-
-          updateEventListenersByViewport();
-          window.addEventListener('resize', updateEventListenersByViewport);
+          triggerArea.addEventListener('click', function () {
+            openModal();
+          });
+          closeButton.addEventListener('click', function (event) {
+            event.stopPropagation();
+            closeModal();
+          });
         });
       });
     </script>

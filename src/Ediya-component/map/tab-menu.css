@@ -78,7 +78,7 @@ h2 {
 }
 
 input[type='radio']:focus + label {
-  outline: 5px solid var(--color-accent);
+  outline: 5px solid var(--color-black);
 }
 
 .tab-menu-wrapper {

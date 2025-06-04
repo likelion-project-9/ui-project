@@ -19,11 +19,10 @@ body {
 
 .component-box {
   position: relative;
-  overflow: visible;
 }
 
 .modal {
-  position: absolute;
+  /* position: absolute; */
   top: 10rem;
   right: 0;
   display: flex;
@@ -38,7 +37,7 @@ body {
 .modal-panel {
   position: relative;
   z-index: 1;
-  width: var(--form-width); /* ex: 620px */
+  width: 100%;
   max-height: 90vh;
   background: var(--modal-bg);
   transition: transform 0.3s ease-in-out;

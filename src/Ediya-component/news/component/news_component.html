@@ -5,173 +5,183 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>페이지 컴포넌트</title>
     <link rel="stylesheet" href="/src/common/modern-reset.css" />
-    <link rel="stylesheet" href="/src/Ediya-component/news/component/news_component.css">
-    </head>
+    <link rel="stylesheet" href="/src/Ediya-component/news/component/news_component.css" />
+  </head>
   <body>
-   <div class="component-box">
-    <h1>페이지 컴포넌트</h1>
-      
+    <div class="component-box">
+      <h1>뉴스 페이지 컴포넌트</h1>
+
       <div class="component-preview">
         <h2 class="component-title">Tab 컴포넌트</h2>
         <main class="wrapper news-wrapper">
-            <div class="container news-container">
-              <div class="tab-menu">
-                <button>공지사항</button>
-                <button class="active">언론 속 이디야</button>
-                <button>홍보영상</button>
-                <button>수상내역</button>
-              </div>
-            </div>  
+          <div class="container news-container">
+            <div class="tab-menu">
+              <button>공지사항</button>
+              <button class="active">언론 속 이디야</button>
+              <button>홍보영상</button>
+              <button>수상내역</button>
+            </div>
+          </div>
         </main>
       </div>
 
       <div class="component-preview">
         <h2 class="component-title">선택 컴포넌트</h2>
         <form class="search-form">
-              <label for="category" class="sr-only">카테고리 선택</label>
-              <div class="select-wrapper">
-                <select id="category">
-                  <option value="title">제목</option>
-                  <option value="content">내용</option>
-                </select>
-            
-                <!-- 아이콘: 기본/포커스 상태 전환용 -->
-                <div class="select-icon">
-                  <!-- 검은 역삼각형 -->
-                  <svg class="icon-down" xmlns="http://www.w3.org/2000/svg" width="10" height="8" viewBox="0 0 10 8" fill="none">
-                    <path d="M5 8L10 0H0L5 8Z" fill="#0F0F0F" />
-                  </svg>
-                  <!-- 파란 정삼각형 -->
-                  <svg class="icon-up" xmlns="http://www.w3.org/2000/svg" width="10" height="8" viewBox="0 0 10 8" fill="none">
-                    <path d="M5 0L10 8H0L5 0Z" fill="#24388D" />
-                  </svg>
-                </div>
-              </div>
-            </form>
+          <label for="category" class="sr-only">카테고리 선택</label>
+          <div class="select-wrapper">
+            <select id="category">
+              <option value="title">제목</option>
+              <option value="content">내용</option>
+            </select>
+
+            <!-- 아이콘: 기본/포커스 상태 전환용 -->
+            <div class="select-icon">
+              <!-- 검은 역삼각형 -->
+              <svg class="icon-down" xmlns="http://www.w3.org/2000/svg" width="10" height="8" viewBox="0 0 10 8" fill="none">
+                <path d="M5 8L10 0H0L5 8Z" fill="#0F0F0F" />
+              </svg>
+              <!-- 파란 정삼각형 -->
+              <svg class="icon-up" xmlns="http://www.w3.org/2000/svg" width="10" height="8" viewBox="0 0 10 8" fill="none">
+                <path d="M5 0L10 8H0L5 0Z" fill="#24388D" />
+              </svg>
+            </div>
+          </div>
+        </form>
       </div>
-      
+
       <div class="component-preview">
         <h2 class="component-title">Search 컴포넌트</h2>
         <form class="search-form">
           <label for="search" class="sr-only">검색어 입력</label>
-          <input type="text" id="search" placeholder=""/>
+          <input type="text" id="search" placeholder="" />
           <button type="submit" class="btn-search" aria-label="검색">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8" />
-                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-              </svg>
-         </button>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
         </form>
       </div>
 
       <div class="component-preview">
         <h2 class="component-title">Table 컴포넌트</h2>
         <table class="news-table">
-              <thead>
-                <tr>
-                  <th scope="col">순서</th>
-                  <th scope="col">내용</th>
-                  <th scope="col">날짜</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>999</td>
-                  <td><a href="#" tabindex="0">[MTN] 이디야커피, 조각 케이크 2종 출시···디저트 강화</a></td>
-                  <td>2020.09.08</td>
-                </tr>
-                <tr>
-                  <td>999</td>
-                  <td><a href="#" tabindex="0">[매일경제] 이디야커피, 공정거래조정원 '착한 프랜차이즈' 선정</a></td>
-                  <td>2020.09.08</td>
-                </tr>
-                <tr>
-                  <td>999</td>
-                  <td><a href="#" tabindex="0">[매일경제] 이디야커피, 공정거래조정원 '착한 프랜차이즈' 선정</a></td>
-                  <td>2020.09.08</td>
-                </tr>
-                <tr>
-                  <td>999</td>
-                  <td><a href="#" tabindex="0">[매일경제] 이디야커피, 공정거래조정원 '착한 프랜차이즈' 선정</a></td>
-                  <td>2020.09.08</td>
-                </tr>
-                <tr>
-                  <td>999</td>
-                  <td><a href="#" tabindex="0">[매일경제] 이디야커피, 공정거래조정원 '착한 프랜차이즈' 선정</a></td>
-                  <td>2020.09.08</td>
-                </tr>
-              </tbody>
-            </table>
+          <thead>
+            <tr>
+              <th scope="col">순서</th>
+              <th scope="col">내용</th>
+              <th scope="col">날짜</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>999</td>
+              <td><a href="#" tabindex="0">[MTN] 이디야커피, 조각 케이크 2종 출시···디저트 강화</a></td>
+              <td>2020.09.08</td>
+            </tr>
+            <tr>
+              <td>999</td>
+              <td><a href="#" tabindex="0">[매일경제] 이디야커피, 공정거래조정원 '착한 프랜차이즈' 선정</a></td>
+              <td>2020.09.08</td>
+            </tr>
+            <tr>
+              <td>999</td>
+              <td><a href="#" tabindex="0">[매일경제] 이디야커피, 공정거래조정원 '착한 프랜차이즈' 선정</a></td>
+              <td>2020.09.08</td>
+            </tr>
+            <tr>
+              <td>999</td>
+              <td><a href="#" tabindex="0">[매일경제] 이디야커피, 공정거래조정원 '착한 프랜차이즈' 선정</a></td>
+              <td>2020.09.08</td>
+            </tr>
+            <tr>
+              <td>999</td>
+              <td><a href="#" tabindex="0">[매일경제] 이디야커피, 공정거래조정원 '착한 프랜차이즈' 선정</a></td>
+              <td>2020.09.08</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <div class="component-preview">
         <h2 class="component-title">숫자 네비게이터</h2>
-         <nav class="pagination">
-              <ul class="list-pagination">
-                <li>
-                  <a href="#" aria-label="이전 페이지" class="pagination-prev">
-                   <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16" fill="none">
-            <path fill="#919BC6" fill-rule="evenodd" d="M14.591 6.987a6.674 6.674 0 0 1-6.59 7.68A6.674 6.674 0 0 1 1.333 8 6.674 6.674 0 0 1 8 1.333c2.086 0 4.012.95 5.285 2.602a.486.486 0 0 1-.769.592A5.657 5.657 0 0 0 8 2.303 5.704 5.704 0 0 0 2.303 8 5.703 5.703 0 0 0 8 13.697a5.703 5.703 0 0 0 5.632-6.563.485.485 0 0 1 .959-.147ZM6.138 8c0-.133.052-.26.147-.354l2.324-2.314a.5.5 0 1 1 .706.708L7.346 8l1.969 1.96a.5.5 0 0 1-.706.708L6.285 8.354A.496.496 0 0 1 6.138 8Z" clip-rule="evenodd"/></svg>
-                  </a>
-                </li>
-               <li><a href="#" aria-label="다음 페이지" class="pagination-nxt"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16" fill="none">
-            <path fill="#919BC6" fill-rule="evenodd" d="M14.591 6.987a6.674 6.674 0 0 1-6.59 7.68A6.674 6.674 0 0 1 1.333 8 6.674 6.674 0 0 1 8 1.333c2.086 0 4.012.95 5.285 2.602a.486.486 0 0 1-.769.592A5.657 5.657 0 0 0 8 2.303 5.704 5.704 0 0 0 2.303 8 5.703 5.703 0 0 0 8 13.697a5.703 5.703 0 0 0 5.632-6.563.485.485 0 0 1 .959-.147ZM6.138 8c0-.133.052-.26.147-.354l2.324-2.314a.5.5 0 1 1 .706.708L7.346 8l1.969 1.96a.5.5 0 0 1-.706.708L6.285 8.354A.496.496 0 0 1 6.138 8Z" clip-rule="evenodd"/>
-          </svg></a>
-                </li>
-              </ul>
-            </nav>
-       </div>
+        <nav class="pagination">
+          <ul class="list-pagination">
+            <li>
+              <a href="#" aria-label="이전 페이지" class="pagination-prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16" fill="none">
+                  <path
+                    fill="#919BC6"
+                    fill-rule="evenodd"
+                    d="M14.591 6.987a6.674 6.674 0 0 1-6.59 7.68A6.674 6.674 0 0 1 1.333 8 6.674 6.674 0 0 1 8 1.333c2.086 0 4.012.95 5.285 2.602a.486.486 0 0 1-.769.592A5.657 5.657 0 0 0 8 2.303 5.704 5.704 0 0 0 2.303 8 5.703 5.703 0 0 0 8 13.697a5.703 5.703 0 0 0 5.632-6.563.485.485 0 0 1 .959-.147ZM6.138 8c0-.133.052-.26.147-.354l2.324-2.314a.5.5 0 1 1 .706.708L7.346 8l1.969 1.96a.5.5 0 0 1-.706.708L6.285 8.354A.496.496 0 0 1 6.138 8Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="다음 페이지" class="pagination-nxt"
+                ><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16" fill="none">
+                  <path
+                    fill="#919BC6"
+                    fill-rule="evenodd"
+                    d="M14.591 6.987a6.674 6.674 0 0 1-6.59 7.68A6.674 6.674 0 0 1 1.333 8 6.674 6.674 0 0 1 8 1.333c2.086 0 4.012.95 5.285 2.602a.486.486 0 0 1-.769.592A5.657 5.657 0 0 0 8 2.303 5.704 5.704 0 0 0 2.303 8 5.703 5.703 0 0 0 8 13.697a5.703 5.703 0 0 0 5.632-6.563.485.485 0 0 1 .959-.147ZM6.138 8c0-.133.052-.26.147-.354l2.324-2.314a.5.5 0 1 1 .706.708L7.346 8l1.969 1.96a.5.5 0 0 1-.706.708L6.285 8.354A.496.496 0 0 1 6.138 8Z"
+                    clip-rule="evenodd"
+                  /></svg
+              ></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
-       <!-- 자바스크립트 코드 -->
-    <script>
-          const paginationList = document.querySelector('.list-pagination');
-          const prevBtn = document.querySelector('.pagination-prev');
-          const nextBtn = document.querySelector('.pagination-nxt');
+      <!-- 자바스크립트 코드 -->
+      <script>
+        const paginationList = document.querySelector('.list-pagination');
+        const prevBtn = document.querySelector('.pagination-prev');
+        const nextBtn = document.querySelector('.pagination-nxt');
 
-          const totalPages = 100;  // 총 페이지 수 (예시)
-          const pageGroupSize = 10;
-          let currentGroup = 0;
+        const totalPages = 100; // 총 페이지 수 (예시)
+        const pageGroupSize = 10;
+        let currentGroup = 0;
 
-          function renderPageButtons() {
-            // 기존 번호 버튼 제거
-            document.querySelectorAll('.page-num').forEach(btn => btn.remove());
-          
-            const start = currentGroup * pageGroupSize + 1;
-            const end = Math.min(start + pageGroupSize - 1, totalPages);
-          
-            for (let i = start; i <= end; i++) {
-              const li = document.createElement('li');
-              li.classList.add('page-num');
-              li.innerHTML = `<a href="#">${i}</a>`;
-              paginationList.insertBefore(li, nextBtn.parentElement);
-            }
-          
-            // prev/next 비활성화 처리
-            prevBtn.classList.toggle('disabled', currentGroup === 0);
-            nextBtn.classList.toggle('disabled', end >= totalPages);
+        function renderPageButtons() {
+          // 기존 번호 버튼 제거
+          document.querySelectorAll('.page-num').forEach((btn) => btn.remove());
+
+          const start = currentGroup * pageGroupSize + 1;
+          const end = Math.min(start + pageGroupSize - 1, totalPages);
+
+          for (let i = start; i <= end; i++) {
+            const li = document.createElement('li');
+            li.classList.add('page-num');
+            li.innerHTML = `<a href="#">${i}</a>`;
+            paginationList.insertBefore(li, nextBtn.parentElement);
           }
-        
-          prevBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (currentGroup > 0) {
-              currentGroup--;
-              renderPageButtons();
-            }
-          });
-        
-          nextBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if ((currentGroup + 1) * pageGroupSize < totalPages) {
-              currentGroup++;
-              renderPageButtons();
-            }
-          });
-        
-          renderPageButtons(); // 초기 렌더링
-    </script>
 
-        
+          // prev/next 비활성화 처리
+          prevBtn.classList.toggle('disabled', currentGroup === 0);
+          nextBtn.classList.toggle('disabled', end >= totalPages);
+        }
 
+        prevBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (currentGroup > 0) {
+            currentGroup--;
+            renderPageButtons();
+          }
+        });
+
+        nextBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          if ((currentGroup + 1) * pageGroupSize < totalPages) {
+            currentGroup++;
+            renderPageButtons();
+          }
+        });
+
+        renderPageButtons(); // 초기 렌더링
+      </script>
     </div>
   </body>
 </html>
