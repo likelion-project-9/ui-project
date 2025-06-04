@@ -14,27 +14,13 @@
   border: 0;
 }
 
-.card-wrapper {
-  align-content: center;
+.cards-wrapper {
   display: grid;
   grid-template-columns: minmax(498px, 1fr) auto;
   min-height: 648px;
   padding: 128px;
-}
-
-.img-boxtxt {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  min-height: 500px;
+  align-content: center;
   width: 100%;
-  flex-shrink: 0;
-  margin: 0;
-  height: auto;
-}
-
-.img-boxtxt.dripper {
-  background-image: url(/src/assets/img-textbox/textbox01-Blue-Bottle-Pour-Over-Kit.webp);
 }
 
 .card-text {
@@ -44,45 +30,82 @@
   justify-self: start;
   min-width: 294px;
   margin-left: 112px;
-  width: 100%;
+  width: fit-content;
 }
 
-/* 텍스트 옵션 */
+.img-boxtxt {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 500px;
+  width: 100%;
+  height: auto;
+}
+
+.img-boxtxt.dripper {
+  background-image: url('/src/assets/img-textbox/textbox01-Blue-Bottle-Pour-Over-Kit.webp');
+}
+
+.img-boxtxt.life-style {
+  background-image: url('/src/assets/img-textbox/textbox02-M5_PC.webp');
+}
+
 .headline {
   display: block;
   color: #333;
   font-size: var(--font-size-lg);
   font-weight: 400;
   line-height: 1.5;
-  margin: 0;
 }
 
-/* 제품 설명 리스트 */
+.headline p{
+  margin-bottom: 0;
+}
+
 .product-list {
   padding: 0;
   margin-top: var(--space-4);
   width: 100%;
 }
+
 .product-list dt {
   font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   width: 100%;
 }
+
 .product-list dd {
   font-size: var(--font-size-xs);
-  margin: var(--space-2) 0;
+  margin: var(--space-3) 0;
   width: 100%;
 }
 
 .card-text .btn-outline {
   font-size: var(--font-size-xs);
   margin-top: var(--space-4);
-  width: 294px;
-  height: 48px;
+  width: 294px !important;
+  height: 48px !important;
 }
 
+/* 반전 레이아웃 (짝수 카드용) */
+@media (min-width: 769px) {
+  .cards-wrapper.reverse {
+    grid-template-columns: minmax(294px, auto) 1fr;
+  }
+
+  .cards-wrapper.reverse .img-boxtxt {
+    order: 2;
+  }
+
+  .cards-wrapper.reverse .card-text {
+    margin-right: 112px;
+    margin-left: 0;
+  }
+}
+
+/* 반응형 모바일 대응 */
 @media (max-width: 768px) {
-  .card-wrapper {
+  .cards-wrapper {
     display: grid;
     grid-template-columns: 1fr;
     padding: 0 20px;
@@ -94,15 +117,10 @@
 
   .img-boxtxt {
     background-position: center;
-    width: 100%;
     background-size: contain;
     aspect-ratio: 3 / 2;
     min-height: unset;
     padding-top: unset;
-  }
-
-  .img-boxtxt.dripper {
-    grid-column: 1 !important;
   }
 
   .card-text {
