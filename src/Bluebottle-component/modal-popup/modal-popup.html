@@ -5,64 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>모달 팝업</title>
     <link rel="stylesheet" href="../../common/modern-reset.css" />
+    <link rel="stylesheet" href="/src/common/theme/component-page.css" />
     <link rel="stylesheet" href="./modal-popup.css" />
   </head>
   <body>
-    <div class="chatbot-widget">
-      <!-- 챗봇 버튼 (button으로 변경) -->
-      <button id="chatbot-toggle-btn" class="chatbot-btn" aria-label="채팅 열기">
-        <img src="../../assets/chatbot-icon/icon.svg" alt="블루보틀 로고" />
-      </button>
-
-      <!-- 모달창 -->
-      <div class="modal-wrapper" id="modalWrapper">
-        <div class="bot-profile">
-          <div class="name"><strong>블루보틀</strong></div>
-
-          <!-- 운영시간 토글 버튼 -->
-          <button id="open-toggle-btn" class="open-toggle" aria-label="운영시간 보기">운영시간 보기 ></button>
-
-          <!-- 모달 창 안의 팝업 -->
-          <div id="trading-hour-popup" class="trading-hour-popup">
-            <button id="close-toggle-btn" aria-label="닫기">닫기</button>
-            <ul data-list-trading-hour>
-              <li class="hours-list">
-                <div class="label">운영시간</div>
-                <div class="hours">
-                  <span class="dot green"></span>
-                  <span class="day">월, 화, 수, 목, 금</span>
-                  <span class="time">오전 10:00 ~ 오후 12:00</span>
-                </div>
-                <div class="hours">
-                  <span class="dot green"></span>
-                  <span class="day">월, 화, 수, 목, 금</span>
-                  <span class="time">오후 1:00 ~ 오후 5:00</span>
-                </div>
-              </li>
-              <li class="holidays-list">
-                <div class="label">14일 이내에 예정된 휴일</div>
-                <div class="holidays">
-                  <span class="dot gray"></span>
-                  <span class="holiday">2025-06-03</span>
-                </div>
-                <div class="holidays">
-                  <span class="dot gray"></span>
-                  <span class="holiday">2025-06-06</span>
-                </div>
-              </li>
-            </ul>
-            <span class="timezone">-Timezone: Asia/Seoul</span>
+    <div class="component-box">
+      <h2>챗봇위젯</h2>
+      <p>화면 하단을 확인해 주세요</p>
+      <div class="chatbot-widget">
+        <!-- 챗봇 버튼 (button으로 변경) -->
+        <button id="chatbot-toggle-btn" class="chatbot-btn" aria-label="채팅 열기">
+          <img src="../../assets/chatbot-icon/icon.svg" alt="블루보틀 로고" />
+        </button>
+        <!-- 모달창 -->
+        <div class="modal-wrapper" id="modalWrapper">
+          <div class="bot-profile">
+            <div class="name"><strong>블루보틀</strong></div>
+            <!-- 운영시간 토글 버튼 -->
+            <button id="open-toggle-btn" class="open-toggle" aria-label="운영시간 보기">운영시간 보기 ></button>
+            <!-- 모달 창 안의 팝업 -->
+            <div id="trading-hour-popup" class="trading-hour-popup">
+              <button id="close-toggle-btn" aria-label="닫기">닫기</button>
+              <ul data-list-trading-hour>
+                <li class="hours-list">
+                  <div class="label">운영시간</div>
+                  <div class="hours">
+                    <span class="dot green"></span>
+                    <span class="day">월, 화, 수, 목, 금</span>
+                    <span class="time">오전 10:00 ~ 오후 12:00</span>
+                  </div>
+                  <div class="hours">
+                    <span class="dot green"></span>
+                    <span class="day">월, 화, 수, 목, 금</span>
+                    <span class="time">오후 1:00 ~ 오후 5:00</span>
+                  </div>
+                </li>
+                <li class="holidays-list">
+                  <div class="label">14일 이내에 예정된 휴일</div>
+                  <div class="holidays">
+                    <span class="dot gray"></span>
+                    <span class="holiday">2025-06-03</span>
+                  </div>
+                  <div class="holidays">
+                    <span class="dot gray"></span>
+                    <span class="holiday">2025-06-06</span>
+                  </div>
+                </li>
+              </ul>
+              <span class="timezone">-Timezone: Asia/Seoul</span>
+            </div>
           </div>
-        </div>
-
-        <div class="modal-content">
-          <div class="content">
-            <p>이용시간아님</p>
+          <div class="modal-content">
+            <div class="content">
+              <p>이용시간아님</p>
+            </div>
+            <a href="#" class="inquiry-btn">문의하기</a>
+            <em>내일 오전 10:00부터 운영해요</em>
           </div>
-          <a href="#" class="inquiry-btn">문의하기</a>
-          <em>내일 오전 10:00부터 운영해요</em>
+          <a href="#">채널톡 이용중</a>
         </div>
-        <a href="#">채널톡 이용중</a>
       </div>
     </div>
 
