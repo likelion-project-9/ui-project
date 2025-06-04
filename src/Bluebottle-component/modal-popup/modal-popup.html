@@ -9,23 +9,23 @@
   </head>
   <body>
     <div class="chatbot-widget">
-      <!-- 챗봇 버튼 -->
-      <input type="checkbox" id="chatbot-toggle" hidden />
-      <label for="chatbot-toggle" class="chatbot-btn">
-        <img src="../../assets/chatbot-icon/icon.svg" alt="" />
-      </label>
+      <!-- 챗봇 버튼 (button으로 변경) -->
+      <button id="chatbot-toggle-btn" class="chatbot-btn" aria-label="채팅 열기">
+        <img src="../../assets/chatbot-icon/icon.svg" alt="블루보틀 로고" />
+      </button>
 
       <!-- 모달창 -->
-      <div class="modal-wrapper">
+      <div class="modal-wrapper" id="modalWrapper">
         <div class="bot-profile">
           <div class="name"><strong>블루보틀</strong></div>
-          <input type="checkbox" id="popup-toggle" hidden />
-          <label for="popup-toggle" class="open-toggle">운영시간 보기 > </label>
+
+          <!-- 운영시간 토글 버튼 -->
+          <button id="open-toggle-btn" class="open-toggle" aria-label="운영시간 보기">운영시간 보기 ></button>
 
           <!-- 모달 창 안의 팝업 -->
           <div id="trading-hour-popup" class="trading-hour-popup">
-            <label for="popup-toggle" id="close-toggle">닫기</label>
-            <ul list-trading-hour>
+            <button id="close-toggle-btn" aria-label="닫기">닫기</button>
+            <ul data-list-trading-hour>
               <li class="hours-list">
                 <div class="label">운영시간</div>
                 <div class="hours">
@@ -54,6 +54,7 @@
             <span class="timezone">-Timezone: Asia/Seoul</span>
           </div>
         </div>
+
         <div class="modal-content">
           <div class="content">
             <p>이용시간아님</p>
@@ -64,5 +65,28 @@
         <a href="#">채널톡 이용중</a>
       </div>
     </div>
+
+    <script>
+      // 챗봇 버튼 클릭 시 모달 토글
+      const chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
+      const modalWrapper = document.getElementById('modalWrapper');
+
+      chatbotToggleBtn.addEventListener('click', () => {
+        modalWrapper.classList.toggle('active');
+      });
+
+      // 운영시간 보기 버튼
+      const openToggleBtn = document.getElementById('open-toggle-btn');
+      const closeToggleBtn = document.getElementById('close-toggle-btn');
+      const tradingHourPopup = document.getElementById('trading-hour-popup');
+
+      openToggleBtn.addEventListener('click', () => {
+        tradingHourPopup.classList.add('active');
+      });
+
+      closeToggleBtn.addEventListener('click', () => {
+        tradingHourPopup.classList.remove('active');
+      });
+    </script>
   </body>
 </html>
