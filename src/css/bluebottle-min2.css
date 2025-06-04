@@ -20,6 +20,7 @@
   min-height: 648px;
   padding: 128px;
   align-content: center;
+  width: 100%;
 }
 
 .card-text {
@@ -55,7 +56,10 @@
   font-size: var(--font-size-lg);
   font-weight: 400;
   line-height: 1.5;
-  margin: 0;
+}
+
+.headline p{
+  margin-bottom: 0;
 }
 
 .product-list {
@@ -66,13 +70,13 @@
 
 .product-list dt {
   font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   width: 100%;
 }
 
 .product-list dd {
   font-size: var(--font-size-xs);
-  margin: var(--space-2) 0;
+  margin: var(--space-3) 0;
   width: 100%;
 }
 
@@ -132,6 +136,7 @@
     display: block;
   }
 }
+
 
 
 
