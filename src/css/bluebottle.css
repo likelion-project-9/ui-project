@@ -1,1 +1,8 @@
 /* 블루보틀 css */
+body {
+  color: var(--color-black);
+
+  p {
+    color: var(--color-black);
+  }
+}

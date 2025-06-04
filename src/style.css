@@ -18,12 +18,8 @@ body {
   background-color: var(--color-bg);
   color: var(--color-dark);
   line-height: 1.6;
-}
-
-.wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: var(--space-5);
+  padding-top: 60px;
 }
 
 .external-links {
@@ -41,7 +37,7 @@ body {
   gap: 0.3rem;
   font-size: 0.875rem;
   text-decoration: none;
-  color: var(--color-dark);
+  color: var(--color-blue);
   font-weight: 500;
 }
 
@@ -215,6 +211,9 @@ body {
   h3 {
     font-size: var(--font-size-lg);
   }
+}
+.components {
+  min-width: 540px;
 }
 
 .components summary {

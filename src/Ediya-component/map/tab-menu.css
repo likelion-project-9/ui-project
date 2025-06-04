@@ -4,8 +4,7 @@ body {
   margin: 0;
   padding: 2rem;
   background-color: var(--color-bg-light);
-  color: var(--color-navy);
-  font-family: 'Pretendard', sans-serif;
+  /* color: var(--color-navy); 블루보틀, 이디야 각각 색 변경 */
 }
 h1,
 h2 {
@@ -44,6 +43,7 @@ h2 {
   button {
     border: none;
     box-shadow: none;
+    background: transparent;
   }
 
   input::placeholder {

@@ -1,4 +1,5 @@
 @import url(../../common/theme/variables.css);
+@import url(/src/common/theme/component-page.css);
 
 body {
   background-color: var(--color-warm-white);
@@ -17,6 +18,10 @@ body {
 
   width: 18.75rem;
   height: 3.125rem;
+
+  &:hover {
+    background-color: var(--color-light-blue);
+  }
 }
 
 .btn-outline {
