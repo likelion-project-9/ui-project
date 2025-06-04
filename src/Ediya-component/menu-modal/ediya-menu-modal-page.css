@@ -1,5 +1,91 @@
 @import url('../../common/theme/button.css');
 @import url('../../common/theme/variables.css');
+:root {
+  --color-primary: #1428a0;
+  --color-text: #333;
+  --color-white: #fff;
+  --color-line: #ccc;
+  --font-main: 'Pretendard', sans-serif;
+  --gap-mobile-row: 2px;
+  --gap-mobile-col: 3px;
+  --gap-desktop: 1.95px;
+  --font-size-sm: 0.875rem; /* = 14px */
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 기본 스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background-color: var(--color-white);
+  line-height: 1.5;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Header */
+.header-wrapper {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.btn-hamburger {
+  display: block;
+  width: 24px;
+  height: 18px;
+  position: relative;
+  border: none;
+  background: transparent;
+}
+
+.nav-desktop {
+  display: none;
+}
+
+.nav-desktop a {
+  color: #24388d;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 15px;
+}
 
 /* 모달 메뉴 모바일 부분 */
 
@@ -7,6 +93,7 @@
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr;
+  margin-top: 50px;
 }
 
 .card-drink-product {
@@ -133,6 +220,16 @@
   }
   .modal-close-btn {
     display: none;
+  }
+
+  .nav-desktop {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btn-hamburger{
+    display: none;
+    pointer-events: none;
   }
 }
 
