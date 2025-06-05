@@ -1,4 +1,5 @@
-@import url(/src/Ediya-component/map/tab-menu.css);
+@import url(../../common/theme/ediya-variables.css);
+
 :root {
   --color-primary: #1428a0;
   --color-text: #333;
@@ -93,8 +94,11 @@ body {
   margin-top: var(--space-1);
 }
 
-input[type='radio']:focus + label {
-  outline: 5px solid var(--color-black);
+input[type='radio']:focus {
+  outline: 3px solid var(--color-black);
+  outline-offset: 2px;
+  position: relative;
+  z-index: 50;
 }
 
 @media (min-width: 768px) {

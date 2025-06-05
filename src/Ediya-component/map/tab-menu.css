@@ -12,7 +12,7 @@ h2 {
 }
 
 .component-box {
-  border: 1px dashed var(--color-black);
+  border: 1px var(--color-black);
   padding: 2rem;
   margin-bottom: 2rem;
   background-color: var(--color-bg);
@@ -36,6 +36,13 @@ h2 {
     background-color: var(--color-navy);
     color: var(--color-text-white);
   }
+}
+
+input[type='radio']:focus + label {
+  outline: 3px solid var(--color-black);
+  outline-offset: 2px;
+  position: relative;
+  z-index: 50;
 }
 
 .search-input {
@@ -75,10 +82,6 @@ h2 {
     flex-direction: column;
     gap: var(--space-1);
   }
-}
-
-input[type='radio']:focus + label {
-  outline: 5px solid var(--color-black);
 }
 
 .tab-menu-wrapper {

@@ -1,9 +1,8 @@
-@import url(/src/common/theme/component-page.css);
-
 :root {
   --text-color: #333;
   --font-family-main: 'Noto Sans KR', sans-serif;
   --bg-light: #fdfbf7;
+  --bg-white: #ffff;
   --font-size-sm: 12px;
   --font-size-md: 14px;
   --font-size-lg: 16px;
@@ -20,6 +19,7 @@
 /* 무료배송 안내 */
 .free-shipping-msg {
   color: var(--text-color);
+  background-color: var(--bg-white);
   font-family: var(--font-family-main);
   font-size: var(--font-size-sm);
   font-weight: 350;
@@ -88,6 +88,7 @@ header {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  margin-bottom: 0;
 }
 
 /* 유틸리티 메뉴 */
