@@ -6,84 +6,11 @@
     <title>메인 슬라이드</title>
     <link rel="stylesheet" href="../../common/modern-reset.css" />
     <link rel="stylesheet" href="../slide/main-slider.css" />
-    <link rel="stylesheet" href="../../common/theme/ediya-component-page.css" />
     <link rel="stylesheet" href="./cafe-slide/cafe-slide.css" />
-    <link rel="stylesheet" href="./src/Bluebottle-component/slide(js)/product-display.css" />
-    <script src="../../js/mainslider.js" defer></script>
-    <script src="../../js/cafe-slider.js" defer></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const display = document.querySelector('.product-container');
-        const list = document.querySelector('.list-product');
-        const leftBtn = document.querySelector('.nav-arrow.left');
-        const rightBtn = document.querySelector('.nav-arrow.right');
-
-        const slideWidth = list.firstElementChild.offsetWidth;
-
-        // 슬라이드 최대 스크롤 위치 계산
-        const maxScrollLeft = list.scrollWidth - display.clientWidth;
-
-        // 버튼 상태 갱신 함수 (왼쪽 끝/오른쪽 끝에서 disabled 처리)
-        function updateBtnState() {
-          if (display.scrollLeft <= 0) {
-            leftBtn.setAttribute('aria-disabled', 'true');
-            leftBtn.disabled = true;
-          } else {
-            leftBtn.setAttribute('aria-disabled', 'false');
-            leftBtn.disabled = false;
-          }
-
-          if (display.scrollLeft >= maxScrollLeft) {
-            rightBtn.setAttribute('aria-disabled', 'true');
-            rightBtn.disabled = true;
-          } else {
-            rightBtn.setAttribute('aria-disabled', 'false');
-            rightBtn.disabled = false;
-          }
-        }
-
-        leftBtn.addEventListener('click', () => {
-          display.scrollBy({
-            left: -slideWidth,
-            behavior: 'smooth',
-          });
-        });
-
-        rightBtn.addEventListener('click', () => {
-          display.scrollBy({
-            left: slideWidth,
-            behavior: 'smooth',
-          });
-        });
-
-        // 스크롤 감지해서 버튼 상태 업데이트
-        display.addEventListener('scroll', updateBtnState);
-
-        // 초기 상태 세팅
-        updateBtnState();
-
-        // 키보드 방향키 지원 (포커스 있을 때 작동)
-        display.addEventListener('keydown', (e) => {
-          if (e.key === 'ArrowLeft') {
-            e.preventDefault();
-            if (!leftBtn.disabled) {
-              display.scrollBy({
-                left: -slideWidth,
-                behavior: 'smooth',
-              });
-            }
-          } else if (e.key === 'ArrowRight') {
-            e.preventDefault();
-            if (!rightBtn.disabled) {
-              display.scrollBy({
-                left: slideWidth,
-                behavior: 'smooth',
-              });
-            }
-          }
-        });
-      });
-    </script>
+    <link rel="stylesheet" href="./product-display.css" />
+    <link rel="stylesheet" href="../../common/theme/component-page.css" />
+    <script src="../../js/cafe-slider.js" type="module" defer></script>
+    <script src="../../js/mainslider.js" type="module" defer></script>
   </head>
   <body>
     <h1>슬라이드 컴포넌트</h1>
@@ -242,5 +169,35 @@
         </div>
       </section>
     </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const display = document.querySelector('.product-container');
+        const list = document.querySelector('.list-product');
+        const leftBtn = document.querySelector('.nav-arrow.left');
+        const rightBtn = document.querySelector('.nav-arrow.right');
+        const slideWidth = list.firstElementChild.offsetWidth;
+        const maxScrollLeft = list.scrollWidth - display.clientWidth;
+
+        function updateBtnState() {
+          leftBtn.disabled = display.scrollLeft <= 0;
+          rightBtn.disabled = display.scrollLeft >= maxScrollLeft;
+
+          leftBtn.setAttribute('aria-disabled', leftBtn.disabled.toString());
+          rightBtn.setAttribute('aria-disabled', rightBtn.disabled.toString());
+        }
+
+        leftBtn.addEventListener('click', () => {
+          display.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+        });
+
+        rightBtn.addEventListener('click', () => {
+          display.scrollBy({ left: slideWidth, behavior: 'smooth' });
+        });
+
+        display.addEventListener('scroll', updateBtnState);
+        updateBtnState(); // 초기 상태
+      });
+    </script>
   </body>
 </html>
