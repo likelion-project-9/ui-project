@@ -310,3 +310,17 @@ body {
 .modal-buttons button:hover {
   background-color: #068cd2;
 }
+
+@media (min-width: 768px) {
+  .components-group {
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    padding-top: var(--space-7);
+
+    h2 {
+      position: absolute;
+    }
+  }
+}
